@@ -1,4 +1,5 @@
 extends Node
+class_name StateMachine
 
 @export var StartingState: State
 @export var CurrentState: State
@@ -21,8 +22,8 @@ func process_physics(delta: float) -> void:
 	if NewState:
 		change_state(NewState)
 		
-func process_input(delta: float) -> void:
-	var NewState = CurrentState.process_input(delta)
+func process_input(event: InputEvent) -> void:
+	var NewState = CurrentState.process_input(event)
 	if NewState:
 		change_state(NewState)
 		
