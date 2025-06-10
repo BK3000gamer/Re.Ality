@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://baa5hry0hmp5v" path="res://Assets/Textures/Dark/texture_01.png" id="2_gnif3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj8hd"]
-size = Vector3(17, 1, 17)
+size = Vector3(33, 1, 33)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwy2l"]
 albedo_texture = ExtResource("2_gnif3")
@@ -21,7 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_oj8hd")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
-size = Vector3(17, 1, 17)
+size = Vector3(33, 1, 33)
 material = SubResource("StandardMaterial3D_lwy2l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_2h8j5")
 JumpHeight = 2.2
-JumpTimeToPeak = 0.3
-JumpTimeToDescent = 0.2
+JumpTimeToPeak = 0.4
+JumpTimeToDescent = 0.3
 MoveSpeed = 7.0
 HealthPoints = 0.0
 metadata/_custom_type_script = "uid://ce3ggwgtmnq0v"

@@ -3,6 +3,7 @@ extends State
 @export var RunState: State
 @export var JumpState: State
 @export var FallState: State
+@export var CrouchState: State
 
 func enter() -> void:
 	parent.velocity.x = 0
@@ -17,6 +18,9 @@ func process_input(event: InputEvent) -> State:
 	elif !pivot.IsInSideView:
 		if event.is_action_pressed("move_left") or event.is_action_pressed("move_right") or event.is_action_pressed("move_up") or event.is_action_pressed("move_down"):
 			return RunState
+	
+	if event.is_action_pressed("crouch"):
+		return CrouchState
 	return null
 
 func process_physics(delta: float) -> State:
