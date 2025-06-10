@@ -1,13 +1,13 @@
-extends CharacterBody3D
-class_name Player
+extends Node3D
+class_name Pivot
 
-var InputDir := Vector3.ZERO
+var IsInSideView: bool =  true
+var CameraRotationTarget: Vector3
 
-@onready var StateMachine = $"Movement State Machine"
+@onready var StateMachine = $"../Camera State Machine"
 
 func _ready() -> void:
 	StateMachine.init(self)
-	StateMachine.init_sibling($Pivot)
 
 func _unhandled_input(event: InputEvent) -> void:
 	StateMachine.process_input(event)

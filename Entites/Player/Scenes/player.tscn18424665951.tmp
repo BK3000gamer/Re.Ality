@@ -24,42 +24,42 @@ script = ExtResource("1_u6job")
 [node name="Pivot" type="Node3D" parent="."]
 script = ExtResource("2_aq10y")
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
-projection = 1
-size = 5.0
-
-[node name="Camera State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
+[node name="Camera State Machine" type="Node" parent="Pivot" node_paths=PackedStringArray("StartingState")]
 script = ExtResource("3_nveda")
 StartingState = NodePath("SideWE")
 
-[node name="SideNS" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
+[node name="SideNS" type="Node" parent="Pivot/Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
 script = ExtResource("3_3cgjc")
 SideWE = NodePath("../SideWE")
 TopNS = NodePath("../TopNS")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="SideWE" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
+[node name="SideWE" type="Node" parent="Pivot/Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
 script = ExtResource("4_3v243")
 SideNS = NodePath("../SideNS")
 TopWE = NodePath("../TopWE")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="TopNS" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
+[node name="TopNS" type="Node" parent="Pivot/Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
 script = ExtResource("6_0r21a")
 SideNS = NodePath("../SideNS")
 TopWE = NodePath("../TopWE")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="TopWE" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
+[node name="TopWE" type="Node" parent="Pivot/Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
 script = ExtResource("7_bcnq7")
 SideWE = NodePath("../SideWE")
 TopNS = NodePath("../TopNS")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+projection = 1
+size = 5.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1

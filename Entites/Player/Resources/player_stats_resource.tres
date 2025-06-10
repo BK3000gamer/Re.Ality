@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://ded7kvyxqpomd"]
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://ded7kvyxqpomd"]
 
-[ext_resource type="Script" uid="uid://ce3ggwgtmnq0v" path="res://Entites/Player/Scripts/player_stats.gd" id="1_2h8j5"]
+[ext_resource type="Script" uid="uid://ce3ggwgtmnq0v" path="res://Common/Resources/stats.gd" id="1_2h8j5"]
 
 [resource]
 script = ExtResource("1_2h8j5")
-JumpHeight = 1.2
+JumpHeight = 2.2
 JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.2
-MoveSpeed = 400.0
+MoveSpeed = 7.0
 HealthPoints = 0.0
 metadata/_custom_type_script = "uid://ce3ggwgtmnq0v"
