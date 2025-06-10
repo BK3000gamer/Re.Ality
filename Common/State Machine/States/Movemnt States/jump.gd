@@ -19,6 +19,8 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	parent.velocity.y += _get_gravity() * delta
 	
+	parent.InputDir = Vector3.ZERO
+	
 	parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
 	parent.velocity.x = parent.InputDir.x * MoveSpeed

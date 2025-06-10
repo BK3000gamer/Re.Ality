@@ -28,6 +28,7 @@ script = ExtResource("2_aq10y")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+projection = 1
 size = 5.0
 
 [node name="Camera State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
