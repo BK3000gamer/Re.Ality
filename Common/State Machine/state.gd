@@ -11,10 +11,8 @@ var MoveSpeed
 var parent: Player
 var pivot: Pivot
 
-func _ready():
-	if Resources == null:
-		push_error("Stats resource not assigned!")
-		return
+func init(resources: Stats):
+	Resources = resources
 
 	JumpVelocity = (2.0 * Resources.JumpHeight) / Resources.JumpTimeToPeak
 	JumpGravity = (-2.0 * Resources.JumpHeight) / pow(Resources.JumpTimeToPeak, 2)

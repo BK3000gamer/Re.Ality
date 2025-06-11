@@ -1,27 +1,29 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=20 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_u6job"]
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Player/Scripts/pivot.gd" id="2_aq10y"]
 [ext_resource type="Resource" uid="uid://ded7kvyxqpomd" path="res://Entites/Player/Resources/player_stats_resource.tres" id="2_nveda"]
 [ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="2_xhbgu"]
-[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Common/State Machine/States/Camera States/side_ns.gd" id="3_3cgjc"]
-[ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Common/State Machine/camera_state_machine.gd" id="3_nveda"]
-[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Common/State Machine/States/Camera States/side_we.gd" id="4_3v243"]
-[ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Common/State Machine/States/Movemnt States/idle.gd" id="4_kt4v8"]
+[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Player/States/Camera States/side_ns.gd" id="3_3cgjc"]
+[ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Player/camera_state_machine.gd" id="3_nveda"]
+[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Player/States/Camera States/side_we.gd" id="4_3v243"]
+[ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
 [ext_resource type="Script" uid="uid://7jwxixvj3udl" path="res://Common/State Machine/state.gd" id="4_nveda"]
-[ext_resource type="Script" uid="uid://vlsllr5meuod" path="res://Common/State Machine/movement_state_machine.gd" id="5_184ek"]
-[ext_resource type="Script" uid="uid://cx6o4uyv4g2dq" path="res://Common/State Machine/States/Movemnt States/run.gd" id="5_bjb37"]
-[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Common/State Machine/States/Camera States/top_ns.gd" id="6_0r21a"]
-[ext_resource type="Script" uid="uid://nvaefl7hrdae" path="res://Common/State Machine/States/Movemnt States/jump.gd" id="6_axya7"]
-[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Common/State Machine/States/Camera States/top_we.gd" id="7_bcnq7"]
-[ext_resource type="Script" uid="uid://cr54hysjn6usm" path="res://Common/State Machine/States/Movemnt States/fall.gd" id="7_h30pk"]
-[ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Common/State Machine/States/Movemnt States/crouch.gd" id="12_qqr1e"]
-[ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Common/State Machine/States/Movemnt States/slide.gd" id="16_tnfj8"]
+[ext_resource type="Script" uid="uid://vlsllr5meuod" path="res://Entites/Player/movement_state_machine.gd" id="5_184ek"]
+[ext_resource type="Script" uid="uid://cx6o4uyv4g2dq" path="res://Entites/Player/States/Movemnt States/run.gd" id="5_bjb37"]
+[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Player/States/Camera States/top_ns.gd" id="6_0r21a"]
+[ext_resource type="Script" uid="uid://nvaefl7hrdae" path="res://Entites/Player/States/Movemnt States/jump.gd" id="6_axya7"]
+[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Player/States/Camera States/top_we.gd" id="7_bcnq7"]
+[ext_resource type="Script" uid="uid://cr54hysjn6usm" path="res://Entites/Player/States/Movemnt States/fall.gd" id="7_h30pk"]
+[ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
+[ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
+[ext_resource type="Script" uid="uid://bmwoawkdnsxiv" path="res://Entites/Player/States/Movemnt States/dash.gd" id="17_o8m6i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq10y"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_u6job")
+Resources = ExtResource("2_nveda")
 
 [node name="Pivot" type="Node3D" parent="."]
 script = ExtResource("2_aq10y")
@@ -79,45 +81,60 @@ FallState = NodePath("../Fall")
 CrouchState = NodePath("../Crouch")
 Resources = ExtResource("2_nveda")
 
-[node name="Run" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "JumpState", "FallState", "SlideState")]
+[node name="Run" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "JumpState", "FallState", "SlideState", "DashState")]
 script = ExtResource("5_bjb37")
 IdleState = NodePath("../Idle")
 JumpState = NodePath("../Jump")
 FallState = NodePath("../Fall")
 SlideState = NodePath("../Slide")
+DashState = NodePath("../Dash")
 Resources = ExtResource("2_nveda")
 
-[node name="Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState")]
+[node name="Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState")]
 script = ExtResource("6_axya7")
 FallState = NodePath("../Fall")
 RunState = NodePath("../Run")
 IdleState = NodePath("../Idle")
 CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
+DashState = NodePath("../Dash")
 Resources = ExtResource("2_nveda")
 
-[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState")]
+[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState")]
 script = ExtResource("7_h30pk")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
+DashState = NodePath("../Dash")
 Resources = ExtResource("2_nveda")
 
-[node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState")]
+[node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "DashState")]
 script = ExtResource("12_qqr1e")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 FallState = NodePath("../Fall")
+DashState = NodePath("../Dash")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "CrouchState")]
+[node name="Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "CrouchState", "DashState")]
 script = ExtResource("16_tnfj8")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 FallState = NodePath("../Fall")
 CrouchState = NodePath("../Crouch")
+DashState = NodePath("../Dash")
+Resources = ExtResource("2_nveda")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "FallState", "IdleState")]
+script = ExtResource("17_o8m6i")
+RunState = NodePath("../Run")
+JumpState = NodePath("../Jump")
+SlideState = NodePath("../Slide")
+FallState = NodePath("../Fall")
+IdleState = NodePath("../Idle")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 

@@ -4,8 +4,15 @@ extends State
 @export var RunState: State
 @export var FallState: State
 @export var CrouchState: State
+@export var DashState: State
 
 var decay = 5
+
+func process_input(event: InputEvent) -> State:
+	if !parent.InputDir == Vector3.ZERO:
+		if event.is_action_pressed("dash"):
+			return DashState
+	return null
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += _get_gravity() * delta
@@ -42,12 +49,12 @@ func process_physics(delta: float) -> State:
 			parent.velocity.z = 0
 			return CrouchState
 	
-	if !Input.is_action_pressed("crouch"):
-		if parent.is_on_floor():
+	if parent.is_on_floor():
+		if !Input.is_action_pressed("crouch"):
 			if parent.InputDir == Vector3.ZERO:
 				return IdleState
 			return RunState
-		else:
-			return FallState
+	else:
+		return FallState
 	parent.move_and_slide()
 	return null

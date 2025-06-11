@@ -4,9 +4,10 @@ class_name MovementStateMachine
 @export var StartingState: State
 @export var CurrentState: State
 
-func init(Parent: Player) -> void:
+func init(Parent: Player, Resources: Stats) -> void:
 	for child in get_children():
 		child.parent = Parent
+		child.init(Resources)
 	
 	change_state(StartingState)
 

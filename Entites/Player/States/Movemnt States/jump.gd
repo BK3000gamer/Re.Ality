@@ -5,6 +5,7 @@ extends State
 @export var IdleState: State
 @export var CrouchState: State
 @export var SlideState: State
+@export var DashState: State
 
 func enter() -> void:
 	parent.velocity.y = JumpVelocity
@@ -14,6 +15,10 @@ func process_input(event: InputEvent) -> State:
 		if parent.InputDir.x == 0:
 			return CrouchState
 		return SlideState
+	
+	if !parent.InputDir == Vector3.ZERO:
+		if event.is_action_pressed("dash"):
+			return DashState
 	return null
 
 func process_physics(delta: float) -> State:
