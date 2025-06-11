@@ -6,6 +6,8 @@ extends State
 @export var SlideState: State
 @export var DashState: State
 
+func enter() -> void:
+	parent.Jumped = false
 
 func process_input(event: InputEvent) -> State:
 	if pivot.IsInSideView:

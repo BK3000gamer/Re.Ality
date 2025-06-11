@@ -8,6 +8,7 @@ extends State
 func enter() -> void:
 	parent.velocity.x = 0
 	parent.velocity.z = 0
+	parent.Jumped = false
 
 func process_input(event: InputEvent) -> State:
 	if pivot.IsInSideView:

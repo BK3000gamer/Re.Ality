@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 var InputDir := Vector3.ZERO
+var Jumped: bool =  false
 
 @export var Resources: Stats
 

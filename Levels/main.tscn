@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkof72t0yri1y" path="res://Assets/Textures/Green/texture_09.png" id="5_7pswh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj8hd"]
-size = Vector3(32, 1, 33)
+size = Vector3(33, 1, 33)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwy2l"]
 albedo_texture = ExtResource("2_gnif3")

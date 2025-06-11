@@ -114,24 +114,22 @@ DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
 Resources = ExtResource("2_nveda")
 
-[node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "DashState", "SuperJumpState")]
+[node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "DashState")]
 script = ExtResource("12_qqr1e")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 FallState = NodePath("../Fall")
 DashState = NodePath("../Dash")
-SuperJumpState = NodePath("../Super Jump")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "CrouchState", "DashState", "SuperJumpState")]
+[node name="Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "CrouchState", "DashState")]
 script = ExtResource("16_tnfj8")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 FallState = NodePath("../Fall")
 CrouchState = NodePath("../Crouch")
 DashState = NodePath("../Dash")
-SuperJumpState = NodePath("../Super Jump")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
@@ -156,15 +154,8 @@ DashState = NodePath("../Dash")
 Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Super Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState")]
+[node name="Super Jump" type="Node" parent="Movement State Machine"]
 script = ExtResource("19_wauee")
-FallState = NodePath("../Fall")
-RunState = NodePath("../Run")
-IdleState = NodePath("../Idle")
-CrouchState = NodePath("../Crouch")
-SlideState = NodePath("../Slide")
-DashState = NodePath("../Dash")
-DoubleJumpState = NodePath("../Double Jump")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
 [node name="State" type="Node" parent="Movement State Machine"]
