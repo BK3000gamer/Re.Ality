@@ -1,92 +1,33 @@
-[gd_scene load_steps=15 format=3 uid="uid://oeac5v0hp28v"]
+[gd_scene load_steps=7 format=3 uid="uid://oeac5v0hp28v"]
 
-[ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_oj8hd"]
+[ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_nj2yk"]
 [ext_resource type="PackedScene" uid="uid://0qhllm8ymq7k" path="res://Entites/Camera/Scenes/pivot.tscn" id="2_34bfm"]
-[ext_resource type="Texture2D" uid="uid://dko48qpqp0lfl" path="res://Assets/Textures/Orange/texture_09.png" id="2_gnif3"]
-[ext_resource type="Texture2D" uid="uid://chm8neu7nuo8s" path="res://Assets/Textures/Red/texture_09.png" id="3_lwy2l"]
-[ext_resource type="Texture2D" uid="uid://d2rc2jssri8tn" path="res://Assets/Textures/Purple/texture_09.png" id="4_nj2yk"]
-[ext_resource type="Texture2D" uid="uid://dkof72t0yri1y" path="res://Assets/Textures/Green/texture_09.png" id="5_7pswh"]
+[ext_resource type="PackedScene" uid="uid://dqyk7f0ixyvec" path="res://Levels/room.tscn" id="3_lwy2l"]
+[ext_resource type="Script" uid="uid://hskk6m21ywtx" path="res://Levels/Rooms/_1_0_0.gd" id="4_nj2yk"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oj8hd"]
-size = Vector3(33, 1, 33)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwy2l"]
-albedo_texture = ExtResource("2_gnif3")
-uv1_triplanar = true
+[sub_resource type="SphereShape3D" id="SphereShape3D_nj2yk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nj2yk"]
-size = Vector3(1, 2, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pswh"]
-albedo_texture = ExtResource("3_lwy2l")
-uv1_triplanar = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7pswh"]
-size = Vector3(3, 4, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34bfm"]
-albedo_texture = ExtResource("4_nj2yk")
-uv1_triplanar = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_34bfm"]
-size = Vector3(3, 4, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovrsl"]
-albedo_texture = ExtResource("5_7pswh")
-uv1_triplanar = true
+size = Vector3(20, 1, 20)
 
 [node name="main" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_oj8hd")]
+[node name="Player" parent="." instance=ExtResource("1_nj2yk")]
 
 [node name="Pivot" parent="." instance=ExtResource("2_34bfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Area3D" type="Area3D" parent="Pivot"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_oj8hd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Area3D"]
+shape = SubResource("SphereShape3D_nj2yk")
+debug_color = Color(0.887557, 0.329017, 3.85046e-07, 0.42)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
-size = Vector3(33, 1, 33)
-material = SubResource("StandardMaterial3D_lwy2l")
+[node name="Room" parent="." groups=["rooms"] instance=ExtResource("3_lwy2l")]
+script = ExtResource("4_nj2yk")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D"]
 shape = SubResource("BoxShape3D_nj2yk")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-size = Vector3(1, 2, 5)
-material = SubResource("StandardMaterial3D_7pswh")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, 0)
-shape = SubResource("BoxShape3D_7pswh")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, 0)
-size = Vector3(3, 4, 1)
-material = SubResource("StandardMaterial3D_34bfm")
-
-[node name="StaticBody3D4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -17)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, 0)
-shape = SubResource("BoxShape3D_34bfm")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, 0)
-size = Vector3(3, 4, 1)
-material = SubResource("StandardMaterial3D_ovrsl")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612373, 0.612373, 0, 3, 0)
+debug_fill = false

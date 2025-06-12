@@ -4,10 +4,30 @@ class_name Pivot
 var IsInSideView: bool =  true
 var CameraRotationTarget: Vector3
 
-@onready var StateMachine = $"Camera State Machine"
+var RoomType:Array[int] = []
+var RoomPos
+
+var rooms: Array[Node]
+@export var CenterThreshold: float = 2.0
+
+@onready var StateMachine = $"Rotation State Machine"
+@onready var MovementControl = $"Movement Control"
 
 func _ready() -> void:
 	StateMachine.init(self)
+	MovementControl.init(self)
+	MovementControl.init_sibling("Player")
+
+func _process(delta: float) -> void:
+	var OverlappingRooms = $Area3D.get_overlapping_areas()
+	for room in OverlappingRooms:
+		if room.is_in_group("rooms"):
+			var RoomCentre = room.global_transform.origin
+			var PivotPos = global_transform.origin
+			var Distance = PivotPos.distance_to(RoomCentre)
+			if Distance <= CenterThreshold:
+				RoomType = room.RoomType
+				RoomPos = RoomCentre
 
 func _unhandled_input(event: InputEvent) -> void:
 	StateMachine.process_input(event)

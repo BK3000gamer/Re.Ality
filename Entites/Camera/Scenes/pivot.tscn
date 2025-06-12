@@ -1,49 +1,51 @@
 [gd_scene load_steps=8 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
-[ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/camera_state_machine.gd" id="2_2bje5"]
-[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Camera/States/side_ns.gd" id="3_pn5e8"]
-[ext_resource type="Resource" uid="uid://ded7kvyxqpomd" path="res://Entites/Player/Resources/player_stats_resource.tres" id="4_qjuev"]
-[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Camera/States/side_we.gd" id="5_105jk"]
-[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Camera/States/top_ns.gd" id="6_6c6s1"]
-[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Camera/States/top_we.gd" id="7_5egma"]
+[ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
+[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Camera/States/Rotation/side_ns.gd" id="3_pn5e8"]
+[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Camera/States/Rotation/side_we.gd" id="5_105jk"]
+[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Camera/States/Rotation/top_ns.gd" id="6_6c6s1"]
+[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Camera/States/Rotation/top_we.gd" id="7_5egma"]
+[ext_resource type="Script" uid="uid://dkuim3gk1ptgo" path="res://Entites/Camera/Scripts/movement_control.gd" id="7_ejw8p"]
 
 [node name="Pivot" type="Node3D"]
 script = ExtResource("1_ejw8p")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 projection = 1
-size = 10.0
+size = 11.25
 
-[node name="Camera State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
+[node name="Rotation State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("2_2bje5")
-StartingState = NodePath("SideWE")
+StartingState = NodePath("Side WE")
 
-[node name="SideNS" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
+[node name="Side NS" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
 script = ExtResource("3_pn5e8")
-SideWE = NodePath("../SideWE")
-TopNS = NodePath("../TopNS")
-Resources = ExtResource("4_qjuev")
+SideWE = NodePath("../Side WE")
+TopNS = NodePath("../Top NS")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="SideWE" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
+[node name="Side WE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
 script = ExtResource("5_105jk")
-SideNS = NodePath("../SideNS")
-TopWE = NodePath("../TopWE")
-Resources = ExtResource("4_qjuev")
+SideNS = NodePath("../Side NS")
+TopWE = NodePath("../Top WE")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="TopNS" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
+[node name="Top NS" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
 script = ExtResource("6_6c6s1")
-SideNS = NodePath("../SideNS")
-TopWE = NodePath("../TopWE")
-Resources = ExtResource("4_qjuev")
+SideNS = NodePath("../Side NS")
+TopWE = NodePath("../Top WE")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="TopWE" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
+[node name="Top WE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
 script = ExtResource("7_5egma")
-SideWE = NodePath("../SideWE")
-TopNS = NodePath("../TopNS")
-Resources = ExtResource("4_qjuev")
+SideWE = NodePath("../Side WE")
+TopNS = NodePath("../Top NS")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Movement Control" type="Node3D" parent="."]
+script = ExtResource("7_ejw8p")

@@ -1,6 +1,5 @@
 [gd_scene load_steps=16 format=3 uid="uid://dkr5sjjy8bo2m"]
 
-[ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Resource" uid="uid://ded7kvyxqpomd" path="res://Entites/Player/Resources/player_stats_resource.tres" id="2_nveda"]
 [ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="2_xhbgu"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -15,11 +14,32 @@
 [ext_resource type="Script" uid="uid://ox6gl43w6b15" path="res://Entites/Player/States/Movemnt States/double_jump.gd" id="18_rsawx"]
 [ext_resource type="Script" uid="uid://chfknvoy0ohm0" path="res://Entites/Player/States/Movemnt States/super_jump.gd" id="19_wauee"]
 
+[sub_resource type="GDScript" id="GDScript_0r21a"]
+script/source = "extends CharacterBody3D
+class_name Player
+
+var InputDir := Vector3.ZERO
+var Jumped: bool =  false
+
+@export var Resources: Stats
+
+@onready var StateMachine = $\"Movement State Machine\"
+
+func _ready() -> void:
+	StateMachine.init(self, Resources)
+	StateMachine.init_sibling(\"Pivot\")
+
+func _unhandled_input(event: InputEvent) -> void:
+	StateMachine.process_input(event)
+
+func _physics_process(delta: float) -> void:
+	StateMachine.process_physics(delta)
+"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq10y"]
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_bcnq7")
-Resources = ExtResource("2_nveda")
+script = SubResource("GDScript_0r21a")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0)

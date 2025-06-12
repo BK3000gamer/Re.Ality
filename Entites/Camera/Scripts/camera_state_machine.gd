@@ -1,5 +1,4 @@
 extends Node
-class_name CameraStateMachine
 
 @export var StartingState: State
 @export var CurrentState: State
