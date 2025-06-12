@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=21 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_u6job"]
-[ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Player/Scripts/pivot.gd" id="2_aq10y"]
 [ext_resource type="Resource" uid="uid://ded7kvyxqpomd" path="res://Entites/Player/Resources/player_stats_resource.tres" id="2_nveda"]
 [ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="2_xhbgu"]
 [ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Player/States/Camera States/side_ns.gd" id="3_3cgjc"]
@@ -26,15 +25,6 @@
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_u6job")
 Resources = ExtResource("2_nveda")
-
-[node name="Pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("2_aq10y")
-
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
-projection = 1
-size = 10.0
 
 [node name="Camera State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("3_nveda")

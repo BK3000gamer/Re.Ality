@@ -6,14 +6,18 @@ var Jumped: bool =  false
 
 @export var Resources: Stats
 
-@onready var StateMachine = $"Movement State Machine"
+@onready var MoveStateMachine = $"Movement State Machine"
+@onready var CamStateMachine = $"Camera State Machine"
 
 func _ready() -> void:
-	StateMachine.init(self, Resources)
-	StateMachine.init_sibling($Pivot)
+	MoveStateMachine.init(self, Resources)
+	MoveStateMachine.init_sibling("Pivot")
+	CamStateMachine.init("Pivot")
 
 func _unhandled_input(event: InputEvent) -> void:
-	StateMachine.process_input(event)
+	MoveStateMachine.process_input(event)
+	CamStateMachine.process_input(event)
 
 func _physics_process(delta: float) -> void:
-	StateMachine.process_physics(delta)
+	MoveStateMachine.process_physics(delta)
+	CamStateMachine.process_physics(delta)
