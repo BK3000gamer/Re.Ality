@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	var OverlappingRooms = $Area3D.get_overlapping_areas()
 	for room in OverlappingRooms:
 		if room.is_in_group("rooms"):
-			var RoomCentre = room.global_transform.origin
+			var RoomCentre = room.global_position
 			var PivotPos = global_transform.origin
 			var Distance = PivotPos.distance_to(RoomCentre)
 			if Distance <= CenterThreshold:
