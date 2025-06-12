@@ -19,8 +19,8 @@ func enter() -> void:
 	DashTimer.timeout.connect(dash_timeout)
 	add_child(DashTimer)
 	DashTimer.start()
-	parent.velocity.x = parent.InputDir.x * MoveSpeed * 2
-	parent.velocity.z = parent.InputDir.z * MoveSpeed * 2
+	parent.velocity.x = parent.InputDir.x * MoveSpeed * 3
+	parent.velocity.z = parent.InputDir.z * MoveSpeed * 3
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += _get_gravity() * delta

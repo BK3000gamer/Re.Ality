@@ -8,7 +8,7 @@ extends State
 @export var DashState: State
 @export var DoubleJumpState: State
 
-var JumpDistance = 20
+var JumpDistance = 15
 
 var timeout: bool
 
@@ -26,16 +26,16 @@ func enter() -> void:
 	
 	if pivot.IsInSideView:
 		if parent.InputDir == Vector3.ZERO:
-			parent.velocity.y = JumpDistance
+			parent.velocity.y = JumpDistance * 1.2
 		else:
 			parent.velocity.x = parent.InputDir.x * JumpDistance
 			parent.velocity.z = parent.InputDir.z * JumpDistance
-			parent.velocity.y = 12
+			parent.velocity.y = 10
 	else:
 		if !parent.InputDir == Vector3.ZERO:
 			parent.velocity.x = parent.InputDir.x * JumpDistance
 			parent.velocity.z = parent.InputDir.z * JumpDistance
-			parent.velocity.y = 12
+			parent.velocity.y = 10
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):

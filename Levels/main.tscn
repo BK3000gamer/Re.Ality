@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://oeac5v0hp28v"]
 
 [ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_oj8hd"]
-[ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Player/Scripts/pivot.gd" id="2_34bfm"]
+[ext_resource type="PackedScene" uid="uid://0qhllm8ymq7k" path="res://Entites/Camera/Scenes/pivot.tscn" id="2_34bfm"]
 [ext_resource type="Texture2D" uid="uid://dko48qpqp0lfl" path="res://Assets/Textures/Orange/texture_09.png" id="2_gnif3"]
 [ext_resource type="Texture2D" uid="uid://chm8neu7nuo8s" path="res://Assets/Textures/Red/texture_09.png" id="3_lwy2l"]
 [ext_resource type="Texture2D" uid="uid://d2rc2jssri8tn" path="res://Assets/Textures/Purple/texture_09.png" id="4_nj2yk"]
@@ -39,14 +39,8 @@ uv1_triplanar = true
 
 [node name="Player" parent="." instance=ExtResource("1_oj8hd")]
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" parent="." instance=ExtResource("2_34bfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("2_34bfm")
-
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
-projection = 1
-size = 10.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

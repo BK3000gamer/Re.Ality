@@ -1,18 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=16 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_u6job"]
 [ext_resource type="Resource" uid="uid://ded7kvyxqpomd" path="res://Entites/Player/Resources/player_stats_resource.tres" id="2_nveda"]
 [ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="2_xhbgu"]
-[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Player/States/Camera States/side_ns.gd" id="3_3cgjc"]
-[ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Player/camera_state_machine.gd" id="3_nveda"]
-[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Player/States/Camera States/side_we.gd" id="4_3v243"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
 [ext_resource type="Script" uid="uid://7jwxixvj3udl" path="res://Common/State Machine/state.gd" id="4_nveda"]
 [ext_resource type="Script" uid="uid://vlsllr5meuod" path="res://Entites/Player/movement_state_machine.gd" id="5_184ek"]
 [ext_resource type="Script" uid="uid://cx6o4uyv4g2dq" path="res://Entites/Player/States/Movemnt States/run.gd" id="5_bjb37"]
-[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Player/States/Camera States/top_ns.gd" id="6_0r21a"]
 [ext_resource type="Script" uid="uid://nvaefl7hrdae" path="res://Entites/Player/States/Movemnt States/jump.gd" id="6_axya7"]
-[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Player/States/Camera States/top_we.gd" id="7_bcnq7"]
 [ext_resource type="Script" uid="uid://cr54hysjn6usm" path="res://Entites/Player/States/Movemnt States/fall.gd" id="7_h30pk"]
 [ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
 [ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
@@ -26,39 +21,8 @@
 script = ExtResource("1_u6job")
 Resources = ExtResource("2_nveda")
 
-[node name="Camera State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
-script = ExtResource("3_nveda")
-StartingState = NodePath("SideWE")
-
-[node name="SideNS" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
-script = ExtResource("3_3cgjc")
-SideWE = NodePath("../SideWE")
-TopNS = NodePath("../TopNS")
-Resources = ExtResource("2_nveda")
-metadata/_custom_type_script = "uid://7jwxixvj3udl"
-
-[node name="SideWE" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
-script = ExtResource("4_3v243")
-SideNS = NodePath("../SideNS")
-TopWE = NodePath("../TopWE")
-Resources = ExtResource("2_nveda")
-metadata/_custom_type_script = "uid://7jwxixvj3udl"
-
-[node name="TopNS" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
-script = ExtResource("6_0r21a")
-SideNS = NodePath("../SideNS")
-TopWE = NodePath("../TopWE")
-Resources = ExtResource("2_nveda")
-metadata/_custom_type_script = "uid://7jwxixvj3udl"
-
-[node name="TopWE" type="Node" parent="Camera State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
-script = ExtResource("7_bcnq7")
-SideWE = NodePath("../SideWE")
-TopNS = NodePath("../TopNS")
-Resources = ExtResource("2_nveda")
-metadata/_custom_type_script = "uid://7jwxixvj3udl"
-
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0)
 billboard = 1
 texture = ExtResource("2_xhbgu")
 
