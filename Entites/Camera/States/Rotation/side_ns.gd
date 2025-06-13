@@ -3,6 +3,9 @@ extends State
 @export var SideWE: State
 @export var TopNS: State
 
+func enter() -> void:
+	pivot.CurrentState = "SideNS"
+
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("rotate_right"):
 		_camera_right()

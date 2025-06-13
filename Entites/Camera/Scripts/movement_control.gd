@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 			if pivot.position.x < pivot.RoomPos.x:
 				pivot.position.x = pivot.RoomPos.x
 				TargetPos.x = pivot.RoomPos.x
+		
 		if pivot.RoomType[0] == -1:
 			if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x
@@ -48,6 +49,7 @@ func _physics_process(delta: float) -> void:
 			if pivot.position.x > pivot.RoomPos.x:
 				pivot.position.x = pivot.RoomPos.x
 				TargetPos.x = pivot.RoomPos.x
+		
 		if pivot.RoomType[0] == 2:
 			if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x

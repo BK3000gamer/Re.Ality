@@ -6,12 +6,15 @@ var CameraRotationTarget: Vector3
 
 var RoomType:Array[int] = []
 var RoomPos
+var CamPos
+var CurrentState: String
 
 var rooms: Array[Node]
 @export var CenterThreshold: float = 2.0
 
 @onready var StateMachine = $"Rotation State Machine"
 @onready var MovementControl = $"Movement Control"
+@onready var Camera = $Camera3D
 
 func _ready() -> void:
 	StateMachine.init(self)
@@ -28,6 +31,8 @@ func _process(delta: float) -> void:
 			if Distance <= CenterThreshold:
 				RoomType = room.RoomType
 				RoomPos = RoomCentre
+	
+	CamPos = Camera.global_position
 
 func _unhandled_input(event: InputEvent) -> void:
 	StateMachine.process_input(event)

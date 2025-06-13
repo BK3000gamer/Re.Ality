@@ -21,6 +21,11 @@
 script = ExtResource("1_bcnq7")
 Resources = ExtResource("2_nveda")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shadow_enabled = true
+omni_range = 8.0
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0)
 billboard = 1
