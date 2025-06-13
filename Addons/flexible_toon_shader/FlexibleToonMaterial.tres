@@ -5,6 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_pis2y")
+shader_parameter/transparency = 1.0
 shader_parameter/albedo = Color(0.917713, 0.0150545, 2.88785e-07, 1)
 shader_parameter/clamp_diffuse_to_max = false
 shader_parameter/cuts = 2

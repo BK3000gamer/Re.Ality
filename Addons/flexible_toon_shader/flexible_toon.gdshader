@@ -1,7 +1,7 @@
 shader_type spatial;
-
+render_mode blend_mix, depth_draw_opaque, cull_back;
 //render_mode ambient_light_disabled;
-
+uniform float transparency : hint_range(0.0, 1.0) = 1.0;
 
 uniform vec4 albedo : source_color = vec4(1.0f);
 uniform sampler2D albedo_texture : source_color;
@@ -42,6 +42,7 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
+	ALPHA = transparency;
 }
 
 void light() {
@@ -49,6 +50,9 @@ void light() {
 	float attenuation = 1.0f;
 	if (use_attenuation) {
 		attenuation = ATTENUATION;
+	
+	DIFFUSE_LIGHT *= transparency;
+	SPECULAR_LIGHT *= transparency;
 	}
 	
 	// Diffuse lighting.

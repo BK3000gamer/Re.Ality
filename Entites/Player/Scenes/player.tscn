@@ -26,11 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shadow_enabled = true
 omni_range = 8.0
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0)
-billboard = 1
-texture = ExtResource("2_xhbgu")
-
 [node name="Movement State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("5_184ek")
 StartingState = NodePath("Idle")
@@ -132,3 +127,9 @@ Resources = ExtResource("2_nveda")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_aq10y")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("2_xhbgu")

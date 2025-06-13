@@ -1,9 +1,10 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, depth_test_disabled;
 
 uniform sampler2D screen_texture : source_color, hint_screen_texture, filter_nearest;
 uniform sampler2D depth_texture : source_color, hint_depth_texture, filter_nearest;
 uniform sampler2D normal_texture : source_color, hint_normal_roughness_texture, filter_nearest;
+uniform sampler2D sub_viewport_texture;
 
 uniform float depth_threshold : hint_range(0, 1) = 0.05;
 uniform float reverse_depth_threshold : hint_range(0, 1) = 0.25;
@@ -85,6 +86,8 @@ void fragment() {
 	vec3 depth_col = nearest * darken_amount;
 	vec3 normal_col = original * (ld > 0.0 ? darken_amount : lighten_amount);
 	vec3 edge_mix = mix(normal_col, depth_col, depth_edge);
+	
+	vec3 sub_view_color = texture(sub_viewport_texture, SCREEN_UV).rgb;
 
 	ALBEDO = mix(original, edge_mix, (depth_edge > 0.0 ? depth_edge : normal_edge));
 }
