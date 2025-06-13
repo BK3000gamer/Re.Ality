@@ -21,6 +21,4 @@ func _process(delta: float) -> void:
 			update_transparency(1)
 
 func update_transparency(value: float) -> void:
-	var mat := material_override
-	if mat is ShaderMaterial:
-		mat.set_shader_parameter("transparency", clamp(value, 0.0, 1.0))
+	set_instance_shader_parameter("transparency", clamp(value, 0.0, 1.0))

@@ -47,7 +47,6 @@ size = Vector3(19, 10.25, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3lhg3"]
 render_priority = 0
 shader = ExtResource("5_5mxy1")
-shader_parameter/transparency = 1.0
 shader_parameter/albedo = Color(0.731095, 0.308864, 9.62615e-08, 1)
 shader_parameter/clamp_diffuse_to_max = false
 shader_parameter/cuts = 3
@@ -110,11 +109,13 @@ script = ExtResource("6_hbaan")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
+instance_shader_parameters/transparency = 1.0
 size = Vector3(20, 1, 20)
 material = ExtResource("7_hilkn")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0.5, 0)
+instance_shader_parameters/transparency = 1.0
 size = Vector3(1, 10.25, 20)
 material = ExtResource("7_hilkn")
 script = ExtResource("6_hbaan")
@@ -127,6 +128,7 @@ script = ExtResource("6_hbaan")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.125, 1)
+instance_shader_parameters/transparency = 1.0
 size = Vector3(4, 1, 3)
 material = ExtResource("7_hilkn")
 script = ExtResource("6_hbaan")
@@ -167,6 +169,7 @@ material = SubResource("ShaderMaterial_3lhg3")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -9.5)
+instance_shader_parameters/transparency = 1.0
 size = Vector3(19, 10.25, 1)
 material = ExtResource("7_hilkn")
 script = ExtResource("6_hbaan")

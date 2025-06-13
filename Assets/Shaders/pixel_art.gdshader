@@ -86,7 +86,7 @@ void fragment() {
 	vec3 depth_col = nearest * darken_amount;
 	vec3 normal_col = original * (ld > 0.0 ? darken_amount : lighten_amount);
 	vec3 edge_mix = mix(normal_col, depth_col, depth_edge);
-	
+
 	vec3 sub_view_color = texture(sub_viewport_texture, SCREEN_UV).rgb;
 
 	ALBEDO = mix(original, edge_mix, (depth_edge > 0.0 ? depth_edge : normal_edge));
