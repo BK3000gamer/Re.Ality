@@ -7,7 +7,6 @@ var pivot: Pivot
 @export var JumpTimeToPeak: float
 @export var JumpTimeToDescent: float
 @export var MoveSpeed: float
-@export var Acceleration: float
 @export var CrouchMultiplier: float
 @export var SlideMultiplier: float
 @export var SlideDecay: float
@@ -55,9 +54,6 @@ func process_physics(delta: float) -> void:
 	parent.move_and_slide()
 
 func run() -> void:
-	var Speed = 2
-	if Speed < MoveSpeed:
-		Speed = min(Speed + Acceleration, MoveSpeed)
 	parent.velocity.x = parent.InputDir.x * MoveSpeed
 	parent.velocity.z = parent.InputDir.z * MoveSpeed
 
@@ -94,9 +90,9 @@ func superjump() -> void:
 		else:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
-			parent.velocity.y = 5
+			parent.velocity.y = 7
 	else:
 		if !parent.InputDir == Vector3.ZERO:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
-			parent.velocity.y = 5
+			parent.velocity.y = 7

@@ -38,19 +38,104 @@ func _physics_process(delta: float) -> void:
 			if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x
 				pivot.global_position.x = move_toward(pivot.global_position.x, TargetPos.x, abs(FollowSpeed.x) * delta)
-			if pivot.position.x < pivot.RoomPos.x:
-				pivot.position.x = pivot.RoomPos.x
-				TargetPos.x = pivot.RoomPos.x
+			
+			if pivot.CurrentState == "TopNS":
+				if pivot.position.x < (pivot.RoomPos.x - 4.375):
+					pivot.position.x = (pivot.RoomPos.x - 4.375)
+					TargetPos.x = (pivot.RoomPos.x - 4.375)
+			else:
+				if pivot.position.x < pivot.RoomPos.x:
+					pivot.position.x = pivot.RoomPos.x
+					TargetPos.x = pivot.RoomPos.x
 		
 		if pivot.RoomType[0] == -1:
 			if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x
 				pivot.global_position.x = move_toward(pivot.global_position.x, TargetPos.x, abs(FollowSpeed.x) * delta)
-			if pivot.position.x > pivot.RoomPos.x:
-				pivot.position.x = pivot.RoomPos.x
-				TargetPos.x = pivot.RoomPos.x
+			
+			if pivot.CurrentState == "TopNS":
+				if pivot.position.x > (pivot.RoomPos.x + 4.375):
+					pivot.position.x = (pivot.RoomPos.x + 4.375)
+					TargetPos.x = (pivot.RoomPos.x + 4.375)
+			else:
+				if pivot.position.x > pivot.RoomPos.x:
+					pivot.position.x = pivot.RoomPos.x
+					TargetPos.x = pivot.RoomPos.x
 		
 		if pivot.RoomType[0] == 2:
 			if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x
 				pivot.global_position.x = move_toward(pivot.global_position.x, TargetPos.x, abs(FollowSpeed.x) * delta)
+		
+		if pivot.RoomType[0] == 0:
+			if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
+				TargetPos.x = PlayerPos.x
+				pivot.global_position.x = move_toward(pivot.global_position.x, TargetPos.x, abs(FollowSpeed.x) * delta)
+			
+			if pivot.CurrentState == "TopNS":
+				if pivot.position.x < (pivot.RoomPos.x - 4.375):
+					pivot.position.x = (pivot.RoomPos.x - 4.375)
+					TargetPos.x = (pivot.RoomPos.x - 4.375)
+				elif pivot.position.x > (pivot.RoomPos.x + 4.375):
+					pivot.position.x = (pivot.RoomPos.x + 4.375)
+					TargetPos.x = (pivot.RoomPos.x + 4.375)
+			else:
+				if pivot.position.x > pivot.RoomPos.x:
+					pivot.position.x = pivot.RoomPos.x
+					TargetPos.x = pivot.RoomPos.x
+				elif pivot.position.x < pivot.RoomPos.x:
+					pivot.position.x = pivot.RoomPos.x
+					TargetPos.x = pivot.RoomPos.x
+		
+		if pivot.RoomType[2] == 1:
+			if abs(PlayerPos.z - PivotPos.z) > HorizontalDeadZone:
+				TargetPos.z = PlayerPos.z
+				pivot.global_position.z = move_toward(pivot.global_position.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+			
+			if pivot.CurrentState == "TopWE":
+				if pivot.position.z < (pivot.RoomPos.z - 4.375):
+					pivot.position.z = (pivot.RoomPos.z - 4.375)
+					TargetPos.z = (pivot.RoomPos.z - 4.375)
+			else:
+				if pivot.position.z < pivot.RoomPos.z:
+					pivot.position.z = pivot.RoomPos.z
+					TargetPos.z = pivot.RoomPos.z
+		
+		if pivot.RoomType[2] == -1:
+			if abs(PlayerPos.z - PivotPos.z) > HorizontalDeadZone:
+				TargetPos.z = PlayerPos.z
+				pivot.global_position.z = move_toward(pivot.global_position.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+			
+			if pivot.CurrentState == "TopWE":
+				if pivot.position.z > (pivot.RoomPos.z + 4.375):
+					pivot.position.z = (pivot.RoomPos.z + 4.375)
+					TargetPos.z = (pivot.RoomPos.z + 4.375)
+			else:
+				if pivot.position.z > pivot.RoomPos.z:
+					pivot.position.z = pivot.RoomPos.z
+					TargetPos.z = pivot.RoomPos.z
+		
+		if pivot.RoomType[2] == 2:
+			if abs(PlayerPos.z - PivotPos.z) > HorizontalDeadZone:
+				TargetPos.z = PlayerPos.z
+				pivot.global_position.z = move_toward(pivot.global_position.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+		
+		if pivot.RoomType[2] == 0:
+			if abs(PlayerPos.z - PivotPos.z) > HorizontalDeadZone:
+				TargetPos.z = PlayerPos.z
+				pivot.global_position.z = move_toward(pivot.global_position.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+			
+			if pivot.CurrentState == "TopWE":
+				if pivot.position.z < (pivot.RoomPos.z - 4.375):
+					pivot.position.z = (pivot.RoomPos.z - 4.375)
+					TargetPos.z = (pivot.RoomPos.z - 4.375)
+				elif pivot.position.z > (pivot.RoomPos.z + 4.375):
+					pivot.position.z = (pivot.RoomPos.z + 4.375)
+					TargetPos.z = (pivot.RoomPos.z + 4.375)
+			else:
+				if pivot.position.z > pivot.RoomPos.z:
+					pivot.position.z = pivot.RoomPos.z
+					TargetPos.z = pivot.RoomPos.z
+				elif pivot.position.z < pivot.RoomPos.z:
+					pivot.position.z = pivot.RoomPos.z
+					TargetPos.z = pivot.RoomPos.z

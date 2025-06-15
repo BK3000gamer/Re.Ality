@@ -4,8 +4,6 @@ class_name Player
 var InputDir := Vector3.ZERO
 var Jumped: bool =  false
 
-@export var Resources: Stats
-
 @onready var StateMachine = $"Movement State Machine"
 @onready var MovementControl = $"Movement Control"
 

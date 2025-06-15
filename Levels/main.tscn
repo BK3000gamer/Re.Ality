@@ -1,16 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://oeac5v0hp28v"]
+[gd_scene load_steps=23 format=3 uid="uid://oeac5v0hp28v"]
 
 [ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_nj2yk"]
 [ext_resource type="PackedScene" uid="uid://0qhllm8ymq7k" path="res://Entites/Camera/Scenes/pivot.tscn" id="2_34bfm"]
 [ext_resource type="PackedScene" uid="uid://dqyk7f0ixyvec" path="res://Levels/room.tscn" id="3_lwy2l"]
 [ext_resource type="Script" uid="uid://hskk6m21ywtx" path="res://Levels/Rooms/_1_0_0.gd" id="4_nj2yk"]
-[ext_resource type="Shader" uid="uid://x8hlkmcbow4f" path="res://Addons/flexible_toon_shader/flexible_toon.gdshader" id="5_5mxy1"]
 [ext_resource type="Script" uid="uid://crw8c542ux85" path="res://Levels/Rooms/_2_0_0.gd" id="6_34bfm"]
 [ext_resource type="Script" uid="uid://dp4m65t2dstjb" path="res://Levels/Environment/Walls/wall.gd" id="6_hbaan"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://Addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="7_hilkn"]
 [ext_resource type="Script" uid="uid://hxarb7ooia3q" path="res://Levels/Rooms/_-1_0_0.gd" id="7_ovrsl"]
+[ext_resource type="Script" uid="uid://brme2sgrb6wwh" path="res://Levels/Environment/Borders/border_x.gd" id="8_5mxy1"]
 [ext_resource type="Texture2D" uid="uid://dko48qpqp0lfl" path="res://Assets/Textures/Orange/texture_09.png" id="8_hilkn"]
-[ext_resource type="Script" uid="uid://b2fpi26mtcqrr" path="res://Levels/Environment/Borders/border.gd" id="8_mykqc"]
+[ext_resource type="Script" uid="uid://b2fpi26mtcqrr" path="res://Levels/Environment/Borders/border_z.gd" id="8_mykqc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hilkn"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -44,25 +44,6 @@ size = Vector3(2, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5mxy1"]
 size = Vector3(19, 10.25, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3lhg3"]
-render_priority = 0
-shader = ExtResource("5_5mxy1")
-shader_parameter/albedo = Color(0.731095, 0.308864, 9.62615e-08, 1)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/cuts = 3
-shader_parameter/wrap = 0.9
-shader_parameter/steepness = 2.0
-shader_parameter/use_attenuation = true
-shader_parameter/use_specular = false
-shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 16.0
-shader_parameter/use_rim = false
-shader_parameter/rim_width = 8.0
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = false
-shader_parameter/use_borders = false
-shader_parameter/border_width = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mxy1"]
 transparency = 1
@@ -113,13 +94,6 @@ instance_shader_parameters/transparency = 1.0
 size = Vector3(20, 1, 20)
 material = ExtResource("7_hilkn")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0.5, 0)
-instance_shader_parameters/transparency = 1.0
-size = Vector3(1, 10.25, 20)
-material = ExtResource("7_hilkn")
-script = ExtResource("8_mykqc")
-
 [node name="CSGBox3D4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -3.625, 2)
 size = Vector3(2, 2, 1)
@@ -162,11 +136,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5.625, -9.5)
 shape = SubResource("BoxShape3D_5mxy1")
 debug_fill = false
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
-transform = Transform3D(0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 0, 0, 0)
-visible = false
-material = SubResource("ShaderMaterial_3lhg3")
-
 [node name="CSGBox3D7" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -9.5)
 instance_shader_parameters/transparency = 1.0
@@ -174,8 +143,23 @@ size = Vector3(19, 10.25, 1)
 material = ExtResource("7_hilkn")
 script = ExtResource("8_mykqc")
 
+[node name="CSGBox3D8" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 9.5)
+instance_shader_parameters/transparency = 1.0
+size = Vector3(19, 10.25, 1)
+material = ExtResource("7_hilkn")
+script = ExtResource("8_mykqc")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0.5, 0)
+instance_shader_parameters/transparency = 1.0
+size = Vector3(1, 10.25, 20)
+material = ExtResource("7_hilkn")
+script = ExtResource("8_5mxy1")
+
 [node name="Room2" parent="SubViewportContainer/SubViewport" groups=["rooms"] instance=ExtResource("3_lwy2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+visible = false
 script = ExtResource("6_34bfm")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room2"]
@@ -193,6 +177,7 @@ debug_fill = false
 
 [node name="Room3" parent="SubViewportContainer/SubViewport" groups=["rooms"] instance=ExtResource("3_lwy2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+visible = false
 script = ExtResource("7_ovrsl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Room3"]

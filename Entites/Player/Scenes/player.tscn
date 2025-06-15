@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=16 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
-[ext_resource type="Resource" uid="uid://ded7kvyxqpomd" path="res://Entites/Player/Resources/player_stats_resource.tres" id="2_nveda"]
 [ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="2_xhbgu"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
 [ext_resource type="Script" uid="uid://7jwxixvj3udl" path="res://Common/State Machine/state.gd" id="4_nveda"]
@@ -20,7 +19,6 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
-Resources = ExtResource("2_nveda")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -132,7 +130,6 @@ JumpHeight = 1.5
 JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.2
 MoveSpeed = 5.0
-Acceleration = 1.0
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5
 SlideDecay = 15.0
