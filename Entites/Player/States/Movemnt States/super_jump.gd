@@ -8,8 +8,6 @@ extends State
 @export var DashState: State
 @export var DoubleJumpState: State
 
-var JumpDistance = 15
-
 var timeout: bool
 
 func jump_timeout():
@@ -24,22 +22,12 @@ func enter() -> void:
 	add_child(JumpTimer)
 	JumpTimer.start()
 	
-	if pivot.IsInSideView:
-		if parent.InputDir == Vector3.ZERO:
-			parent.velocity.y = JumpDistance * 1.2
-		else:
-			parent.velocity.x = parent.InputDir.x * JumpDistance
-			parent.velocity.z = parent.InputDir.z * JumpDistance
-			parent.velocity.y = 10
-	else:
-		if !parent.InputDir == Vector3.ZERO:
-			parent.velocity.x = parent.InputDir.x * JumpDistance
-			parent.velocity.z = parent.InputDir.z * JumpDistance
-			parent.velocity.y = 10
+	MovementControl.superjump()
 
 func process_input(event: InputEvent) -> State:
+	MovementControl.run()
 	if event.is_action_pressed("crouch"):
-		if parent.InputDir.x == 0:
+		if parent.InputDir == Vector3.ZERO:
 			return CrouchState
 		return SlideState
 	
@@ -51,24 +39,12 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.InputDir = Vector3.ZERO
-	
-	if pivot.IsInSideView:
-		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
-	elif !pivot.IsInSideView:
-		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		parent.InputDir.z = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
-	
-	parent.velocity.y += _get_gravity() * delta
-	
 	if timeout:
 		if parent.velocity.y < 0:
 			return FallState
 			
 		if parent.is_on_floor():
-			if parent.InputDir.x == 0:
+			if parent.InputDir == Vector3.ZERO:
 				return IdleState
 			return RunState
 	

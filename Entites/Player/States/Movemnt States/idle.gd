@@ -11,22 +11,19 @@ func enter() -> void:
 	parent.Jumped = false
 
 func process_input(event: InputEvent) -> State:
-	if pivot.IsInSideView:
-		if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
-			return RunState
-		elif event.is_action_pressed("jump") and parent.is_on_floor():
-			return JumpState
-	elif !pivot.IsInSideView:
-		if event.is_action_pressed("move_left") or event.is_action_pressed("move_right") or event.is_action_pressed("move_up") or event.is_action_pressed("move_down"):
-			return RunState
-	
 	if event.is_action_pressed("crouch"):
 		return CrouchState
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += _get_gravity() * delta
-	parent.move_and_slide()
+	if pivot.IsInSideView:
+		if !parent.InputDir == Vector3.ZERO:
+			return RunState
+		elif Input.is_action_pressed("jump") and parent.is_on_floor():
+			return JumpState
+	elif !pivot.IsInSideView:
+		if !parent.InputDir == Vector3.ZERO:
+			return RunState
 	
 	if !parent.is_on_floor():
 		return FallState

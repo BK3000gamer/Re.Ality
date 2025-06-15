@@ -128,16 +128,16 @@ script = ExtResource("4_nveda")
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
-JumpHeight = 1.5
-JumpTimeToPeak = 0.3
-JumpTimeToDescent = 0.2
-MoveSpeed = 5.0
+JumpHeight = 3.0
+JumpTimeToPeak = 0.4
+JumpTimeToDescent = 0.3
+MoveSpeed = 7.0
 Acceleration = 1.0
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5
 SlideDecay = 15.0
 DashMultiplier = 3.0
-SuperJumpMultiplier = 5.0
+SuperJumpMultiplier = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_aq10y")

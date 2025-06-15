@@ -9,11 +9,11 @@ extends State
 @export var DoubleJumpState: State
 
 func enter() -> void:
-	parent.velocity.y = JumpVelocity
+	MovementControl.jump()
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):
-		if parent.InputDir.x == 0:
+		if parent.InputDir == Vector3.ZERO:
 			return CrouchState
 		return SlideState
 	
@@ -25,13 +25,6 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += _get_gravity() * delta
-	
-	parent.InputDir = Vector3.ZERO
-	
-	parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
-	parent.velocity.x = parent.InputDir.x * MoveSpeed
 	
 	if parent.velocity.y < 0:
 		return FallState
@@ -40,6 +33,4 @@ func process_physics(delta: float) -> State:
 		if parent.InputDir.x == 0:
 			return IdleState
 		return RunState
-	
-	parent.move_and_slide()
 	return null

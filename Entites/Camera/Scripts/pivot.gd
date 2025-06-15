@@ -14,12 +14,15 @@ var rooms: Array[Node]
 
 @onready var StateMachine = $"Rotation State Machine"
 @onready var MovementControl = $"Movement Control"
+@onready var RotationControl = $"Rotation Control"
 @onready var Camera = $Camera3D
 
 func _ready() -> void:
 	StateMachine.init(self)
+	StateMachine.init_sibling("Player")
 	MovementControl.init(self)
 	MovementControl.init_sibling("Player")
+	RotationControl.init(self)
 
 func _process(delta: float) -> void:
 	var OverlappingRooms = $Area3D.get_overlapping_areas()

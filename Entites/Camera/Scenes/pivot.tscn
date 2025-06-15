@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=12 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Camera/States/Rotation/top_ns.gd" id="6_6c6s1"]
 [ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Camera/States/Rotation/top_we.gd" id="7_5egma"]
 [ext_resource type="Script" uid="uid://dkuim3gk1ptgo" path="res://Entites/Camera/Scripts/movement_control.gd" id="7_ejw8p"]
+[ext_resource type="Script" uid="uid://46knc23sl0fv" path="res://Entites/Camera/Scripts/rotation_control.gd" id="9_pn5e8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qjuev"]
 render_priority = 0
@@ -42,29 +43,36 @@ mesh = SubResource("QuadMesh_2bje5")
 script = ExtResource("2_2bje5")
 StartingState = NodePath("Side WE")
 
-[node name="Side NS" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
+[node name="Side NS" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideWE", "TopNS", "RotationControl")]
 script = ExtResource("3_pn5e8")
 SideWE = NodePath("../Side WE")
 TopNS = NodePath("../Top NS")
+RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Side WE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
+[node name="Side WE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideNS", "TopWE", "RotationControl")]
 script = ExtResource("5_105jk")
 SideNS = NodePath("../Side NS")
 TopWE = NodePath("../Top WE")
+RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Top NS" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideNS", "TopWE")]
+[node name="Top NS" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideNS", "TopWE", "RotationControl")]
 script = ExtResource("6_6c6s1")
 SideNS = NodePath("../Side NS")
 TopWE = NodePath("../Top WE")
+RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Top WE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideWE", "TopNS")]
+[node name="Top WE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideWE", "TopNS", "RotationControl")]
 script = ExtResource("7_5egma")
 SideWE = NodePath("../Side WE")
 TopNS = NodePath("../Top NS")
+RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Movement Control" type="Node3D" parent="."]
+[node name="Movement Control" type="Node" parent="."]
 script = ExtResource("7_ejw8p")
+
+[node name="Rotation Control" type="Node" parent="."]
+script = ExtResource("9_pn5e8")

@@ -31,24 +31,24 @@ omni_range = 8.0
 script = ExtResource("5_184ek")
 StartingState = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "FallState", "CrouchState", "MovementControl")]
+[node name="Idle" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "FallState", "CrouchState")]
 script = ExtResource("4_kt4v8")
 RunState = NodePath("../Run")
 JumpState = NodePath("../Jump")
 FallState = NodePath("../Fall")
 CrouchState = NodePath("../Crouch")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 
-[node name="Run" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "JumpState", "FallState", "SlideState", "DashState", "MovementControl")]
+[node name="Run" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "JumpState", "FallState", "SlideState", "DashState")]
 script = ExtResource("5_bjb37")
 IdleState = NodePath("../Idle")
 JumpState = NodePath("../Jump")
 FallState = NodePath("../Fall")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 
-[node name="Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "MovementControl")]
+[node name="Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState")]
 script = ExtResource("6_axya7")
 FallState = NodePath("../Fall")
 RunState = NodePath("../Run")
@@ -57,9 +57,9 @@ CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 
-[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "MovementControl")]
+[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState", "DoubleJumpState")]
 script = ExtResource("7_h30pk")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
@@ -67,19 +67,19 @@ CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 
-[node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "DashState", "SuperJumpState", "MovementControl")]
+[node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "DashState", "SuperJumpState")]
 script = ExtResource("12_qqr1e")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 FallState = NodePath("../Fall")
 DashState = NodePath("../Dash")
 SuperJumpState = NodePath("../Super Jump")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "CrouchState", "DashState", "SuperJumpState", "MovementControl")]
+[node name="Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "CrouchState", "DashState", "SuperJumpState")]
 script = ExtResource("16_tnfj8")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
@@ -87,20 +87,20 @@ FallState = NodePath("../Fall")
 CrouchState = NodePath("../Crouch")
 DashState = NodePath("../Dash")
 SuperJumpState = NodePath("../Super Jump")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "FallState", "IdleState", "MovementControl")]
+[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "FallState", "IdleState")]
 script = ExtResource("17_o8m6i")
 RunState = NodePath("../Run")
 JumpState = NodePath("../Jump")
 SlideState = NodePath("../Slide")
 FallState = NodePath("../Fall")
 IdleState = NodePath("../Idle")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Double Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "MovementControl")]
+[node name="Double Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState")]
 script = ExtResource("18_rsawx")
 FallState = NodePath("../Fall")
 RunState = NodePath("../Run")
@@ -108,10 +108,10 @@ IdleState = NodePath("../Idle")
 CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
-MovementControl = NodePath("../../Movement Control")
+Resources = ExtResource("2_nveda")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Super Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "MovementControl")]
+[node name="Super Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState")]
 script = ExtResource("19_wauee")
 FallState = NodePath("../Fall")
 RunState = NodePath("../Run")
@@ -120,24 +120,18 @@ CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
-MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
 [node name="State" type="Node" parent="Movement State Machine"]
 script = ExtResource("4_nveda")
+Resources = ExtResource("2_nveda")
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
-JumpHeight = 1.5
-JumpTimeToPeak = 0.3
-JumpTimeToDescent = 0.2
-MoveSpeed = 5.0
-Acceleration = 1.0
-CrouchMultiplier = 0.3
-SlideMultiplier = 1.5
-SlideDecay = 15.0
-DashMultiplier = 3.0
-SuperJumpMultiplier = 5.0
+JumpHeight = 3.0
+JumpTimeToPeak = 0.4
+JumpTimeToDescent = 0.3
+MoveSpeed = 7.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_aq10y")

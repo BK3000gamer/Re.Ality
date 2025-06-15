@@ -4,12 +4,9 @@ class_name MovementStateMachine
 @export var StartingState: State
 @export var CurrentState: State
 
-func init(Parent: Player, Resources: Stats) -> void:
+func init(Parent: Player) -> void:
 	for child in get_children():
 		child.parent = Parent
-		child.init(Resources)
-	
-	change_state(StartingState)
 
 func init_sibling(PivotName: String) -> void:
 	var grandparent = get_parent().get_parent()
@@ -39,6 +36,7 @@ func change_state(NewState: State) -> void:
 	CurrentState.enter()
 
 func process_physics(delta: float) -> void:
+	print(CurrentState)
 	var NewState = CurrentState.process_physics(delta)
 	if NewState:
 		change_state(NewState)

@@ -6,6 +6,19 @@ extends Node
 func init(Parent: Pivot) -> void:
 	for child in get_children():
 		child.pivot = Parent
+
+func init_sibling(PlayerName: String) -> void:
+	var grandparent = get_parent().get_parent()
+	if grandparent == null:
+		return
+	
+	var SiblingPlayer = grandparent.get_node_or_null(PlayerName)
+	if SiblingPlayer == null:
+		push_warning("Player node not found.")
+		return
+	
+	for child in get_children():
+		child.player = SiblingPlayer
 	
 	change_state(StartingState)
 
