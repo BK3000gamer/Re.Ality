@@ -29,4 +29,7 @@ func process_physics(delta: float) -> State:
 	
 	if !parent.is_on_floor():
 		return FallState
+	else:
+		parent.Jumped = false
+		parent.SuperJumped = false
 	return null

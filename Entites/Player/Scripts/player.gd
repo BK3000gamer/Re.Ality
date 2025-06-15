@@ -3,6 +3,7 @@ class_name Player
 
 var InputDir := Vector3.ZERO
 var Jumped: bool =  false
+var SuperJumped: bool = false
 
 @onready var StateMachine = $"Movement State Machine"
 @onready var MovementControl = $"Movement Control"

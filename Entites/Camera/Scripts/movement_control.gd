@@ -8,8 +8,8 @@ var PivotPos
 
 var TargetPos
 
-var HorizontalDeadZone = 2
-var VerticalDeadZone = 2
+var HorizontalDeadZone = 1
+var VerticalDeadZone = 1
 var FollowSpeed
 
 func init(Parent: Pivot) -> void:
@@ -139,3 +139,35 @@ func _physics_process(delta: float) -> void:
 				elif pivot.position.z < pivot.RoomPos.z:
 					pivot.position.z = pivot.RoomPos.z
 					TargetPos.z = pivot.RoomPos.z
+		
+		if pivot.RoomType[1] == 1:
+			if abs(PlayerPos.y - PivotPos.y) > HorizontalDeadZone:
+				TargetPos.y = PlayerPos.y
+				pivot.global_position.y = move_toward(pivot.global_position.y, TargetPos.y, abs(FollowSpeed.y) * delta)
+			if pivot.position.y < pivot.RoomPos.y:
+					pivot.position.y = pivot.RoomPos.y
+					TargetPos.y = pivot.RoomPos.y
+		
+		if pivot.RoomType[1] == -1:
+			if abs(PlayerPos.y - PivotPos.y) > HorizontalDeadZone:
+				TargetPos.y = PlayerPos.y
+				pivot.global_position.y = move_toward(pivot.global_position.y, TargetPos.y, abs(FollowSpeed.y) * delta)
+			if pivot.position.y > pivot.RoomPos.y:
+					pivot.position.y = pivot.RoomPos.y
+					TargetPos.y = pivot.RoomPos.y
+		
+		if pivot.RoomType[1] == 2:
+			if abs(PlayerPos.y - PivotPos.y) > HorizontalDeadZone:
+				TargetPos.y = PlayerPos.y
+				pivot.global_position.y = move_toward(pivot.global_position.y, TargetPos.y, abs(FollowSpeed.y) * delta)
+		
+		if pivot.RoomType[1] == 0:
+			if abs(PlayerPos.y - PivotPos.y) > HorizontalDeadZone:
+				TargetPos.y = PlayerPos.y
+				pivot.global_position.y = move_toward(pivot.global_position.y, TargetPos.y, abs(FollowSpeed.y) * delta)
+			if pivot.position.y < pivot.RoomPos.y:
+					pivot.position.y = pivot.RoomPos.y
+					TargetPos.y = pivot.RoomPos.y
+			elif pivot.position.y > pivot.RoomPos.y:
+					pivot.position.y = pivot.RoomPos.y
+					TargetPos.y = pivot.RoomPos.y

@@ -14,10 +14,11 @@ func jump_timeout():
 	timeout = true
 
 func enter() -> void:
+	parent.SuperJumped = true
 	timeout = false
 	var JumpTimer = Timer.new()
 	JumpTimer.one_shot = true
-	JumpTimer.wait_time = 0.5
+	JumpTimer.wait_time = 0.4
 	JumpTimer.timeout.connect(jump_timeout)
 	add_child(JumpTimer)
 	JumpTimer.start()

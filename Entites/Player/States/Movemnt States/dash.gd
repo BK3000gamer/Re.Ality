@@ -29,6 +29,7 @@ func process_physics(delta: float) -> State:
 	
 	if parent.is_on_floor():
 		parent.Jumped = false
+		parent.SuperJumped = false
 		if Input.is_action_pressed("jump"):
 			return JumpState
 	return null

@@ -24,13 +24,14 @@ func process_input(event: InputEvent) -> State:
 	if !parent.InputDir == Vector3.ZERO and event.is_action_pressed("dash"):
 			return DashState
 	
-	if event.is_action_pressed("jump"):
+	if event.is_action_pressed("jump") and !parent.SuperJumped:
 		return SuperJumpState
 	return null
 
 func process_physics(delta: float) -> State:
 	if parent.is_on_floor():
 		parent.Jumped = false
+		parent.SuperJumped = false
 		if !Input.is_action_pressed("crouch"):
 			if parent.InputDir == Vector3.ZERO:
 				return IdleState
@@ -38,4 +39,8 @@ func process_physics(delta: float) -> State:
 	
 	if !parent.is_on_floor() and timeout:
 		return FallState
+	
+	if parent.is_on_floor():
+		parent.Jumped = false
+		parent.SuperJumped = false
 	return null

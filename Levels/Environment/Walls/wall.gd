@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 			update_transparent(transparent)
 		else:
 			update_transparent(1)
+	else:
+		update_transparent(1)
 
 func update_transparent(value: float) -> void:
 	set_instance_shader_parameter("transparency", clamp(value, 0.0, 1.0))

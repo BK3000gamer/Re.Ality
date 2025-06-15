@@ -1,7 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
-[ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="2_xhbgu"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
 [ext_resource type="Script" uid="uid://7jwxixvj3udl" path="res://Common/State Machine/state.gd" id="4_nveda"]
 [ext_resource type="Script" uid="uid://vlsllr5meuod" path="res://Entites/Player/Scripts/movement_state_machine.gd" id="5_184ek"]
@@ -10,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cr54hysjn6usm" path="res://Entites/Player/States/Movemnt States/fall.gd" id="7_h30pk"]
 [ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
 [ext_resource type="Script" uid="uid://4lvntad3ry5q" path="res://Entites/Player/Scripts/movement_control.gd" id="14_aq10y"]
+[ext_resource type="Texture2D" uid="uid://jy4e5wvae8ki" path="res://Entites/Player/Sprites/Projectile.png" id="14_bcnq7"]
 [ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
 [ext_resource type="Script" uid="uid://bmwoawkdnsxiv" path="res://Entites/Player/States/Movemnt States/dash.gd" id="17_o8m6i"]
 [ext_resource type="Script" uid="uid://ox6gl43w6b15" path="res://Entites/Player/States/Movemnt States/double_jump.gd" id="18_rsawx"]
@@ -23,7 +23,7 @@ script = ExtResource("1_bcnq7")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shadow_enabled = true
-omni_range = 8.0
+omni_range = 16.0
 
 [node name="Movement State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("5_184ek")
@@ -126,21 +126,23 @@ script = ExtResource("4_nveda")
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
-JumpHeight = 1.5
+JumpHeight = 2.5
 JumpTimeToPeak = 0.3
-JumpTimeToDescent = 0.2
-MoveSpeed = 5.0
+JumpTimeToDescent = 0.25
+MoveSpeed = 6.0
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5
 SlideDecay = 15.0
 DashMultiplier = 3.0
-SuperJumpMultiplier = 5.0
+SuperJumpMultiplier = 12.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_aq10y")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 billboard = 1
 alpha_cut = 1
-texture = ExtResource("2_xhbgu")
+texture_filter = 0
+texture = ExtResource("14_bcnq7")

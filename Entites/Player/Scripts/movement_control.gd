@@ -86,13 +86,13 @@ func dash() -> void:
 func superjump() -> void:
 	if pivot.IsInSideView:
 		if parent.InputDir == Vector3.ZERO:
-			parent.velocity.y = SuperJumpMultiplier * 2
+			parent.velocity.y = SuperJumpMultiplier * 1.4
 		else:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
-			parent.velocity.y = 7
+			parent.velocity.y = 10
 	else:
 		if !parent.InputDir == Vector3.ZERO:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
-			parent.velocity.y = 7
+			parent.velocity.y = 10
