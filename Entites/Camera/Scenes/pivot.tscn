@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=13 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
 [ext_resource type="Shader" uid="uid://b7ikrvcb0jgt6" path="res://Assets/Shaders/pixel_art.gdshader" id="2_pn5e8"]
-[ext_resource type="PackedScene" uid="uid://co7bo5i1cv2ny" path="res://sub_viewport.tscn" id="2_qjuev"]
 [ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Camera/States/Rotation/side_ns.gd" id="3_pn5e8"]
 [ext_resource type="Script" uid="uid://c5ysmhqg71mop" path="res://Entites/Camera/Scripts/shader_quad.gd" id="4_105jk"]
 [ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Camera/States/Rotation/side_we.gd" id="5_105jk"]
@@ -31,17 +30,6 @@ size = Vector2(2, 2)
 
 [node name="Pivot" type="Node3D"]
 script = ExtResource("1_ejw8p")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" parent="SubViewportContainer" instance=ExtResource("2_qjuev")]
-handle_input_locally = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)

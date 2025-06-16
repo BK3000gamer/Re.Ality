@@ -6,6 +6,7 @@ var pivot: Pivot
 @export var JumpHeight: float
 @export var JumpTimeToPeak: float
 @export var JumpTimeToDescent: float
+@export var WallJumpPushback: float
 @export var MoveSpeed: float
 @export var CrouchMultiplier: float
 @export var SlideMultiplier: float
@@ -58,7 +59,14 @@ func run() -> void:
 	parent.velocity.z = parent.InputDir.z * MoveSpeed
 
 func jump() -> void:
-	parent.velocity.y = JumpVelocity
+	if parent.is_on_floor():
+		parent.velocity.y = JumpVelocity
+	elif parent. is_on_wall():
+		parent.velocity.y = JumpVelocity
+		parent.velocity.x = parent.InputDir.x * -WallJumpPushback
+		parent.velocity.z = parent.InputDir.z * -WallJumpPushback
+	else:
+		parent.velocity.y = JumpVelocity
 
 func crouch() -> void:
 	parent.velocity.x = parent.InputDir.x * MoveSpeed * CrouchMultiplier
@@ -96,3 +104,6 @@ func superjump() -> void:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
 			parent.velocity.y = 10
+
+func wall_slide() -> void:
+	pass

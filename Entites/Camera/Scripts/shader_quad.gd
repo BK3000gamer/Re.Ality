@@ -1,8 +1,18 @@
 extends MeshInstance3D
 
-@onready var subviewport_texture :Texture= $"../../SubViewportContainer/SubViewport".get_texture()
+var subviewport: SubViewport
+
+func init(ViewportName: String) -> void:
+	var greatGreatGrandParent = get_parent().get_parent().get_parent().get_parent()
+	
+	var sibling = greatGreatGrandParent.get_node_or_null(ViewportName)
+	if sibling is SubViewport:
+		subviewport = sibling
 
 func _ready():
+	init("Sprite")
+	var subviewport_texture :Texture= subviewport.get_texture()
+	print(subviewport_texture)
 	var shader_mat := get_active_material(0)
 	if shader_mat == null:
 		push_warning("No material found on mesh!")

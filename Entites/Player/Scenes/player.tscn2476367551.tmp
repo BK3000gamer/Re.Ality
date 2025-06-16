@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
+[ext_resource type="Script" uid="uid://7jwxixvj3udl" path="res://Common/State Machine/state.gd" id="4_nveda"]
 [ext_resource type="Script" uid="uid://vlsllr5meuod" path="res://Entites/Player/Scripts/movement_state_machine.gd" id="5_184ek"]
 [ext_resource type="Script" uid="uid://cx6o4uyv4g2dq" path="res://Entites/Player/States/Movemnt States/run.gd" id="5_bjb37"]
 [ext_resource type="Script" uid="uid://nvaefl7hrdae" path="res://Entites/Player/States/Movemnt States/jump.gd" id="6_axya7"]
 [ext_resource type="Script" uid="uid://cr54hysjn6usm" path="res://Entites/Player/States/Movemnt States/fall.gd" id="7_h30pk"]
-[ext_resource type="Script" uid="uid://ch3l2emdkdrcu" path="res://Entites/Player/States/Movemnt States/wall_slide.gd" id="12_aq10y"]
 [ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
 [ext_resource type="Script" uid="uid://4lvntad3ry5q" path="res://Entites/Player/Scripts/movement_control.gd" id="14_aq10y"]
 [ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="14_bcnq7"]
@@ -121,15 +121,14 @@ DoubleJumpState = NodePath("../Double Jump")
 MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Wall Slide" type="Node" parent="Movement State Machine"]
-script = ExtResource("12_aq10y")
+[node name="State" type="Node" parent="Movement State Machine"]
+script = ExtResource("4_nveda")
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
 JumpHeight = 2.5
 JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.25
-WallJumpPushback = 4.0
 MoveSpeed = 6.0
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5
