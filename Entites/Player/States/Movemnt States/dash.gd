@@ -5,6 +5,7 @@ extends State
 @export var SlideState: State
 @export var FallState: State
 @export var IdleState: State
+@export var WallSlideState: State
 
 var timeout: bool
 
@@ -27,9 +28,13 @@ func process_physics(delta: float) -> State:
 			return RunState
 		return FallState
 	
+	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
+		return WallSlideState
+	
 	if parent.is_on_floor():
 		parent.Jumped = false
 		parent.SuperJumped = false
+		parent.WallSlided = false
 		if Input.is_action_pressed("jump"):
 			return JumpState
 	return null

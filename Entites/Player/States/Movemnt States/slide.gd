@@ -7,8 +7,6 @@ extends State
 @export var DashState: State
 @export var SuperJumpState: State
 
-var decay = 15
-
 func enter() -> void:
 	MovementControl.slide()
 
@@ -31,6 +29,7 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_floor():
 		parent.Jumped = false
 		parent.SuperJumped = false
+		parent.WallSlided = false
 		if !Input.is_action_pressed("crouch"):
 			if parent.InputDir == Vector3.ZERO:
 				return IdleState

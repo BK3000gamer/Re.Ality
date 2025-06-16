@@ -7,6 +7,7 @@ extends State
 @export var SlideState: State
 @export var DashState: State
 @export var DoubleJumpState: State
+@export var WallSlideState: State
 
 var timeout: bool
 
@@ -40,6 +41,7 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	parent.velocity.y += MovementControl._get_gravity() * delta
 	if timeout:
 		if parent.velocity.y < 0:
 			return FallState
@@ -48,6 +50,9 @@ func process_physics(delta: float) -> State:
 			if parent.InputDir == Vector3.ZERO:
 				return IdleState
 			return RunState
+	
+	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
+		return WallSlideState
 	
 	parent.move_and_slide()
 	return null

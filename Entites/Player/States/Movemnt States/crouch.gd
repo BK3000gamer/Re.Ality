@@ -29,6 +29,8 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	MovementControl.crouch()
+	
 	if parent.is_on_floor():
 		parent.Jumped = false
 		parent.SuperJumped = false
@@ -43,4 +45,5 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_floor():
 		parent.Jumped = false
 		parent.SuperJumped = false
+		parent.WallSlided = false
 	return null

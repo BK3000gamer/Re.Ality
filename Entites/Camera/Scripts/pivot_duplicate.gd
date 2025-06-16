@@ -13,4 +13,4 @@ func _ready() -> void:
 	init()
 
 func _process(_delta) -> void:
-	transform = pivot.transform
+	transform = pivot.global_transform

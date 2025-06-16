@@ -6,6 +6,7 @@ extends State
 @export var CrouchState: State
 @export var SlideState: State
 @export var DashState: State
+@export var WallSlideState: State
 
 func enter() -> void:
 	parent.Jumped = true
@@ -23,9 +24,13 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	parent.velocity.y += MovementControl._get_gravity() * delta
 	if parent.velocity.y < 0:
 		return FallState
-		
+	
+	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
+		return WallSlideState
+	
 	if parent.is_on_floor():
 		if parent.InputDir == Vector3.ZERO:
 			return IdleState

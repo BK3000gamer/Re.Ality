@@ -20,11 +20,6 @@
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shadow_enabled = true
-omni_range = 16.0
-
 [node name="Movement State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("5_184ek")
 StartingState = NodePath("Idle")
@@ -57,7 +52,7 @@ DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
 MovementControl = NodePath("../../Movement Control")
 
-[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "MovementControl")]
+[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "WallSlideState", "MovementControl")]
 script = ExtResource("7_h30pk")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
@@ -65,6 +60,7 @@ CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
+WallSlideState = NodePath("../Wall Slide")
 MovementControl = NodePath("../../Movement Control")
 
 [node name="Crouch" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "FallState", "DashState", "SuperJumpState", "MovementControl")]
@@ -88,17 +84,18 @@ SuperJumpState = NodePath("../Super Jump")
 MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "FallState", "IdleState", "MovementControl")]
+[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "FallState", "IdleState", "WallSlideState", "MovementControl")]
 script = ExtResource("17_o8m6i")
 RunState = NodePath("../Run")
 JumpState = NodePath("../Jump")
 SlideState = NodePath("../Slide")
 FallState = NodePath("../Fall")
 IdleState = NodePath("../Idle")
+WallSlideState = NodePath("../Wall Slide")
 MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Double Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "MovementControl")]
+[node name="Double Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "WallSlideState", "MovementControl")]
 script = ExtResource("18_rsawx")
 FallState = NodePath("../Fall")
 RunState = NodePath("../Run")
@@ -106,10 +103,11 @@ IdleState = NodePath("../Idle")
 CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
+WallSlideState = NodePath("../Wall Slide")
 MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Super Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "MovementControl")]
+[node name="Super Jump" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("FallState", "RunState", "IdleState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "WallSlideState", "MovementControl")]
 script = ExtResource("19_wauee")
 FallState = NodePath("../Fall")
 RunState = NodePath("../Run")
@@ -118,11 +116,18 @@ CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
+WallSlideState = NodePath("../Wall Slide")
 MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Wall Slide" type="Node" parent="Movement State Machine"]
+[node name="Wall Slide" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("JumpState", "FallState", "IdleState", "DashState", "SlideState", "MovementControl")]
 script = ExtResource("12_aq10y")
+JumpState = NodePath("../Jump")
+FallState = NodePath("../Fall")
+IdleState = NodePath("../Idle")
+DashState = NodePath("../Dash")
+SlideState = NodePath("../Slide")
+MovementControl = NodePath("../../Movement Control")
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
@@ -130,6 +135,7 @@ JumpHeight = 2.5
 JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.25
 WallJumpPushback = 4.0
+WallSlideGravity = -2.0
 MoveSpeed = 6.0
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5

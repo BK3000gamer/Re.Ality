@@ -8,6 +8,7 @@ extends State
 
 func enter() -> void:
 	parent.Jumped = false
+	parent.WallSlided = false
 
 func process_input(event: InputEvent) -> State:
 	if pivot.IsInSideView:

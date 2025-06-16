@@ -7,6 +7,7 @@ var pivot: Pivot
 @export var JumpTimeToPeak: float
 @export var JumpTimeToDescent: float
 @export var WallJumpPushback: float
+@export var WallSlideGravity: float
 @export var MoveSpeed: float
 @export var CrouchMultiplier: float
 @export var SlideMultiplier: float
@@ -41,7 +42,6 @@ func _get_gravity() -> float:
 	return JumpGravity if parent.velocity.y > 0.0 else FallGravity
 
 func process_physics(delta: float) -> void:
-	parent.velocity.y += _get_gravity() * delta
 	parent.InputDir = Vector3.ZERO
 	
 	if pivot.IsInSideView:
@@ -69,10 +69,12 @@ func jump() -> void:
 		parent.velocity.y = JumpVelocity
 
 func crouch() -> void:
+	parent.velocity.y = 0
 	parent.velocity.x = parent.InputDir.x * MoveSpeed * CrouchMultiplier
 	parent.velocity.z = parent.InputDir.z * MoveSpeed * CrouchMultiplier
 
 func slide() -> void:
+	parent.velocity.y = 0
 	parent.velocity.x = parent.InputDir.x * MoveSpeed * SlideMultiplier
 	parent.velocity.z = parent.InputDir.z * MoveSpeed * SlideMultiplier
 
@@ -88,6 +90,7 @@ func slide_decay(delta: float) -> void:
 		parent.velocity.z = HorizontalVelocity.z
 
 func dash() -> void:
+	parent.velocity.y = 0
 	parent.velocity.x = parent.InputDir.x * MoveSpeed * DashMultiplier
 	parent.velocity.z = parent.InputDir.z * MoveSpeed * DashMultiplier
 
@@ -105,5 +108,11 @@ func superjump() -> void:
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
 			parent.velocity.y = 10
 
-func wall_slide() -> void:
-	pass
+func wall_slide(delta) -> void:
+	if parent.velocity.y > 0:
+		parent.velocity.y = 0
+		parent.velocity.y += WallSlideGravity * delta
+		parent.velocity.y = min(parent.velocity.y, WallSlideGravity)
+	else:
+		parent.velocity.y += WallSlideGravity * delta
+		parent.velocity.y = min(parent.velocity.y, WallSlideGravity)
