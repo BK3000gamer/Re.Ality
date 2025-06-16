@@ -10,7 +10,7 @@ func init(ViewportName: String) -> void:
 		subviewport = sibling
 
 func _ready():
-	init("Sprite")
+	init("Entity")
 	var subviewport_texture :Texture= subviewport.get_texture()
 	print(subviewport_texture)
 	var shader_mat := get_active_material(0)

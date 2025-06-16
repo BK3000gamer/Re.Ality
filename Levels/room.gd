@@ -15,8 +15,9 @@ func init_pivot(SiblingName: String) -> void:
 	pivot = Sibling
 
 func init_player(SiblingName: String) -> void:
-	var parent = get_parent()
-	var Sibling = parent.get_node_or_null(SiblingName)
+	var grandParent = get_parent().get_parent()
+	var subview = grandParent.get_node("Entity")
+	var Sibling = subview.get_node_or_null(SiblingName)
 	if Sibling == null:
 		push_error("Pivot not found: " + SiblingName)
 		return
