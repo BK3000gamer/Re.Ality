@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csjmpv6c7nia4"]
+
+[ext_resource type="Script" uid="uid://72ru6njr3lgt" path="res://UI/Scripts/attack_ui.gd" id="1_0oy8q"]
+[ext_resource type="Script" uid="uid://beyrjh7pavmlg" path="res://UI/Scripts/circle.gd" id="1_1s0fo"]
+
+[node name="Attack UI" type="Node2D"]
+script = ExtResource("1_0oy8q")
+
+[node name="Circle" type="Node2D" parent="."]
+script = ExtResource("1_1s0fo")

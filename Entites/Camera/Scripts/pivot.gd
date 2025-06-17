@@ -25,6 +25,7 @@ func _ready() -> void:
 	RotationControl.init(self)
 
 func _process(delta: float) -> void:
+	print(rad_to_deg(global_rotation.y))
 	var OverlappingRooms = $Area3D.get_overlapping_areas()
 	for room in OverlappingRooms:
 		if room.is_in_group("rooms"):
