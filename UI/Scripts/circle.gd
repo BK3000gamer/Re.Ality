@@ -7,19 +7,57 @@ var mousePos: Vector2
 var startPoint: Vector2
 var endPoint: Vector2
 var HorizontalPos
-var VerticalPos 
+var VerticalPos
 
 func _draw() -> void:
-	draw_circle(playerPos, 40, Color.WHITE, false, 2, false)
-	draw_line(startPoint, endPoint, Color.WHITE, 2, false)
+	if  -(PI*0.25) < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < PI*0.25:
+		draw_arc(playerPos, 40, -(PI*0.25), PI*0.25, 100, Color.BLACK, 3, false)
+		draw_arc(playerPos, 40, -(PI*0.25), PI*0.25, 100, Color.WHITE, 1, false)
+	elif -(PI*0.75) < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < -(PI*0.25):
+		draw_arc(playerPos, 40, -(PI*0.75), -(PI*0.25), 100, Color.BLACK, 3, false)
+		draw_arc(playerPos, 40, -(PI*0.75), -(PI*0.25), 100, Color.WHITE, 1, false)
+	elif PI*0.25 < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < PI*0.75:
+		if pivot.IsInSideView:
+			if !player.is_on_floor():
+				draw_arc(playerPos, 40, PI*0.25, PI*0.75, 100, Color.BLACK, 3, false)
+				draw_arc(playerPos, 40, PI*0.25, PI*0.75, 100, Color.WHITE, 1, false)
+		else:
+			draw_arc(playerPos, 40, PI*0.25, PI*0.75, 100, Color.BLACK, 3, false)
+			draw_arc(playerPos, 40, PI*0.25, PI*0.75, 100, Color.WHITE, 1, false)
+	elif PI*0.75 < playerPos.angle_to_point(mousePos) or playerPos.angle_to_point(mousePos) -(PI*0.75):
+		draw_arc(playerPos, 40, PI*0.75, PI, 100, Color.BLACK, 3, false)
+		draw_arc(playerPos, 40, PI*0.75, PI, 100, Color.WHITE, 1, false)
+		draw_arc(playerPos, 40, -PI, -(PI*0.75), 100, Color.BLACK, 3, false)
+		draw_arc(playerPos, 40, -PI, -(PI*0.75), 100, Color.WHITE, 1, false)
+	draw_line(startPoint, endPoint, Color.BLACK, 3, false)
+	draw_line(startPoint, endPoint, Color.WHITE, 1, false)
 
 func _process(delta: float) -> void:
-	if pivot.CurrentState == "SideWE":
-		HorizontalPos = ( player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
+	if pivot.PivotRot == 0.0 and pivot.IsInSideView:
+		HorizontalPos = (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
-	elif pivot.CurrentState == "SideNS":
-		HorizontalPos = ( player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
+	elif pivot.PivotRot == -90.0 and pivot.IsInSideView:
+		HorizontalPos = (player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
+	elif pivot.PivotRot == -180.0 and pivot.IsInSideView:
+		HorizontalPos = 640 - (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
+		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
+	elif pivot.PivotRot == 90.0 and pivot.IsInSideView:
+		HorizontalPos = 640 - (player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
+		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
+	elif pivot.PivotRot == 0.0 and !pivot.IsInSideView:
+		HorizontalPos = (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
+		VerticalPos = (player.global_transform.origin.z - pivot.global_transform.origin.z + 5.625) * 32
+	elif pivot.PivotRot == -90.0 and !pivot.IsInSideView:
+		HorizontalPos = (player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
+		VerticalPos = 360 - (player.global_transform.origin.x - pivot.global_transform.origin.x + 5.625) * 32
+	elif pivot.PivotRot == -180.0 and !pivot.IsInSideView:
+		HorizontalPos = 640 - (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
+		VerticalPos = 360 - (player.global_transform.origin.z - pivot.global_transform.origin.z + 5.625) * 32
+	elif pivot.PivotRot == 90.0 and !pivot.IsInSideView:
+		HorizontalPos = 640 - (player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
+		VerticalPos = (player.global_transform.origin.x - pivot.global_transform.origin.x + 5.625) * 32
+	
 	playerPos = Vector2(HorizontalPos, VerticalPos)
 	mousePos = get_viewport().get_mouse_position()
 	var rad = playerPos.angle_to_point(mousePos)

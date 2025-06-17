@@ -8,6 +8,7 @@ var RoomType:Array[int] = []
 var RoomPos
 var CamPos
 var CurrentState: String
+var PivotRot
 
 var rooms: Array[Node]
 @export var CenterThreshold: float = 2.0
@@ -25,7 +26,9 @@ func _ready() -> void:
 	RotationControl.init(self)
 
 func _process(delta: float) -> void:
-	print(rad_to_deg(global_rotation.y))
+	PivotRot = rad_to_deg(rotation.y)
+	PivotRot = round(PivotRot)
+	print (PivotRot)
 	var OverlappingRooms = $Area3D.get_overlapping_areas()
 	for room in OverlappingRooms:
 		if room.is_in_group("rooms"):
