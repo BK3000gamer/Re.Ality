@@ -144,6 +144,7 @@ DashMultiplier = 3.0
 SuperJumpMultiplier = 12.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 shape = SubResource("BoxShape3D_aq10y")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

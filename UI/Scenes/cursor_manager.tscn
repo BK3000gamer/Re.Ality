@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://byg23hp64k2a3"]
+
+[ext_resource type="Script" uid="uid://bqrrcm1wgt6w7" path="res://UI/Scripts/cursor_manager.gd" id="1_qldqu"]
+[ext_resource type="Texture2D" uid="uid://b4lrxupj0p3dg" path="res://Assets/Sprites/Emtpy.png" id="2_6pd60"]
+[ext_resource type="Texture2D" uid="uid://dmlxu2k3acdv5" path="res://Assets/Sprites/Crosshair.png" id="2_p1hqs"]
+
+[node name="Cursor Manager" type="CanvasLayer"]
+script = ExtResource("1_qldqu")
+emptyCursor = ExtResource("2_6pd60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p1hqs")

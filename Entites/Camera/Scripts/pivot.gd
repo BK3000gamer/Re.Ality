@@ -28,7 +28,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	PivotRot = rad_to_deg(rotation.y)
 	PivotRot = round(PivotRot)
-	print (PivotRot)
 	var OverlappingRooms = $Area3D.get_overlapping_areas()
 	for room in OverlappingRooms:
 		if room.is_in_group("rooms"):
