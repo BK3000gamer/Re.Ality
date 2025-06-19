@@ -1,7 +1,15 @@
 extends Area3D
 class_name Room
 
-var RoomType:Array[int] = []
+@export var RoomType:Array[roomType] = []
+
+enum roomType {
+	LEFT = -1,
+	NONE = 0,
+	RIGHT = 1,
+	BOTH = 2,
+}
+
 var pivot: Pivot
 var player: Player
 

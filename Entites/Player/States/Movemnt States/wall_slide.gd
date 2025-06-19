@@ -35,7 +35,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	MovementControl.wall_slide(delta)
 	
-	if parent.InputDir == Vector3.ZERO or !parent.is_on_wall():
+	if parent.InputDir.x == 0 or !parent.is_on_wall():
 		return FallState
 	
 	if timeout:

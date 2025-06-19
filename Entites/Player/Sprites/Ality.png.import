@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jy4e5wvae8ki"
-path="res://.godot/imported/Projectile.png-a227571c668408f4b69cb013c09912f4.ctex"
+uid="uid://yyt02pq670i1"
+path="res://.godot/imported/Ality.png-5c457821b142b5f1fc2b7ef30281a7db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entites/Player/Sprites/Projectile.png"
-dest_files=["res://.godot/imported/Projectile.png-a227571c668408f4b69cb013c09912f4.ctex"]
+source_file="res://Entites/Player/Sprites/Ality.png"
+dest_files=["res://.godot/imported/Ality.png-5c457821b142b5f1fc2b7ef30281a7db.ctex"]
 
 [params]
 

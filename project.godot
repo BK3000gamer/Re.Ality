@@ -118,6 +118,12 @@ attack_right={
 
 3d_render/layer_1="Sprite"
 3d_render/layer_20="Pos-Process"
+3d_physics/layer_1="Environment"
+3d_physics/layer_9="Entity"
+
+[physics]
+
+common/physics_ticks_per_second=120
 
 [rendering]
 

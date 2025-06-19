@@ -9,13 +9,14 @@
 [ext_resource type="Script" uid="uid://ch3l2emdkdrcu" path="res://Entites/Player/States/Movemnt States/wall_slide.gd" id="12_aq10y"]
 [ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
 [ext_resource type="Script" uid="uid://4lvntad3ry5q" path="res://Entites/Player/Scripts/movement_control.gd" id="14_aq10y"]
-[ext_resource type="Texture2D" uid="uid://bgq2wvfb6a5ao" path="res://icon.svg" id="14_bcnq7"]
+[ext_resource type="Texture2D" uid="uid://yyt02pq670i1" path="res://Entites/Player/Sprites/Ality.png" id="14_bcnq7"]
 [ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
 [ext_resource type="Script" uid="uid://bmwoawkdnsxiv" path="res://Entites/Player/States/Movemnt States/dash.gd" id="17_o8m6i"]
 [ext_resource type="Script" uid="uid://ox6gl43w6b15" path="res://Entites/Player/States/Movemnt States/double_jump.gd" id="18_rsawx"]
 [ext_resource type="Script" uid="uid://chfknvoy0ohm0" path="res://Entites/Player/States/Movemnt States/super_jump.gd" id="19_wauee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq10y"]
+size = Vector3(1, 1.5, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
@@ -137,6 +138,7 @@ JumpTimeToDescent = 0.25
 WallJumpPushback = 4.0
 WallSlideGravity = -2.0
 MoveSpeed = 6.0
+Acceleration = 1.075
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5
 SlideDecay = 15.0
@@ -148,7 +150,8 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 shape = SubResource("BoxShape3D_aq10y")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+layers = 2
+pixel_size = 0.0313
 billboard = 1
 alpha_cut = 1
 texture_filter = 0

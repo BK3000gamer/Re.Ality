@@ -18,7 +18,7 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	if pivot.IsInSideView:
-		if !parent.InputDir == Vector3.ZERO:
+		if !parent.InputDir.x == 0 or !parent.InputDir.z == 0:
 			return RunState
 		elif Input.is_action_pressed("jump") and parent.is_on_floor():
 			return JumpState

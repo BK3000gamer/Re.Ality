@@ -9,6 +9,8 @@ var pivot: Pivot
 @export var WallJumpPushback: float
 @export var WallSlideGravity: float
 @export var MoveSpeed: float
+@export var Speed: float
+@export var Acceleration: float
 @export var CrouchMultiplier: float
 @export var SlideMultiplier: float
 @export var SlideDecay: float
@@ -46,6 +48,7 @@ func process_physics(delta: float) -> void:
 	
 	if pivot.IsInSideView:
 		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		parent.InputDir.y = Input.get_action_strength("move_up") - Input.get_action_strength("move_down")
 		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
 	elif !pivot.IsInSideView:
 		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -55,8 +58,9 @@ func process_physics(delta: float) -> void:
 	parent.move_and_slide()
 
 func run() -> void:
-	parent.velocity.x = parent.InputDir.x * MoveSpeed
-	parent.velocity.z = parent.InputDir.z * MoveSpeed
+	Speed = Speed * Acceleration
+	parent.velocity.x = parent.InputDir.x * min(Speed, MoveSpeed)
+	parent.velocity.z = parent.InputDir.z * min(Speed, MoveSpeed)
 
 func jump() -> void:
 	if parent.is_on_floor():
@@ -90,14 +94,16 @@ func slide_decay(delta: float) -> void:
 		parent.velocity.z = HorizontalVelocity.z
 
 func dash() -> void:
-	parent.velocity.y = 0
 	parent.velocity.x = parent.InputDir.x * MoveSpeed * DashMultiplier
+	parent.velocity.y = parent.InputDir.y * 5 * DashMultiplier
 	parent.velocity.z = parent.InputDir.z * MoveSpeed * DashMultiplier
 
 func superjump() -> void:
 	if pivot.IsInSideView:
-		if parent.InputDir == Vector3.ZERO:
+		if !parent.InputDir.y == 0:
 			parent.velocity.y = SuperJumpMultiplier * 1.4
+			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
+			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
 		else:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
@@ -106,7 +112,6 @@ func superjump() -> void:
 		if !parent.InputDir == Vector3.ZERO:
 			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
-			parent.velocity.y = 10
 
 func wall_slide(delta) -> void:
 	if parent.velocity.y > 0:

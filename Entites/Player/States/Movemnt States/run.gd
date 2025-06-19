@@ -7,6 +7,7 @@ extends State
 @export var DashState: State
 
 func enter() -> void:
+	MovementControl.Speed = 2
 	parent.Jumped = false
 	parent.WallSlided = false
 
@@ -25,7 +26,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	MovementControl.run()
 	
-	if parent.InputDir == Vector3.ZERO:
+	if parent.InputDir.x == 0 and parent.InputDir.z == 0:
 		return IdleState
 	
 	if !parent.is_on_floor():

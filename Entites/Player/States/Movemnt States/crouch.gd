@@ -15,7 +15,7 @@ func enter() -> void:
 	timeout = false
 	var CrouchTimer = Timer.new()
 	CrouchTimer.one_shot = true
-	CrouchTimer.wait_time = 0.5
+	CrouchTimer.wait_time = 0.3
 	CrouchTimer.timeout.connect(crouch_timeout)
 	add_child(CrouchTimer)
 	CrouchTimer.start()
@@ -35,7 +35,7 @@ func process_physics(delta: float) -> State:
 		parent.Jumped = false
 		parent.SuperJumped = false
 		if !Input.is_action_pressed("crouch"):
-			if parent.InputDir == Vector3.ZERO:
+			if parent.InputDir.x == 0 or  parent.InputDir.z == 0:
 				return IdleState
 			return RunState
 	

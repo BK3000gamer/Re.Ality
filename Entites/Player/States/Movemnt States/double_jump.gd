@@ -14,7 +14,7 @@ func enter() -> void:
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):
-		if parent.InputDir == Vector3.ZERO:
+		if parent.InputDir.x == 0 or  parent.InputDir.z == 0:
 			return CrouchState
 		return SlideState
 	
@@ -32,7 +32,7 @@ func process_physics(delta: float) -> State:
 		return WallSlideState
 	
 	if parent.is_on_floor():
-		if parent.InputDir == Vector3.ZERO:
+		if parent.InputDir.x == 0 or  parent.InputDir.z == 0:
 			return IdleState
 		return RunState
 	return null

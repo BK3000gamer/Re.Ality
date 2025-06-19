@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=14 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
@@ -28,6 +28,8 @@ material = SubResource("ShaderMaterial_qjuev")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qjuev"]
+
 [node name="Pivot" type="Node3D"]
 script = ExtResource("1_ejw8p")
 
@@ -37,7 +39,7 @@ projection = 1
 current = true
 size = 11.25
 
-[node name="ShaderQuad" type="MeshInstance3D" parent="Camera3D"]
+[node name="Shader Quad" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_2bje5")
@@ -80,3 +82,8 @@ script = ExtResource("7_ejw8p")
 
 [node name="Rotation Control" type="Node" parent="."]
 script = ExtResource("9_pn5e8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_qjuev")
