@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://oeac5v0hp28v"]
+[gd_scene load_steps=24 format=3 uid="uid://oeac5v0hp28v"]
 
 [ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_nj2yk"]
 [ext_resource type="PackedScene" uid="uid://0qhllm8ymq7k" path="res://Entites/Camera/Scenes/pivot.tscn" id="2_34bfm"]
@@ -9,8 +9,6 @@
 [ext_resource type="Script" uid="uid://brme2sgrb6wwh" path="res://Levels/Environment/Borders/border_x.gd" id="8_5mxy1"]
 [ext_resource type="Texture2D" uid="uid://dko48qpqp0lfl" path="res://Assets/Textures/Orange/texture_09.png" id="8_hilkn"]
 [ext_resource type="Script" uid="uid://b2fpi26mtcqrr" path="res://Levels/Environment/Borders/border_z.gd" id="8_mykqc"]
-[ext_resource type="Shader" uid="uid://b1d2pbrggjdbm" path="res://Assets/Shaders/transparent_bg.gdshader" id="11_5mxy1"]
-[ext_resource type="Script" uid="uid://dflogb20pl1pl" path="res://Entites/Camera/Scripts/pivot_duplicate.gd" id="12_hilkn"]
 [ext_resource type="PackedScene" uid="uid://csjmpv6c7nia4" path="res://UI/Scenes/attack_ui.tscn" id="13_5mxy1"]
 [ext_resource type="PackedScene" uid="uid://byg23hp64k2a3" path="res://UI/Scenes/cursor_manager.tscn" id="14_3lhg3"]
 
@@ -27,6 +25,24 @@ background_color = Color(0.2793, 0.44403, 0.57, 1)
 sky = SubResource("Sky_5mxy1")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nj2yk"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7pswh"]
+size = Vector3(1, 21, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u05pv"]
+size = Vector3(4, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mykqc"]
+size = Vector3(1, 3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hilkn"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5mxy1"]
+size = Vector3(19, 21, 1)
 
 [sub_resource type="GDScript" id="GDScript_hilkn"]
 script/source = "extends Room
@@ -47,9 +63,6 @@ transparency = 1
 albedo_texture = ExtResource("8_hilkn")
 uv1_triplanar = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nj2yk"]
-size = Vector3(20, 1, 20)
-
 [sub_resource type="GDScript" id="GDScript_5mxy1"]
 script/source = "extends Room
 
@@ -63,29 +76,6 @@ func _ready() -> void:
 			child.pivot = pivot
 			child.player = player
 "
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7pswh"]
-size = Vector3(1, 10.25, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u05pv"]
-size = Vector3(4, 1, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mykqc"]
-size = Vector3(1, 3, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hilkn"]
-size = Vector3(2, 2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5mxy1"]
-size = Vector3(19, 10.25, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3lhg3"]
-render_priority = 0
-shader = ExtResource("11_5mxy1")
-
-[sub_resource type="QuadMesh" id="QuadMesh_wgfyn"]
-material = SubResource("ShaderMaterial_3lhg3")
-size = Vector2(2, 2)
 
 [node name="main" type="Node3D"]
 
@@ -106,6 +96,14 @@ handle_input_locally = false
 size = Vector2i(640, 360)
 render_target_clear_mode = 2
 render_target_update_mode = 4
+
+[node name="Attack UI" parent="SubViewportContainer/Environment" instance=ExtResource("13_5mxy1")]
+
+[node name="Cursor Manager" parent="SubViewportContainer/Environment" instance=ExtResource("14_3lhg3")]
+
+[node name="Player" parent="SubViewportContainer/Environment" instance=ExtResource("1_nj2yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+collision_layer = 256
 
 [node name="Pivot" parent="SubViewportContainer/Environment" instance=ExtResource("2_34bfm")]
 
@@ -163,6 +161,44 @@ script = ExtResource("8_5mxy1")
 shadow_enabled = true
 omni_range = 16.0
 
+[node name="Room1" type="StaticBody3D" parent="SubViewportContainer/Environment/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+shape = SubResource("BoxShape3D_nj2yk")
+debug_color = Color(1, 0, 0.15, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 11, 0)
+shape = SubResource("BoxShape3D_7pswh")
+debug_color = Color(1, 0, 0.15, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 5, 1)
+shape = SubResource("BoxShape3D_u05pv")
+debug_color = Color(1, 0, 0.15, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -2.5)
+shape = SubResource("BoxShape3D_mykqc")
+debug_color = Color(1, 0, 0.15, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.5, 2)
+shape = SubResource("BoxShape3D_hilkn")
+debug_color = Color(1, 0, 0.15, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 11, -9.5)
+shape = SubResource("BoxShape3D_5mxy1")
+debug_color = Color(1, 0, 0.15, 1)
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="SubViewportContainer/Environment/Room1/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 11, 9.5)
+shape = SubResource("BoxShape3D_5mxy1")
+debug_color = Color(1, 0, 0.15, 1)
+
 [node name="Room2" parent="SubViewportContainer/Environment" groups=["rooms"] instance=ExtResource("3_lwy2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 script = SubResource("GDScript_hilkn")
@@ -208,68 +244,3 @@ debug_color = Color(1, 0, 0.15, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5.625, 0)
 shape = SubResource("BoxShape3D_7pswh")
 debug_color = Color(1, 0, 0.15, 1)
-
-[node name="Entity" type="SubViewport" parent="SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-canvas_item_default_texture_filter = 0
-size = Vector2i(640, 360)
-render_target_update_mode = 4
-
-[node name="Room1" type="StaticBody3D" parent="SubViewportContainer/Entity"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
-collision_mask = 256
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-shape = SubResource("BoxShape3D_nj2yk")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 5.625, 0)
-shape = SubResource("BoxShape3D_7pswh")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 5, 1)
-shape = SubResource("BoxShape3D_u05pv")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -2.5)
-shape = SubResource("BoxShape3D_mykqc")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.5, 2)
-shape = SubResource("BoxShape3D_hilkn")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5.625, -9.5)
-shape = SubResource("BoxShape3D_5mxy1")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="SubViewportContainer/Entity/Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5.625, 9.5)
-shape = SubResource("BoxShape3D_5mxy1")
-debug_color = Color(1, 0, 0.15, 1)
-
-[node name="Player" parent="SubViewportContainer/Entity" instance=ExtResource("1_nj2yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-collision_layer = 256
-
-[node name="Pivot" type="Node3D" parent="SubViewportContainer/Entity"]
-script = ExtResource("12_hilkn")
-
-[node name="Camera3D2" type="Camera3D" parent="SubViewportContainer/Entity/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
-projection = 1
-size = 11.25
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/Entity/Pivot/Camera3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67)
-mesh = SubResource("QuadMesh_wgfyn")
-
-[node name="Attack UI" parent="SubViewportContainer/Entity" instance=ExtResource("13_5mxy1")]
-
-[node name="Cursor Manager" parent="SubViewportContainer/Entity" instance=ExtResource("14_3lhg3")]

@@ -12,7 +12,6 @@ func slide_timeout():
 	timeout = true
 
 func enter() -> void:
-	parent.WallSlided = true
 	timeout = false
 	var SlideTimer = Timer.new()
 	SlideTimer.one_shot = true
@@ -35,7 +34,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	MovementControl.wall_slide(delta)
 	
-	if parent.InputDir.x == 0 or !parent.is_on_wall():
+	if (parent.InputDir.x == 0 and parent.InputDir.z == 0) or !parent.is_on_wall():
 		return FallState
 	
 	if timeout:

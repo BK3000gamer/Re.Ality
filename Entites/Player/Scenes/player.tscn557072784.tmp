@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=16 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -16,10 +16,7 @@
 [ext_resource type="Script" uid="uid://chfknvoy0ohm0" path="res://Entites/Player/States/Movemnt States/super_jump.gd" id="19_wauee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq10y"]
-size = Vector3(1, 1.6, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bcnq7"]
-viewport_path = NodePath("Sprites")
+size = Vector3(1, 1.5, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
@@ -153,17 +150,16 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 shape = SubResource("BoxShape3D_aq10y")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+visible = false
 layers = 2
 pixel_size = 0.0313
 billboard = 1
 alpha_cut = 1
 texture_filter = 0
-texture = SubResource("ViewportTexture_bcnq7")
+texture = ExtResource("14_bcnq7")
 
-[node name="Sprites" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(48, 48)
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
-position = Vector2(24, 24)
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(320, 320)
 texture = ExtResource("14_bcnq7")

@@ -28,13 +28,12 @@ func process_physics(delta: float) -> State:
 			return RunState
 		return FallState
 	
-	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
+	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO:
 		return WallSlideState
 	
 	if parent.is_on_floor():
 		parent.Jumped = false
 		parent.SuperJumped = false
-		parent.WallSlided = false
 		if Input.is_action_pressed("jump"):
 			return JumpState
 	return null

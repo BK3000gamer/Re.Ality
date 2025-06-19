@@ -29,7 +29,6 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_floor():
 		parent.Jumped = false
 		parent.SuperJumped = false
-		parent.WallSlided = false
 		if !Input.is_action_pressed("crouch"):
 			if parent.InputDir.x == 0 or  parent.InputDir.z == 0:
 				return IdleState

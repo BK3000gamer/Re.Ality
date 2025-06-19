@@ -8,8 +8,8 @@ var startPoint: Vector2
 var endPoint: Vector2
 var startPoint2: Vector2
 var endPoint2: Vector2
-var HorizontalPos
-var VerticalPos
+var HorizontalPos: float
+var VerticalPos: float
 
 func _draw() -> void:
 	if  -(PI*0.25) < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < PI*0.25:
@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	elif pivot.PivotRot == -90.0 and pivot.IsInSideView:
 		HorizontalPos = (player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
-	elif pivot.PivotRot == -180.0 and pivot.IsInSideView:
+	elif (pivot.PivotRot == -180.0 or pivot.PivotRot == 180.0) and pivot.IsInSideView:
 		HorizontalPos = 640 - (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
 	elif pivot.PivotRot == 90.0 and pivot.IsInSideView:
@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 	elif pivot.PivotRot == -90.0 and !pivot.IsInSideView:
 		HorizontalPos = (player.global_transform.origin.z - pivot.global_transform.origin.z + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.x - pivot.global_transform.origin.x + 5.625) * 32
-	elif pivot.PivotRot == -180.0 and !pivot.IsInSideView:
+	elif (pivot.PivotRot == -180.0 or pivot.PivotRot == 180.0) and !pivot.IsInSideView:
 		HorizontalPos = 640 - (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.z - pivot.global_transform.origin.z + 5.625) * 32
 	elif pivot.PivotRot == 90.0 and !pivot.IsInSideView:

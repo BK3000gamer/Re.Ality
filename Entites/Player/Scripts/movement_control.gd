@@ -29,11 +29,9 @@ func init(Parent: CharacterBody3D) -> void:
 	FallGravity = (-2.0 * JumpHeight) / pow(JumpTimeToDescent, 2)
 
 func init_sibling(PivotName: String) -> void:
-	var grandparent = get_parent().get_parent().get_parent()
+	var parent = get_parent().get_parent()
 	
-	var subview = grandparent.get_node("Environment")
-	
-	var SiblingPivot = subview.get_node_or_null(PivotName)
+	var SiblingPivot = parent.get_node_or_null(PivotName)
 	if SiblingPivot == null:
 		push_warning("Pivot node not found.")
 		return

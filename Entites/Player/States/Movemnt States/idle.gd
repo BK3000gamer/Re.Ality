@@ -9,7 +9,6 @@ func enter() -> void:
 	parent.velocity.x = 0
 	parent.velocity.z = 0
 	parent.Jumped = false
-	parent.WallSlided = false
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):

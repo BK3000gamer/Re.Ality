@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
 [ext_resource type="Script" uid="uid://4lvntad3ry5q" path="res://Entites/Player/Scripts/movement_control.gd" id="14_aq10y"]
 [ext_resource type="Texture2D" uid="uid://yyt02pq670i1" path="res://Entites/Player/Sprites/Ality.png" id="14_bcnq7"]
+[ext_resource type="Script" uid="uid://dhy38vclmf84o" path="res://Entites/Player/Scripts/sprite.gd" id="15_aq10y"]
 [ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
 [ext_resource type="Script" uid="uid://bmwoawkdnsxiv" path="res://Entites/Player/States/Movemnt States/dash.gd" id="17_o8m6i"]
 [ext_resource type="Script" uid="uid://ox6gl43w6b15" path="res://Entites/Player/States/Movemnt States/double_jump.gd" id="18_rsawx"]
@@ -17,9 +18,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq10y"]
 size = Vector3(1, 1.6, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bcnq7"]
-viewport_path = NodePath("Sprites")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
@@ -158,12 +156,11 @@ pixel_size = 0.0313
 billboard = 1
 alpha_cut = 1
 texture_filter = 0
-texture = SubResource("ViewportTexture_bcnq7")
+texture = ExtResource("14_bcnq7")
 
-[node name="Sprites" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(48, 48)
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+script = ExtResource("15_aq10y")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
-position = Vector2(24, 24)
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("14_bcnq7")

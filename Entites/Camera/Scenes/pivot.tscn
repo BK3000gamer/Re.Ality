@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=13 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
 [ext_resource type="Shader" uid="uid://b7ikrvcb0jgt6" path="res://Assets/Shaders/pixel_art.gdshader" id="2_pn5e8"]
 [ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Camera/States/Rotation/side_ns.gd" id="3_pn5e8"]
-[ext_resource type="Script" uid="uid://c5ysmhqg71mop" path="res://Entites/Camera/Scripts/shader_quad.gd" id="4_105jk"]
 [ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Camera/States/Rotation/side_we.gd" id="5_105jk"]
 [ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Camera/States/Rotation/top_ns.gd" id="6_6c6s1"]
 [ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Camera/States/Rotation/top_we.gd" id="7_5egma"]
@@ -43,7 +42,6 @@ size = 11.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_2bje5")
-script = ExtResource("4_105jk")
 
 [node name="Rotation State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("2_2bje5")

@@ -9,11 +9,9 @@ func init(Parent: Player) -> void:
 		child.parent = Parent
 
 func init_sibling(PivotName: String) -> void:
-	var grandparent = get_parent().get_parent().get_parent()
+	var grandparent = get_parent().get_parent()
 	
-	var subview = grandparent.get_node("Environment")
-	
-	var SiblingPivot = subview.get_node_or_null(PivotName)
+	var SiblingPivot = grandparent.get_node_or_null(PivotName)
 	if SiblingPivot == null:
 		push_warning("Pivot node not found.")
 		return
@@ -24,7 +22,8 @@ func init_sibling(PivotName: String) -> void:
 	
 	for sibling in parent.get_children():
 		for grandchild in sibling.get_children():
-			grandchild.pivot = SiblingPivot
+			if grandchild is State:
+				grandchild.pivot = SiblingPivot
 	
 	change_state(StartingState)
 
