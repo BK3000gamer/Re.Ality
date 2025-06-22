@@ -8,6 +8,9 @@ extends State
 @export var DoubleJumpState: State
 @export var WallSlideState: State
 
+func enter() -> void:
+	parent.CurrentState = "Fall"
+
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):
 		if parent.InputDir.x == 0 or  parent.InputDir.z == 0:
@@ -25,7 +28,7 @@ func process_physics(delta: float) -> State:
 	parent.velocity.y += MovementControl._get_gravity() * delta
 	MovementControl.run()
 	
-	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO:
+	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
 		return WallSlideState
 	
 	if parent.is_on_floor():

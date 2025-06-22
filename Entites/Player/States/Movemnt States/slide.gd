@@ -9,6 +9,7 @@ extends State
 
 func enter() -> void:
 	MovementControl.slide()
+	parent.CurrentState = "Slide"
 
 func process_input(event: InputEvent) -> State:
 	if !parent.InputDir == Vector3.ZERO and event.is_action_pressed("dash"):

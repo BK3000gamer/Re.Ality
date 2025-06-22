@@ -12,6 +12,7 @@ func crouch_timeout():
 	timeout = true
 
 func enter() -> void:
+	parent.CurrentState = "Crouch"
 	timeout = false
 	var CrouchTimer = Timer.new()
 	CrouchTimer.one_shot = true

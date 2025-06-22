@@ -9,7 +9,9 @@ extends State
 @export var DoubleJumpState: State
 
 func enter() -> void:
+	parent.WallSlided = false
 	MovementControl.jump()
+	parent.CurrentState = "Jump"
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):

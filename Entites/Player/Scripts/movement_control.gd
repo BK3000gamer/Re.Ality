@@ -7,7 +7,6 @@ var pivot: Pivot
 @export var JumpTimeToPeak: float
 @export var JumpTimeToDescent: float
 @export var WallJumpPushback: float
-@export var WallSlideGravity: float
 @export var MoveSpeed: float
 @export var Speed: float
 @export var Acceleration: float
@@ -112,10 +111,4 @@ func superjump() -> void:
 			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
 
 func wall_slide(delta) -> void:
-	if parent.velocity.y > 0:
-		parent.velocity.y = 0
-		parent.velocity.y += WallSlideGravity * delta
-		parent.velocity.y = min(parent.velocity.y, WallSlideGravity)
-	else:
-		parent.velocity.y += WallSlideGravity * delta
-		parent.velocity.y = min(parent.velocity.y, WallSlideGravity)
+	parent.velocity.y = 0

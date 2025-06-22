@@ -20,7 +20,7 @@ func _draw() -> void:
 		draw_arc(playerPos, 40, -(PI*0.73), -(PI*0.27), 100, Color.WHITE, 2, false)
 	elif PI*0.25 < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < PI*0.75:
 		if pivot.IsInSideView:
-			if !player.is_on_floor():
+			if !player.is_on_floor() or player.CurrentState == "Crouch":
 				draw_arc(playerPos, 40, PI*0.25, PI*0.75, 100, Color.BLACK, 4, false)
 				draw_arc(playerPos, 40, PI*0.27, PI*0.73, 100, Color.WHITE, 2, false)
 		else:

@@ -13,6 +13,7 @@ func dash_timeout():
 	timeout = true
 
 func enter() -> void:
+	parent.CurrentState = "Dash"
 	timeout = false
 	var DashTimer = Timer.new()
 	DashTimer.one_shot = true

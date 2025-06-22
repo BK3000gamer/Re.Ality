@@ -9,6 +9,8 @@ extends State
 func enter() -> void:
 	MovementControl.Speed = 2
 	parent.Jumped = false
+	parent.WallSlided = false
+	parent.CurrentState = "Run"
 
 func process_input(event: InputEvent) -> State:
 	if pivot.IsInSideView:

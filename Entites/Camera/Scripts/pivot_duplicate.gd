@@ -5,7 +5,7 @@ var pivot: Pivot
 func init() -> void:
 	var grandParent = get_parent().get_parent()
 	
-	var sibling = grandParent.get_node("Environment/Pivot")
+	var sibling = grandParent.get_node("Main/Pivot")
 	if sibling is Pivot:
 		pivot = sibling
 

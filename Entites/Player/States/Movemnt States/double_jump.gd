@@ -10,7 +10,9 @@ extends State
 
 func enter() -> void:
 	parent.Jumped = true
+	parent.WallSlided = false
 	MovementControl.jump()
+	parent.CurrentState = "Double Jump"
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):

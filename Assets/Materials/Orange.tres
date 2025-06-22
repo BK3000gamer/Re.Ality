@@ -1,12 +1,12 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb43ngplsfis2"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b6wq4v2qgmhrp"]
 
-[ext_resource type="Shader" uid="uid://x8hlkmcbow4f" path="res://Addons/flexible_toon_shader/flexible_toon.gdshader" id="1_pis2y"]
+[ext_resource type="Shader" uid="uid://chhldavnctcg2" path="res://Assets/Materials/Orange.gdshader" id="1_4xjel"]
 
 [resource]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("1_pis2y")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader = ExtResource("1_4xjel")
+shader_parameter/albedo = Color(0.91565, 0.28631, 0, 1)
 shader_parameter/clamp_diffuse_to_max = false
 shader_parameter/cuts = 4
 shader_parameter/wrap = 0.0
