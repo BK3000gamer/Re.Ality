@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=18 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cr54hysjn6usm" path="res://Entites/Player/States/Movemnt States/fall.gd" id="7_h30pk"]
 [ext_resource type="Script" uid="uid://ch3l2emdkdrcu" path="res://Entites/Player/States/Movemnt States/wall_slide.gd" id="12_aq10y"]
 [ext_resource type="Script" uid="uid://sqjgx4wwohw7" path="res://Entites/Player/States/Movemnt States/crouch.gd" id="12_qqr1e"]
+[ext_resource type="Script" uid="uid://7jwxixvj3udl" path="res://Common/State Machine/state.gd" id="13_aq10y"]
 [ext_resource type="Script" uid="uid://4lvntad3ry5q" path="res://Entites/Player/Scripts/movement_control.gd" id="14_aq10y"]
 [ext_resource type="Texture2D" uid="uid://yyt02pq670i1" path="res://Entites/Player/Sprites/Ality.png" id="14_bcnq7"]
 [ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
@@ -133,6 +134,10 @@ DashState = NodePath("../Dash")
 SlideState = NodePath("../Slide")
 MovementControl = NodePath("../../Movement Control")
 
+[node name="Ledge Hang" type="Node" parent="Movement State Machine"]
+script = ExtResource("13_aq10y")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
 JumpHeight = 2.5
@@ -144,8 +149,8 @@ Acceleration = 1.075
 CrouchMultiplier = 0.3
 SlideMultiplier = 2.0
 SlideDecay = 15.0
-DashMultiplier = 3.0
-SuperJumpMultiplier = 12.0
+DashMultiplier = 4.0
+SuperJumpMultiplier = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
@@ -166,3 +171,7 @@ size = Vector2i(48, 48)
 [node name="Sprite2D" type="Sprite2D" parent="Sprites"]
 position = Vector2(24, 24)
 texture = ExtResource("14_bcnq7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+omni_range = 16.0

@@ -28,7 +28,7 @@ func process_physics(delta: float) -> State:
 	parent.velocity.y += MovementControl._get_gravity() * delta
 	MovementControl.run()
 	
-	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
+	if parent.is_on_wall() and !parent.is_on_floor() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
 		return WallSlideState
 	
 	if parent.is_on_floor():

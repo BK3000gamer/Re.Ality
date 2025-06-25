@@ -53,7 +53,7 @@ func process_physics(delta: float) -> State:
 				return IdleState
 			return RunState
 	
-	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO:
+	if parent.is_on_wall() and !parent.is_on_floor() and !parent.InputDir == Vector3.ZERO:
 		return WallSlideState
 	
 	parent.move_and_slide()

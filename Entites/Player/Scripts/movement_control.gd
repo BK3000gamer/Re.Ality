@@ -92,23 +92,23 @@ func slide_decay(delta: float) -> void:
 
 func dash() -> void:
 	parent.velocity.x = parent.InputDir.x * MoveSpeed * DashMultiplier
-	parent.velocity.y = parent.InputDir.y * 5 * DashMultiplier
+	parent.velocity.y = parent.InputDir.y * MoveSpeed * DashMultiplier
 	parent.velocity.z = parent.InputDir.z * MoveSpeed * DashMultiplier
 
 func superjump() -> void:
 	if pivot.IsInSideView:
 		if !parent.InputDir.y == 0:
-			parent.velocity.y = SuperJumpMultiplier * 1.4
-			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
-			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
+			parent.velocity.y = MoveSpeed * SuperJumpMultiplier * 1.4
+			parent.velocity.x = parent.InputDir.x * MoveSpeed * SuperJumpMultiplier
+			parent.velocity.z = parent.InputDir.z * MoveSpeed * SuperJumpMultiplier
 		else:
-			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
-			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
+			parent.velocity.x = parent.InputDir.x * MoveSpeed * SuperJumpMultiplier
+			parent.velocity.z = parent.InputDir.z * MoveSpeed * SuperJumpMultiplier
 			parent.velocity.y = 10
 	else:
 		if !parent.InputDir == Vector3.ZERO:
-			parent.velocity.x = parent.InputDir.x * SuperJumpMultiplier
-			parent.velocity.z = parent.InputDir.z * SuperJumpMultiplier
+			parent.velocity.x = parent.InputDir.x * MoveSpeed * SuperJumpMultiplier
+			parent.velocity.z = parent.InputDir.z * MoveSpeed * SuperJumpMultiplier
 
 func wall_slide(delta) -> void:
 	parent.velocity.y = 0

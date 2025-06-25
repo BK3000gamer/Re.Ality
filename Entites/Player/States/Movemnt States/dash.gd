@@ -10,6 +10,7 @@ extends State
 var timeout: bool
 
 func dash_timeout():
+	parent.velocity.y = 0
 	timeout = true
 
 func enter() -> void:
@@ -29,7 +30,7 @@ func process_physics(delta: float) -> State:
 			return RunState
 		return FallState
 	
-	if parent.is_on_wall() and !parent.InputDir == Vector3.ZERO:
+	if parent.is_on_wall() and !parent.is_on_floor() and !parent.InputDir == Vector3.ZERO:
 		return WallSlideState
 	
 	if parent.is_on_floor():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://oeac5v0hp28v"]
+[gd_scene load_steps=28 format=3 uid="uid://oeac5v0hp28v"]
 
 [ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_nj2yk"]
 [ext_resource type="PackedScene" uid="uid://0qhllm8ymq7k" path="res://Entites/Camera/Scenes/pivot.tscn" id="2_34bfm"]
@@ -26,6 +26,29 @@ background_color = Color(0.2793, 0.44403, 0.57, 1)
 sky = SubResource("Sky_5mxy1")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Shader" id="Shader_hilkn"]
+code = "shader_type canvas_item;
+
+uniform vec2 cam_offset = vec2(0.0, 0.0);
+
+void vertex() {
+	VERTEX += cam_offset;
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3lhg3"]
+shader = SubResource("Shader_hilkn")
+shader_parameter/cam_offset = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hilkn"]
 resource_local_to_scene = true
@@ -105,6 +128,7 @@ environment = SubResource("Environment_3lhg3")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_3lhg3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -159,7 +183,6 @@ script = ExtResource("6_hbaan")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="SubViewportContainer/Main/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -9.5)
-visible = false
 instance_shader_parameters/transparency = 1.0
 size = Vector3(19, 10.25, 1)
 material = SubResource("ShaderMaterial_hilkn")
@@ -167,7 +190,6 @@ script = ExtResource("8_mykqc")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="SubViewportContainer/Main/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 9.5)
-visible = false
 instance_shader_parameters/transparency = 1.0
 size = Vector3(19, 10.25, 1)
 material = SubResource("ShaderMaterial_hilkn")
@@ -175,15 +197,10 @@ script = ExtResource("8_mykqc")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/Main/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0.5, 0)
-visible = false
 instance_shader_parameters/transparency = 1.0
 size = Vector3(1, 10.25, 20)
 material = SubResource("ShaderMaterial_hilkn")
 script = ExtResource("8_5mxy1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/Main/Room1"]
-shadow_enabled = true
-omni_range = 16.0
 
 [node name="Room1" type="StaticBody3D" parent="SubViewportContainer/Main/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
