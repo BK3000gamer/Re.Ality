@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=11 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
@@ -9,6 +9,13 @@
 [ext_resource type="Script" uid="uid://dkuim3gk1ptgo" path="res://Entites/Camera/Scripts/movement_control.gd" id="7_ejw8p"]
 [ext_resource type="Script" uid="uid://46knc23sl0fv" path="res://Entites/Camera/Scripts/rotation_control.gd" id="9_pn5e8"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2bje5"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 25.0
+dof_blur_far_transition = 1.0
+dof_blur_near_distance = 15.0
+dof_blur_amount = 0.05
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_qjuev"]
 
 [node name="Pivot" type="Node3D"]
@@ -16,6 +23,7 @@ script = ExtResource("1_ejw8p")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+attributes = SubResource("CameraAttributesPractical_2bje5")
 projection = 1
 current = true
 size = 11.25

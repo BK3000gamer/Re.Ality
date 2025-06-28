@@ -174,6 +174,4 @@ func _physics_process(delta: float) -> void:
 					PivotPos.y = pivot.RoomPos.y
 					TargetPos.y = pivot.RoomPos.y
 	
-	
-	
 	pivot.global_position = PivotPos
