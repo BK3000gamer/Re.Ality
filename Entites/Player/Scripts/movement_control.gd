@@ -44,7 +44,6 @@ func _get_gravity() -> float:
 	return JumpGravity if parent.velocity.y > 0.0 else FallGravity
 
 func process_physics(delta: float) -> void:
-	print(parent.velocity)
 	parent.InputDir = Vector3.ZERO
 	
 	if pivot.IsInSideView:

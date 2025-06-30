@@ -62,6 +62,9 @@ metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("7_ejw8p")
+HorizontalDeadZone = 1.0
+VerticalDeadZone = 1.0
+LookAheadDistance = 4.0
 
 [node name="Rotation Control" type="Node" parent="."]
 script = ExtResource("9_pn5e8")
