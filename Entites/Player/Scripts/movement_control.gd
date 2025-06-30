@@ -8,14 +8,17 @@ var pivot: Pivot
 @export var JumpTimeToDescent: float
 @export var WallJumpPushback: float
 @export var MoveSpeed: float
-@export var Speed: float
+@export var BaseSpeed: float
 @export var Acceleration: float
+@export var Deceleration: float
 @export var CrouchMultiplier: float
 @export var SlideMultiplier: float
 @export var SlideDecay: float
 @export var DashMultiplier: float
 @export var SuperJumpMultiplier: float
 
+var Speed: float
+var Momentum: Vector3
 var JumpVelocity: float
 var JumpGravity: float
 var FallGravity: float
@@ -41,6 +44,7 @@ func _get_gravity() -> float:
 	return JumpGravity if parent.velocity.y > 0.0 else FallGravity
 
 func process_physics(delta: float) -> void:
+	print(parent.velocity)
 	parent.InputDir = Vector3.ZERO
 	
 	if pivot.IsInSideView:
@@ -68,6 +72,33 @@ func jump() -> void:
 		parent.velocity.z = parent.InputDir.z * -WallJumpPushback
 	else:
 		parent.velocity.y = JumpVelocity
+
+func fall() -> void:
+	Momentum = Momentum * Deceleration
+	if parent.velocity.x > 0:
+		if parent.InputDir.x > 0:
+			parent.velocity.x = max(0, Momentum.x)
+		else:
+			parent.velocity.x = parent.InputDir.x * MoveSpeed
+	elif parent.velocity.x < 0:
+		if parent.InputDir.x < 0:
+			parent.velocity.x = min(0, Momentum.x)
+		else:
+			parent.velocity.x = parent.InputDir.x * MoveSpeed
+	else:
+		parent.velocity.x = parent.InputDir.x * MoveSpeed
+	if parent.velocity.z > 0:
+		if parent.InputDir.z > 0:
+			parent.velocity.z = max(0, Momentum.z)
+		else:
+			parent.velocity.z = parent.InputDir.z * MoveSpeed
+	elif parent.velocity.z < 0:
+		if parent.InputDir.z < 0:
+			parent.velocity.z = min(0, Momentum.z)
+		else:
+			parent.velocity.z = parent.InputDir.z * MoveSpeed
+	else:
+		parent.velocity.z = parent.InputDir.z * MoveSpeed
 
 func crouch() -> void:
 	parent.velocity.y = 0

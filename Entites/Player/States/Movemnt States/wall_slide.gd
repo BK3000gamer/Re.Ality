@@ -12,6 +12,7 @@ func slide_timeout():
 	timeout = true
 
 func enter() -> void:
+	parent.PreviousState = parent.CurrentState
 	parent.CurrentState = "Wall Slide"
 	parent.WallSlided = true
 	timeout = false

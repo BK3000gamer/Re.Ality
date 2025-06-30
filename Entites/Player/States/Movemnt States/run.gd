@@ -7,7 +7,8 @@ extends State
 @export var DashState: State
 
 func enter() -> void:
-	MovementControl.Speed = 2
+	parent.PreviousState = parent.CurrentState
+	MovementControl.Speed = MovementControl.BaseSpeed
 	parent.Jumped = false
 	parent.WallSlided = false
 	parent.CurrentState = "Run"

@@ -6,6 +6,7 @@ var Jumped: bool =  false
 var SuperJumped: bool = false
 var WallSlided: bool = false
 var CurrentState: String
+var PreviousState: String
 
 @onready var StateMachine = $"Movement State Machine"
 @onready var MovementControl = $"Movement Control"

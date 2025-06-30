@@ -57,13 +57,14 @@ DashState = NodePath("../Dash")
 DoubleJumpState = NodePath("../Double Jump")
 MovementControl = NodePath("../../Movement Control")
 
-[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState", "DoubleJumpState", "WallSlideState", "MovementControl")]
+[node name="Fall" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("IdleState", "RunState", "CrouchState", "SlideState", "DashState", "JumpState", "DoubleJumpState", "WallSlideState", "MovementControl")]
 script = ExtResource("7_h30pk")
 IdleState = NodePath("../Idle")
 RunState = NodePath("../Run")
 CrouchState = NodePath("../Crouch")
 SlideState = NodePath("../Slide")
 DashState = NodePath("../Dash")
+JumpState = NodePath("../Jump")
 DoubleJumpState = NodePath("../Double Jump")
 WallSlideState = NodePath("../Wall Slide")
 MovementControl = NodePath("../../Movement Control")
@@ -145,7 +146,9 @@ JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.25
 WallJumpPushback = 4.0
 MoveSpeed = 6.0
+BaseSpeed = 1.5
 Acceleration = 1.075
+Deceleration = 0.975
 CrouchMultiplier = 0.3
 SlideMultiplier = 2.0
 SlideDecay = 15.0

@@ -5,11 +5,26 @@ extends State
 @export var CrouchState: State
 @export var SlideState: State
 @export var DashState: State
+@export var JumpState: State
 @export var DoubleJumpState: State
 @export var WallSlideState: State
 
+var timeout: bool
+
+func coyote_timeout():
+	timeout = true
+
 func enter() -> void:
+	MovementControl.Momentum = parent.velocity
+	parent.PreviousState = parent.CurrentState
 	parent.CurrentState = "Fall"
+	timeout = false
+	var CoyoteTimer = Timer.new()
+	CoyoteTimer.one_shot = true
+	CoyoteTimer.wait_time = 0.1
+	CoyoteTimer.timeout.connect(coyote_timeout)
+	add_child(CoyoteTimer)
+	CoyoteTimer.start()
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("crouch"):
@@ -20,13 +35,22 @@ func process_input(event: InputEvent) -> State:
 	if !parent.InputDir == Vector3.ZERO and event.is_action_pressed("dash"):
 			return DashState
 	
-	if event.is_action_pressed("jump") and !parent.is_on_floor() and !parent.Jumped:
-		return DoubleJumpState
+	if event.is_action_pressed("jump") and  !parent.is_on_floor():
+		if timeout:
+			if !parent.Jumped:
+				return DoubleJumpState
+			return null
+		else:
+			if parent.PreviousState == "Run":
+				return JumpState
+			elif !parent.Jumped:
+				return DoubleJumpState
+			return null
 	return null
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += MovementControl._get_gravity() * delta
-	MovementControl.run()
+	MovementControl.fall()
 	
 	if parent.is_on_wall() and !parent.is_on_floor() and !parent.InputDir == Vector3.ZERO and !parent.WallSlided:
 		return WallSlideState

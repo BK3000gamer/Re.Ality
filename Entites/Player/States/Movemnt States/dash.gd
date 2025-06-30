@@ -14,6 +14,7 @@ func dash_timeout():
 	timeout = true
 
 func enter() -> void:
+	parent.PreviousState = parent.CurrentState
 	parent.CurrentState = "Dash"
 	timeout = false
 	var DashTimer = Timer.new()

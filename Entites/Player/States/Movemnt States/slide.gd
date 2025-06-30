@@ -8,6 +8,7 @@ extends State
 @export var SuperJumpState: State
 
 func enter() -> void:
+	parent.PreviousState = parent.CurrentState
 	MovementControl.slide()
 	parent.CurrentState = "Slide"
 

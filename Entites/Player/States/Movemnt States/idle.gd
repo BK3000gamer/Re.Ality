@@ -6,6 +6,7 @@ extends State
 @export var CrouchState: State
 
 func enter() -> void:
+	parent.PreviousState = parent.CurrentState
 	parent.velocity.x = 0
 	parent.velocity.z = 0
 	parent.Jumped = false

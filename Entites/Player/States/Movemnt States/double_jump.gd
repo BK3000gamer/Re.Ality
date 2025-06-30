@@ -9,6 +9,7 @@ extends State
 @export var WallSlideState: State
 
 func enter() -> void:
+	parent.PreviousState = parent.CurrentState
 	parent.Jumped = true
 	parent.WallSlided = false
 	MovementControl.jump()
