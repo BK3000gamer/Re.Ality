@@ -1,5 +1,6 @@
 extends State
 
+@export_category("Connected States")
 @export var FallState: State
 @export var RunState: State
 @export var IdleState: State

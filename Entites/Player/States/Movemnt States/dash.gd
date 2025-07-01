@@ -1,5 +1,6 @@
 extends State
 
+@export_category("Connected States")
 @export var RunState: State
 @export var JumpState: State
 @export var SlideState: State

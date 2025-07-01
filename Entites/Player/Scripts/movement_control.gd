@@ -3,6 +3,7 @@ extends Node
 var parent: CharacterBody3D
 var pivot: Pivot
 
+@export_category("Movement Stats")
 @export var JumpHeight: float
 @export var JumpTimeToPeak: float
 @export var JumpTimeToDescent: float

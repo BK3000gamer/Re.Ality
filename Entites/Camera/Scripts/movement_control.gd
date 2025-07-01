@@ -12,6 +12,7 @@ var MouseDir: Vector3
 
 var TargetPos
 
+@export_category("Movement Stats")
 @export var HorizontalDeadZone: float
 @export var VerticalDeadZone: float
 @export var LookAheadDistance: float
@@ -65,14 +66,14 @@ func _process(delta: float) -> void:
 		MouseDir.x = 1
 	elif -(PI*0.75) < playerPos.angle_to_point(MousePos) and playerPos.angle_to_point(MousePos) < -(PI*0.25):
 		if pivot.IsInSideView:
-			MouseDir.y = 1
-		else:
-			MouseDir.z = 1
-	elif PI*0.25 < playerPos.angle_to_point(MousePos) and playerPos.angle_to_point(MousePos) < PI*0.75:
-		if pivot.IsInSideView:
 			MouseDir.y = -1
 		else:
 			MouseDir.z = -1
+	elif PI*0.25 < playerPos.angle_to_point(MousePos) and playerPos.angle_to_point(MousePos) < PI*0.75:
+		if pivot.IsInSideView:
+			MouseDir.y = 1
+		else:
+			MouseDir.z = 1
 	elif PI*0.75 < playerPos.angle_to_point(MousePos) or playerPos.angle_to_point(MousePos) -(PI*0.75):
 		MouseDir.x = -1
 	
@@ -93,8 +94,16 @@ func _physics_process(delta: float) -> void:
 		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
 		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
 		if abs(PlayerPos.x - PivotPos.x) > LookAheadDistance:
-			TargetPos = PlayerPos + MouseDir * LookAheadDistance
-			PivotPos = PlayerPos + MouseDir * LookAheadDistance
+			TargetPos.x = PlayerPos.x + MouseDir.x * LookAheadDistance
+			PivotPos.x = PlayerPos.x + MouseDir.x * LookAheadDistance
+		if abs(PlayerPos.y - PivotPos.y) > LookAheadDistance:
+			TargetPos.y = PlayerPos.y + MouseDir.y * LookAheadDistance
+			PivotPos.y = PlayerPos.y + MouseDir.y * LookAheadDistance
+		if abs(PlayerPos.z - PivotPos.z) > LookAheadDistance:
+			TargetPos.z = PlayerPos.z + MouseDir.z * LookAheadDistance
+			PivotPos.z = PlayerPos.z + MouseDir.z * LookAheadDistance
+	if Input.is_action_just_released("look_ahead"):
+		PivotPos = PlayerPos
 	
 	if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x
