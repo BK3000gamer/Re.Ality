@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	elif pivot.CurrentState == "SideWE":
 		if (PlayerPos.z < ObjPos.z and ObjPos.z < CamPos.z) or (CamPos.z < ObjPos.z and ObjPos.z < PlayerPos.z):
 			transparent = abs(abs(PlayerPos.z - ObjPos.z) / 16 - 1)
-			if transparent > 0.8:
+			if transparent > 0.94:
 				transparent = 1
 			
 			update_transparent(transparent)
