@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 	var CamPos = pivot.CamPos
 	var ObjPos = global_position
 	
-	if pivot.CurrentState == "SideWE":
+	if pivot.CurrentState == "SideX":
 		if (PlayerPos.z < ObjPos.z and ObjPos.z < CamPos.z) or (CamPos.z < ObjPos.z and ObjPos.z < PlayerPos.z):
 			update_transparent(0)
 		else:

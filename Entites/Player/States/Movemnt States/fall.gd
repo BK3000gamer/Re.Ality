@@ -57,11 +57,11 @@ func process_physics(delta: float) -> State:
 		return WallSlideState
 	
 	if parent.is_on_floor():
-		if pivot.IsInSideView:
+		if pivot.CurrentView == "Side":
 			if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 				return RunState
 			return IdleState
-		elif !pivot.IsInSideView:
+		elif pivot.CurrentView == "Top" or pivot.CurrentView == "Middle":
 			if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
 				return RunState
 			return IdleState

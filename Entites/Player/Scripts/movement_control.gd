@@ -47,11 +47,15 @@ func _get_gravity() -> float:
 func process_physics(delta: float) -> void:
 	parent.InputDir = Vector3.ZERO
 	
-	if pivot.IsInSideView:
+	if pivot.CurrentView == "Side":
 		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		parent.InputDir.y = Input.get_action_strength("move_up") - Input.get_action_strength("move_down")
 		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
-	elif !pivot.IsInSideView:
+	elif pivot.CurrentView == "Middle":
+		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		parent.InputDir.z = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
+	elif pivot.CurrentView == "Top":
 		parent.InputDir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		parent.InputDir.z = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
@@ -127,7 +131,7 @@ func dash() -> void:
 	parent.velocity.z = parent.InputDir.z * MoveSpeed * DashMultiplier
 
 func superjump() -> void:
-	if pivot.IsInSideView:
+	if pivot.CurrentView == "Side" or pivot.CurrentView == "Middle":
 		if !parent.InputDir.y == 0:
 			parent.velocity.y = MoveSpeed * SuperJumpMultiplier * 1.4
 			parent.velocity.x = parent.InputDir.x * MoveSpeed * SuperJumpMultiplier

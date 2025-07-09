@@ -1,7 +1,7 @@
 extends Node3D
 class_name Pivot
 
-var IsInSideView: bool =  true
+var CurrentView: String
 var CameraRotationTarget: Vector3
 
 var RoomType:Array[int] = []

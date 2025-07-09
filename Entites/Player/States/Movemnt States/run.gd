@@ -15,7 +15,7 @@ func enter() -> void:
 	parent.CurrentState = "Run"
 
 func process_input(event: InputEvent) -> State:
-	if pivot.IsInSideView:
+	if pivot.CurrentView == "Side" or pivot.CurrentView == "Middle":
 		if event.is_action_pressed("jump") and parent.is_on_floor():
 			return JumpState
 	
