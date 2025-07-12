@@ -13,9 +13,9 @@
 [ext_resource type="Script" uid="uid://b5k3t6ygd5rut" path="res://Entites/Camera/States/Rotation/middle_zx.gd" id="8_fsdd3"]
 [ext_resource type="Script" uid="uid://dkn53dqpbxtf2" path="res://Entites/Camera/States/Rotation/middle_x.gd" id="9_5egma"]
 [ext_resource type="Script" uid="uid://46knc23sl0fv" path="res://Entites/Camera/Scripts/rotation_control.gd" id="9_pn5e8"]
-[ext_resource type="Script" uid="uid://tycy2c4slurc" path="res://Entites/Camera/States/middle_xz.gd" id="10_k8exe"]
-[ext_resource type="Script" uid="uid://d2mvp1hpwtrts" path="res://Entites/Camera/States/top_zx.gd" id="12_oj76c"]
-[ext_resource type="Script" uid="uid://bhxmld02lq032" path="res://Entites/Camera/States/top_xz.gd" id="14_oj76c"]
+[ext_resource type="Script" uid="uid://tycy2c4slurc" path="res://Entites/Camera/States/Rotation/middle_xz.gd" id="10_k8exe"]
+[ext_resource type="Script" uid="uid://d2mvp1hpwtrts" path="res://Entites/Camera/States/Rotation/top_zx.gd" id="12_oj76c"]
+[ext_resource type="Script" uid="uid://bhxmld02lq032" path="res://Entites/Camera/States/Rotation/top_xz.gd" id="14_oj76c"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2bje5"]
 dof_blur_far_enabled = true
