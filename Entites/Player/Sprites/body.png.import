@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpeeax30wvjyh"
-path="res://.godot/imported/Ality_sword_arm.png-3af98103e4bc69f1ef49dfdfdae7fd36.ctex"
+uid="uid://drfg7j2jb8jm"
+path="res://.godot/imported/body.png-966e41a640163313f4a2972df0a7d318.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entites/Player/Sprites/Ality_sword_arm.png"
-dest_files=["res://.godot/imported/Ality_sword_arm.png-3af98103e4bc69f1ef49dfdfdae7fd36.ctex"]
+source_file="res://Entites/Player/Sprites/body.png"
+dest_files=["res://.godot/imported/body.png-966e41a640163313f4a2972df0a7d318.ctex"]
 
 [params]
 
