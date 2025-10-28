@@ -25,7 +25,7 @@ func _ready() -> void:
 	MovementControl.init_sibling("Player")
 	RotationControl.init(self)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	PivotRot = rad_to_deg(rotation.y)
 	PivotRot = round(PivotRot)
 	var OverlappingRooms = $Area3D.get_overlapping_areas()

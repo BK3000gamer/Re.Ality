@@ -41,7 +41,7 @@ func _draw() -> void:
 			draw_arc(playerPos, 40, -PI, -(PI*0.875), 100, Color.PURPLE, 2, false)
 	draw_line(startPoint, endPoint, Color.LIME_GREEN, 2, false)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if pivot.PivotRot == 0.0 and pivot.CurrentView == "Side":
 		HorizontalPos = (player.global_transform.origin.x - pivot.global_transform.origin.x + 10) * 32
 		VerticalPos = 360 - (player.global_transform.origin.y - pivot.global_transform.origin.y + 5.625) * 32
@@ -230,7 +230,6 @@ func _process(delta: float) -> void:
 	playerPos = Vector2(HorizontalPos, VerticalPos)
 	mousePos = get_viewport().get_mouse_position()
 	var rad = playerPos.angle_to_point(mousePos)
-	var angle = rad_to_deg(rad)
 	startPoint = Vector2(playerPos.x + 25*cos(rad), playerPos.y + 25*sin(rad))
 	endPoint = Vector2(playerPos.x + 65*cos(rad), playerPos.y + 65*sin(rad))
 	

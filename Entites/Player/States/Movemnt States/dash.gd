@@ -26,7 +26,7 @@ func enter() -> void:
 	DashTimer.start()
 	MovementControl.dash()
 
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	if timeout:
 		if parent.is_on_floor():
 			return RunState

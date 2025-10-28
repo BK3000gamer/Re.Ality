@@ -31,7 +31,7 @@ func process_input(event: InputEvent) -> State:
 		return SuperJumpState
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	MovementControl.crouch()
 	
 	if parent.is_on_floor():

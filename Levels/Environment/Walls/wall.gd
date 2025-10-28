@@ -5,7 +5,7 @@ var pivot: Pivot
 var player: Player
 var transparent: float
 	
-func _process(delta: float) -> void:	
+func _process(_delta: float) -> void:	
 	var PlayerPos = player.global_position
 	var CamPos = pivot.CamPos
 	var ObjPos = global_position

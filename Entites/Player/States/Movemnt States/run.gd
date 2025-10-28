@@ -26,7 +26,7 @@ func process_input(event: InputEvent) -> State:
 		return DashState
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	MovementControl.run()
 	
 	if parent.InputDir.x == 0 and parent.InputDir.z == 0:

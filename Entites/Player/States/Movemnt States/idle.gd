@@ -19,7 +19,7 @@ func process_input(event: InputEvent) -> State:
 		return CrouchState
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	if pivot.CurrentView == "Side" or pivot.CurrentView == "Middle":
 		if !parent.InputDir.x == 0 or !parent.InputDir.z == 0:
 			return RunState

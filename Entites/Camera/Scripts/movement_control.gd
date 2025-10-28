@@ -31,7 +31,7 @@ func init_sibling(PlayerName: String) -> void:
 	
 	player = SiblingPlayer
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	MousePos = get_viewport().get_mouse_position()
 	MouseDir = Vector3.ZERO
 	

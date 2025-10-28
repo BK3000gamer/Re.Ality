@@ -32,9 +32,9 @@ func init(Parent: CharacterBody3D) -> void:
 	FallGravity = (-2.0 * JumpHeight) / pow(JumpTimeToDescent, 2)
 
 func init_sibling(PivotName: String) -> void:
-	var parent = get_parent().get_parent()
+	var grandParent = get_parent().get_parent()
 	
-	var SiblingPivot = parent.get_node_or_null(PivotName)
+	var SiblingPivot = grandParent.get_node_or_null(PivotName)
 	if SiblingPivot == null:
 		push_warning("Pivot node not found.")
 		return
@@ -44,7 +44,7 @@ func init_sibling(PivotName: String) -> void:
 func _get_gravity() -> float:
 	return JumpGravity if parent.velocity.y > 0.0 else FallGravity
 
-func process_physics(delta: float) -> void:
+func process_physics(_delta: float) -> void:
 	parent.InputDir = Vector3.ZERO
 	
 	if pivot.CurrentView == "Side":
@@ -116,11 +116,11 @@ func slide() -> void:
 
 func slide_decay(delta: float) -> void:
 	var HorizontalVelocity = Vector3(parent.velocity.x, 0, parent.velocity.z)
-	var Speed = HorizontalVelocity.length()
-	if Speed > 0:
+	var slideSpeed = HorizontalVelocity.length()
+	if slideSpeed > 0:
 		var DecayAmount = SlideDecay * delta
-		Speed = max(Speed - DecayAmount, 0)
-		HorizontalVelocity = HorizontalVelocity.normalized() * Speed
+		slideSpeed = max(slideSpeed - DecayAmount, 0)
+		HorizontalVelocity = HorizontalVelocity.normalized() * slideSpeed
 		
 		parent.velocity.x = HorizontalVelocity.x
 		parent.velocity.z = HorizontalVelocity.z
@@ -145,5 +145,5 @@ func superjump() -> void:
 			parent.velocity.x = parent.InputDir.x * MoveSpeed * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * MoveSpeed * SuperJumpMultiplier
 
-func wall_slide(delta) -> void:
+func wall_slide(_delta) -> void:
 	parent.velocity.y = 0
