@@ -1,9 +1,5 @@
 shader_type spatial;
 
-const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);
-
-instance uniform float transparency : hint_range(0.0, 1.0) = 1.0;
-
 uniform vec4 albedo : source_color = vec4(1.0f);
 uniform sampler2D albedo_texture : source_color;
 uniform bool clamp_diffuse_to_max = false;
@@ -42,11 +38,7 @@ void vertex() {
 }
 
 void fragment() {
-	float alpha = transparency;
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
-	if (alpha < 0.001 || alpha < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
-		discard;
-	}
 }
 
 void light() {
