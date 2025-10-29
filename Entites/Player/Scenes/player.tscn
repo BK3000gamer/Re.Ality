@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=80 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -25,6 +25,11 @@ size = Vector3(0.7, 1.6, 0.7)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aq10y"]
 radius = 0.35
 height = 1.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o8m6i"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.01
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bcnq7"]
 viewport_path = NodePath("Sprites")
@@ -1618,8 +1623,14 @@ shape = SubResource("BoxShape3D_aq10y")
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_aq10y")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41614, 0)
+cast_shadow = 3
+mesh = SubResource("CylinderMesh_o8m6i")
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 layers = 2
+cast_shadow = 0
 offset = Vector2(0, 8)
 pixel_size = 0.0313
 billboard = 1
@@ -1629,7 +1640,11 @@ texture = SubResource("ViewportTexture_bcnq7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-omni_range = 16.0
+light_color = Color(0.856323, 0.921362, 0.953125, 1)
+light_energy = 0.75
+shadow_enabled = true
+omni_range = 32.0
+omni_attenuation = 0.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
