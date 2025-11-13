@@ -1639,11 +1639,11 @@ texture_filter = 0
 texture = SubResource("ViewportTexture_bcnq7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(0.856323, 0.921362, 0.953125, 1)
 light_energy = 0.75
 shadow_enabled = true
-omni_range = 32.0
+omni_range = 16.0
 omni_attenuation = 0.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
