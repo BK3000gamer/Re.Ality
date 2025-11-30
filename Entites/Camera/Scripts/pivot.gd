@@ -35,7 +35,6 @@ func _process(_delta: float) -> void:
 			var PivotPos = global_transform.origin
 			var Distance = PivotPos.distance_to(RoomCentre)
 			if Distance <= CenterThreshold:
-				RoomType = room.RoomType
 				RoomPos = RoomCentre
 	
 	CamPos = Camera.global_position

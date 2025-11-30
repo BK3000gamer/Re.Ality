@@ -19,6 +19,10 @@ run/main_scene="uid://oeac5v0hp28v"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GetPlayer2dPosition="*res://Common/Singleton/get_player_2d_position.gd"
+
 [display]
 
 window/size/viewport_width=640

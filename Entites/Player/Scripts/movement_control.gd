@@ -78,31 +78,9 @@ func jump() -> void:
 		parent.velocity.y = JumpVelocity
 
 func fall() -> void:
-	Momentum = Momentum * Deceleration
-	if parent.velocity.x > 0:
-		if parent.InputDir.x > 0:
-			parent.velocity.x = max(0, Momentum.x)
-		else:
-			parent.velocity.x = parent.InputDir.x * MoveSpeed
-	elif parent.velocity.x < 0:
-		if parent.InputDir.x < 0:
-			parent.velocity.x = min(0, Momentum.x)
-		else:
-			parent.velocity.x = parent.InputDir.x * MoveSpeed
-	else:
-		parent.velocity.x = parent.InputDir.x * MoveSpeed
-	if parent.velocity.z > 0:
-		if parent.InputDir.z > 0:
-			parent.velocity.z = max(0, Momentum.z)
-		else:
-			parent.velocity.z = parent.InputDir.z * MoveSpeed
-	elif parent.velocity.z < 0:
-		if parent.InputDir.z < 0:
-			parent.velocity.z = min(0, Momentum.z)
-		else:
-			parent.velocity.z = parent.InputDir.z * MoveSpeed
-	else:
-		parent.velocity.z = parent.InputDir.z * MoveSpeed
+	Speed = Speed * Acceleration
+	parent.velocity.x = parent.InputDir.x * min(Speed, MoveSpeed)
+	parent.velocity.z = parent.InputDir.z * min(Speed, MoveSpeed)
 
 func crouch() -> void:
 	parent.velocity.y = 0

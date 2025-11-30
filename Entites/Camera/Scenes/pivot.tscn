@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=20 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://tycy2c4slurc" path="res://Entites/Camera/States/Rotation/middle_xz.gd" id="10_k8exe"]
 [ext_resource type="Script" uid="uid://d2mvp1hpwtrts" path="res://Entites/Camera/States/Rotation/top_zx.gd" id="12_oj76c"]
 [ext_resource type="Script" uid="uid://bhxmld02lq032" path="res://Entites/Camera/States/Rotation/top_xz.gd" id="14_oj76c"]
+[ext_resource type="Script" uid="uid://dgwv7rmvq1csr" path="res://Entites/Camera/Scripts/camera_border_coll.gd" id="17_vll0v"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2bje5"]
 dof_blur_far_distance = 35.0
@@ -172,3 +173,10 @@ script = ExtResource("9_pn5e8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_qjuev")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 24)
+target_position = Vector3(0, -24, 0)
+debug_shape_custom_color = Color(0.9133182, 0.1942502, 0, 1)
+debug_shape_thickness = 5
+script = ExtResource("17_vll0v")
