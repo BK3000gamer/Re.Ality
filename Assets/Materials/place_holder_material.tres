@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cj3u2ejnkjgf5"]
+
+[ext_resource type="Shader" uid="uid://x8hlkmcbow4f" path="res://Addons/flexible_toon_shader/flexible_toon.gdshader" id="1_p3peh"]
+[ext_resource type="Texture2D" uid="uid://j812ymov24ti" path="res://Levels/Environment/Tiles/Meshes/textures/Place_holder.aseprite.png" id="2_p4ivx"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_p3peh")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("2_p4ivx")
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01

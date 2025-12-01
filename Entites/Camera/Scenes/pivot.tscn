@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=19 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
@@ -23,8 +23,6 @@ dof_blur_far_distance = 35.0
 dof_blur_far_transition = 1.0
 dof_blur_near_distance = 15.0
 dof_blur_amount = 0.05
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_qjuev"]
 
 [node name="Pivot" type="Node3D"]
 script = ExtResource("1_ejw8p")
@@ -162,17 +160,11 @@ metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("7_ejw8p")
-HorizontalDeadZone = 1.0
-VerticalDeadZone = 1.0
-LookAheadDistance = 4.0
+HorizontalDeadZone = 2.0
+LookAheadDistance = 5.0
 
 [node name="Rotation Control" type="Node" parent="."]
 script = ExtResource("9_pn5e8")
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_qjuev")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 24)

@@ -111,7 +111,7 @@ func dash() -> void:
 func superjump() -> void:
 	if pivot.CurrentView == "Side" or pivot.CurrentView == "Middle":
 		if !parent.InputDir.y == 0:
-			parent.velocity.y = MoveSpeed * SuperJumpMultiplier * 1.4
+			parent.velocity.y = MoveSpeed * SuperJumpMultiplier
 			parent.velocity.x = parent.InputDir.x * MoveSpeed * SuperJumpMultiplier
 			parent.velocity.z = parent.InputDir.z * MoveSpeed * SuperJumpMultiplier
 		else:

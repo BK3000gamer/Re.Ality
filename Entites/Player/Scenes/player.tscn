@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=81 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -30,6 +30,8 @@ height = 1.6
 top_radius = 0.35
 bottom_radius = 0.35
 height = 0.01
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o8m6i"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bcnq7"]
 viewport_path = NodePath("Sprites")
@@ -1481,6 +1483,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
+CenterThreshold = 5.625
 
 [node name="Movement State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("5_184ek")
@@ -1602,15 +1605,15 @@ JumpHeight = 2.5
 JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.25
 WallJumpPushback = 4.0
-MoveSpeed = 6.0
+MoveSpeed = 12.0
 BaseSpeed = 1.5
-Acceleration = 1.075
+Acceleration = 1.2
 Deceleration = 0.975
 CrouchMultiplier = 0.3
 SlideMultiplier = 2.0
 SlideDecay = 15.0
-DashMultiplier = 4.0
-SuperJumpMultiplier = 2.0
+DashMultiplier = 3.0
+SuperJumpMultiplier = 1.75
 
 [node name="Animation Control" type="Node" parent="."]
 script = ExtResource("15_qqr1e")
@@ -1627,6 +1630,11 @@ shape = SubResource("CapsuleShape3D_aq10y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41614, 0)
 cast_shadow = 3
 mesh = SubResource("CylinderMesh_o8m6i")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_o8m6i")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 layers = 2

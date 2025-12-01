@@ -5,13 +5,9 @@ var CurrentView: String
 var CameraRotationTarget: Vector3
 
 var RoomType:Array[int] = []
-var RoomPos
 var CamPos
 var CurrentState: String
 var PivotRot
-
-var rooms: Array[Node]
-@export var CenterThreshold: float = 2.0
 
 @onready var StateMachine = $"Rotation State Machine"
 @onready var MovementControl = $"Movement Control"
@@ -28,14 +24,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	PivotRot = rad_to_deg(rotation.y)
 	PivotRot = round(PivotRot)
-	var OverlappingRooms = $Area3D.get_overlapping_areas()
-	for room in OverlappingRooms:
-		if room.is_in_group("rooms"):
-			var RoomCentre = room.global_position
-			var PivotPos = global_transform.origin
-			var Distance = PivotPos.distance_to(RoomCentre)
-			if Distance <= CenterThreshold:
-				RoomPos = RoomCentre
 	
 	CamPos = Camera.global_position
 

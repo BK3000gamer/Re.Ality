@@ -14,7 +14,6 @@ var TargetPos
 
 @export_category("Movement Stats")
 @export var HorizontalDeadZone: float
-@export var VerticalDeadZone: float
 @export var LookAheadDistance: float
 var FollowSpeed
 
@@ -75,6 +74,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("look_ahead"):
 		PivotPos.x = PlayerPos.x
 		PivotPos.z = PlayerPos.z
+	
+	PivotPos.y = player.RoomPos.y
 	
 	if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
 				TargetPos.x = PlayerPos.x

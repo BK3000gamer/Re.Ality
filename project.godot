@@ -32,6 +32,10 @@ window/size/borderless=true
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=3
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/blender_godot_pipeline/plugin.cfg")
+
 [global_group]
 
 rooms=""
@@ -56,6 +60,9 @@ texture={
 "process/size_limit": 0,
 "roughness/mode": 0,
 "roughness/src_normal": ""
+}
+animation_library={
+&"import_script/path": "uid://d222b2n4b18jy"
 }
 
 [input]

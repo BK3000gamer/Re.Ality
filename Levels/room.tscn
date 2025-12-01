@@ -10,3 +10,4 @@ script = ExtResource("1_cqbng")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_55rem")
+debug_color = Color(0, 0.5950001, 0.7, 1)
