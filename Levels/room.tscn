@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://hskk6m21ywtx" path="res://Levels/Rooms/rooms.gd" id="1_cqbng"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_55rem"]
-size = Vector3(20, 11.25, 20)
+size = Vector3(20, 20, 20)
 
 [node name="Room" type="Area3D"]
 script = ExtResource("1_cqbng")

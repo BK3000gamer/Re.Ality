@@ -1,8 +1,8 @@
-extends Environments
+extends Node3D
 class_name Border
 
 var pivot: Pivot
 var player: Player
 
-func update_transparent(value: float) -> void:
-	set_transparency(clamp(value, 0.0, 1.0))
+#func update_transparent(value: float) -> void:
+	#set_transparency(clamp(value, 0.0, 1.0))

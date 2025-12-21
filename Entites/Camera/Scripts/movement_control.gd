@@ -40,12 +40,12 @@ func _process(_delta: float) -> void:
 		MouseDir.x = 1
 	elif -(PI*0.75) < playerPos.angle_to_point(MousePos) and playerPos.angle_to_point(MousePos) < -(PI*0.25):
 		if pivot.CurrentView == "Side":
-			MouseDir.y = -1
+			MouseDir.y = 1
 		else:
 			MouseDir.z = -1
 	elif PI*0.25 < playerPos.angle_to_point(MousePos) and playerPos.angle_to_point(MousePos) < PI*0.75:
 		if pivot.CurrentView == "Side":
-			MouseDir.y = 1
+			MouseDir.y = -1
 		else:
 			MouseDir.z = 1
 	elif PI*0.75 < playerPos.angle_to_point(MousePos) or playerPos.angle_to_point(MousePos) -(PI*0.75):
@@ -66,23 +66,28 @@ func _physics_process(delta: float) -> void:
 		if player.CurrentState == "Idle":
 			TargetPos = PlayerPos + MouseDir.normalized() * LookAheadDistance
 			PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
+			PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
 			PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
 		else:
 			PivotPos.x = PlayerPos.x
+			PivotPos.y = PlayerPos.y
 			PivotPos.z = PlayerPos.z
 		
 	if Input.is_action_just_released("look_ahead"):
 		PivotPos.x = PlayerPos.x
+		PivotPos.y = PlayerPos.y
 		PivotPos.z = PlayerPos.z
 	
-	PivotPos.y = player.RoomPos.y
-	
 	if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
-				TargetPos.x = PlayerPos.x
-				PivotPos.x = move_toward(PivotPos.x, TargetPos.x, abs(FollowSpeed.x) * delta)
+		TargetPos.x = PlayerPos.x
+		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, abs(FollowSpeed.x) * delta)
+	
+	if abs(PlayerPos.y - PivotPos.y) > HorizontalDeadZone:
+		TargetPos.y = PlayerPos.y
+		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, abs(FollowSpeed.y) * delta)
 	
 	if abs(PlayerPos.z - PivotPos.z) > HorizontalDeadZone:
-				TargetPos.z = PlayerPos.z
-				PivotPos.z = move_toward(PivotPos.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+		TargetPos.z = PlayerPos.z
+		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, abs(FollowSpeed.z) * delta)
 	
 	pivot.global_position = PivotPos

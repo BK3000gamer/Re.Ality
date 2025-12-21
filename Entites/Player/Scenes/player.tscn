@@ -20,11 +20,11 @@
 [ext_resource type="Script" uid="uid://chfknvoy0ohm0" path="res://Entites/Player/States/Movemnt States/super_jump.gd" id="19_wauee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq10y"]
-size = Vector3(0.7, 1.6, 0.7)
+size = Vector3(0.7, 1.575, 0.7)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aq10y"]
 radius = 0.35
-height = 1.6
+height = 1.575
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o8m6i"]
 top_radius = 0.35
@@ -1605,15 +1605,15 @@ JumpHeight = 2.5
 JumpTimeToPeak = 0.3
 JumpTimeToDescent = 0.25
 WallJumpPushback = 4.0
-MoveSpeed = 12.0
+MoveSpeed = 9.0
 BaseSpeed = 1.5
 Acceleration = 1.2
 Deceleration = 0.975
 CrouchMultiplier = 0.3
-SlideMultiplier = 2.0
-SlideDecay = 15.0
+SlideMultiplier = 1.5
+SlideDecay = 20.0
 DashMultiplier = 3.0
-SuperJumpMultiplier = 1.75
+SuperJumpMultiplier = 1.25
 
 [node name="Animation Control" type="Node" parent="."]
 script = ExtResource("15_qqr1e")
@@ -1624,6 +1624,7 @@ shape = SubResource("BoxShape3D_aq10y")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_aq10y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -1648,8 +1649,8 @@ texture = SubResource("ViewportTexture_bcnq7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-light_color = Color(0.856323, 0.921362, 0.953125, 1)
-light_energy = 0.75
+light_color = Color(0.9466657, 0.92470044, 0.63045865, 1)
+light_energy = 2.0
 shadow_enabled = true
 omni_range = 16.0
 omni_attenuation = 0.3

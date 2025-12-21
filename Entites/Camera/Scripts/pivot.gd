@@ -4,7 +4,6 @@ class_name Pivot
 var CurrentView: String
 var CameraRotationTarget: Vector3
 
-var RoomType:Array[int] = []
 var CamPos
 var CurrentState: String
 var PivotRot

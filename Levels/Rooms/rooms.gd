@@ -5,6 +5,6 @@ func _ready() -> void:
 	init_player("Player")
 	
 	for child in get_children():
-		if child is Environments:
+		if child is not CollisionShape3D:
 			child.pivot = pivot
 			child.player = player
