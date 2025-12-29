@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oeac5v0hp28v"]
+[gd_scene load_steps=15 format=3 uid="uid://oeac5v0hp28v"]
 
 [ext_resource type="Shader" uid="uid://rjxrbwmplheu" path="res://Assets/Shaders/vignette.gdshader" id="1_3lhg3"]
 [ext_resource type="Shader" uid="uid://b202csg2s18y7" path="res://Assets/Shaders/pixel_offset.gdshader" id="1_5mxy1"]
@@ -43,6 +43,9 @@ fog_density = 1.0
 resource_local_to_scene = true
 shader = ExtResource("1_5mxy1")
 shader_parameter/cam_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbaan"]
+size = Vector3(100, 1, 100)
 
 [node name="main" type="Node2D"]
 
@@ -403,6 +406,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 3)
 
 [node name="Place_holder_dirt100" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 3)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/Main/StaticBody3D"]
+shape = SubResource("BoxShape3D_hbaan")
 
 [node name="Room2" parent="SubViewportContainer/Main" groups=["rooms"] instance=ExtResource("3_lwy2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)

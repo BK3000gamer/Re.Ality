@@ -20,7 +20,7 @@ func enter() -> void:
 	timeout = false
 	var DashTimer = Timer.new()
 	DashTimer.one_shot = true
-	DashTimer.wait_time = 0.2
+	DashTimer.wait_time = 0.075
 	DashTimer.timeout.connect(dash_timeout)
 	add_child(DashTimer)
 	DashTimer.start()

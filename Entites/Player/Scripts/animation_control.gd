@@ -1,7 +1,7 @@
 extends Node
 
-@onready var animationTree := $"../AnimationTree"
-@onready var animationPlayer := $"../AnimationPlayer"
+@onready var animationTree := $"../BodyAnimationTree"
+@onready var animationPlayer := $"../BodyAnimationPlayer"
 @onready var player := $".."
 @onready var gunArm := $"../Sprites/Body/Gun Arm"
 
@@ -269,6 +269,7 @@ func _process(_delta: float) -> void:
 			dir.x = 0.0
 		animationTree.set("parameters/Idle_State_Machine/Idle_Middle/blend_position", dir)
 		animationTree.set("parameters/Idle_State_Machine/Idle_Top/blend_position", dir)
+		
 		if pivot.CurrentView == "Middle":
 			if  -(PI*0.5625) < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < -(PI*0.4375):
 				gunArm.frame = 22
