@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://oeac5v0hp28v"]
+[gd_scene load_steps=17 format=3 uid="uid://oeac5v0hp28v"]
 
 [ext_resource type="Shader" uid="uid://rjxrbwmplheu" path="res://Assets/Shaders/vignette.gdshader" id="1_3lhg3"]
 [ext_resource type="Shader" uid="uid://b202csg2s18y7" path="res://Assets/Shaders/pixel_offset.gdshader" id="1_5mxy1"]
 [ext_resource type="PackedScene" uid="uid://dkr5sjjy8bo2m" path="res://Entites/Player/Scenes/player.tscn" id="1_nj2yk"]
 [ext_resource type="PackedScene" uid="uid://0qhllm8ymq7k" path="res://Entites/Camera/Scenes/pivot.tscn" id="2_34bfm"]
 [ext_resource type="PackedScene" uid="uid://dqyk7f0ixyvec" path="res://Levels/room.tscn" id="3_lwy2l"]
-[ext_resource type="PackedScene" uid="uid://b6k5q6smc2exq" path="res://Levels/Environment/Tiles/place_holder_dirt.tscn" id="8_u05pv"]
+[ext_resource type="MeshLibrary" uid="uid://b5fuytnfsperb" path="res://Levels/Environment/Tiles/place_holder_mesh_lib.tres" id="8_hbaan"]
 [ext_resource type="PackedScene" uid="uid://csjmpv6c7nia4" path="res://UI/Scenes/attack_ui.tscn" id="13_5mxy1"]
 [ext_resource type="PackedScene" uid="uid://byg23hp64k2a3" path="res://UI/Scenes/cursor_manager.tscn" id="14_3lhg3"]
 
@@ -17,6 +17,15 @@ shader_parameter/vignette_strength = 1.1
 shader_parameter/dither_strength = 0.05
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_hbaan"]
+offsets = PackedFloat32Array(0.24666667, 0.8)
+colors = PackedColorArray(0.08910001, 0.557685, 0.81, 0.078431375, 1, 0.832, 0.52, 0.078431375)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_he5fp"]
+gradient = SubResource("Gradient_hbaan")
+width = 256
+fill_to = Vector2(0.97574, 0)
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hilkn"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,7 +35,7 @@ sky_material = SubResource("ProceduralSkyMaterial_hilkn")
 
 [sub_resource type="Environment" id="Environment_3lhg3"]
 background_mode = 1
-background_color = Color(0.35, 0.3451, 0.3395, 1)
+background_color = Color(0.13999999, 0.36199996, 0.5, 1)
 sky = SubResource("Sky_5mxy1")
 tonemap_mode = 2
 glow_enabled = true
@@ -36,7 +45,7 @@ glow_bloom = 0.25
 glow_blend_mode = 1
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.5915, 0.613925, 0.65, 1)
+fog_light_color = Color(0.456, 0.54480004, 0.6, 1)
 fog_density = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3lhg3"]
@@ -58,6 +67,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Vignette"]
+offset_left = -98.89579
+offset_top = 20.210148
+offset_right = 626.5533
+offset_bottom = 547.3088
+rotation = -0.26333916
+texture = SubResource("GradientTexture2D_he5fp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lhg3")
@@ -81,331 +98,13 @@ render_target_update_mode = 4
 [node name="Cursor Manager" parent="SubViewportContainer/Main" instance=ExtResource("14_3lhg3")]
 
 [node name="Player" parent="SubViewportContainer/Main" instance=ExtResource("1_nj2yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.92675, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -3.80175, 0.25)
 collision_layer = 256
 
 [node name="Pivot" parent="SubViewportContainer/Main" instance=ExtResource("2_34bfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.927, 0)
 
 [node name="Room1" parent="SubViewportContainer/Main" groups=["rooms"] instance=ExtResource("3_lwy2l")]
-
-[node name="Place_holder_dirt" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
-
-[node name="Place_holder_dirt2" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 0)
-
-[node name="Place_holder_dirt3" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 0)
-
-[node name="Place_holder_dirt4" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 0)
-
-[node name="Place_holder_dirt5" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 0)
-
-[node name="Place_holder_dirt6" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 1)
-
-[node name="Place_holder_dirt7" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 1)
-
-[node name="Place_holder_dirt8" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 1)
-
-[node name="Place_holder_dirt9" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 1)
-
-[node name="Place_holder_dirt10" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 1)
-
-[node name="Place_holder_dirt11" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 2)
-
-[node name="Place_holder_dirt12" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 2)
-
-[node name="Place_holder_dirt105" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -4.125, 1)
-
-[node name="Place_holder_dirt106" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -4.125, 2)
-
-[node name="Place_holder_dirt13" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 2)
-
-[node name="Place_holder_dirt14" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 2)
-
-[node name="Place_holder_dirt15" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 2)
-
-[node name="Place_holder_dirt16" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, -1)
-
-[node name="Place_holder_dirt17" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, -1)
-
-[node name="Place_holder_dirt18" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, -1)
-
-[node name="Place_holder_dirt19" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, -1)
-
-[node name="Place_holder_dirt20" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, -1)
-
-[node name="Place_holder_dirt21" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, -2)
-
-[node name="Place_holder_dirt22" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, -2)
-
-[node name="Place_holder_dirt23" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, -2)
-
-[node name="Place_holder_dirt24" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, -2)
-
-[node name="Place_holder_dirt25" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, -2)
-
-[node name="Place_holder_dirt26" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 0)
-
-[node name="Place_holder_dirt27" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 0)
-
-[node name="Place_holder_dirt28" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 0)
-
-[node name="Place_holder_dirt29" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 0)
-
-[node name="Place_holder_dirt30" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 0)
-
-[node name="Place_holder_dirt31" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 1)
-
-[node name="Place_holder_dirt32" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 1)
-
-[node name="Place_holder_dirt33" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 1)
-
-[node name="Place_holder_dirt34" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 1)
-
-[node name="Place_holder_dirt35" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 1)
-
-[node name="Place_holder_dirt36" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 2)
-
-[node name="Place_holder_dirt37" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 2)
-
-[node name="Place_holder_dirt38" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 2)
-
-[node name="Place_holder_dirt39" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 2)
-
-[node name="Place_holder_dirt40" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 2)
-
-[node name="Place_holder_dirt41" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, -1)
-
-[node name="Place_holder_dirt42" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, -1)
-
-[node name="Place_holder_dirt43" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, -1)
-
-[node name="Place_holder_dirt44" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, -1)
-
-[node name="Place_holder_dirt45" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, -1)
-
-[node name="Place_holder_dirt46" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, -2)
-
-[node name="Place_holder_dirt47" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, -2)
-
-[node name="Place_holder_dirt48" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, -2)
-
-[node name="Place_holder_dirt49" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, -2)
-
-[node name="Place_holder_dirt50" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, -2)
-
-[node name="Place_holder_dirt51" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 5)
-
-[node name="Place_holder_dirt52" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 5)
-
-[node name="Place_holder_dirt53" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 5)
-
-[node name="Place_holder_dirt101" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -4.125, 5)
-
-[node name="Place_holder_dirt102" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -4.125, 5)
-
-[node name="Place_holder_dirt103" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -3.125, 5)
-
-[node name="Place_holder_dirt104" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3.125, 5)
-
-[node name="Place_holder_dirt54" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 5)
-
-[node name="Place_holder_dirt55" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 5)
-
-[node name="Place_holder_dirt56" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 6)
-
-[node name="Place_holder_dirt57" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 6)
-
-[node name="Place_holder_dirt58" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 6)
-
-[node name="Place_holder_dirt59" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 6)
-
-[node name="Place_holder_dirt60" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 6)
-
-[node name="Place_holder_dirt61" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 7)
-
-[node name="Place_holder_dirt62" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 7)
-
-[node name="Place_holder_dirt63" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 7)
-
-[node name="Place_holder_dirt64" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 7)
-
-[node name="Place_holder_dirt65" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 7)
-
-[node name="Place_holder_dirt66" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 4)
-
-[node name="Place_holder_dirt67" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 4)
-
-[node name="Place_holder_dirt68" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 4)
-
-[node name="Place_holder_dirt69" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 4)
-
-[node name="Place_holder_dirt70" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 4)
-
-[node name="Place_holder_dirt71" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5.125, 3)
-
-[node name="Place_holder_dirt72" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5.125, 3)
-
-[node name="Place_holder_dirt73" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.125, 3)
-
-[node name="Place_holder_dirt74" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.125, 3)
-
-[node name="Place_holder_dirt75" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5.125, 3)
-
-[node name="Place_holder_dirt76" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 5)
-
-[node name="Place_holder_dirt77" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 5)
-
-[node name="Place_holder_dirt78" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 5)
-
-[node name="Place_holder_dirt79" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 5)
-
-[node name="Place_holder_dirt80" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 5)
-
-[node name="Place_holder_dirt81" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 6)
-
-[node name="Place_holder_dirt82" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 6)
-
-[node name="Place_holder_dirt83" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 6)
-
-[node name="Place_holder_dirt84" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 6)
-
-[node name="Place_holder_dirt85" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 6)
-
-[node name="Place_holder_dirt86" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 7)
-
-[node name="Place_holder_dirt87" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 7)
-
-[node name="Place_holder_dirt88" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 7)
-
-[node name="Place_holder_dirt89" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 7)
-
-[node name="Place_holder_dirt90" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 7)
-
-[node name="Place_holder_dirt91" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 4)
-
-[node name="Place_holder_dirt92" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 4)
-
-[node name="Place_holder_dirt93" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 4)
-
-[node name="Place_holder_dirt94" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 4)
-
-[node name="Place_holder_dirt95" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 4)
-
-[node name="Place_holder_dirt96" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 3)
-
-[node name="Place_holder_dirt97" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -5.125, 3)
-
-[node name="Place_holder_dirt98" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.125, 3)
-
-[node name="Place_holder_dirt99" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5.125, 3)
-
-[node name="Place_holder_dirt100" parent="SubViewportContainer/Main/Room1" instance=ExtResource("8_u05pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.125, 3)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.125, 0)
@@ -421,3 +120,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
 
 [node name="Room4" parent="SubViewportContainer/Main" groups=["rooms"] instance=ExtResource("3_lwy2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.25, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.625, 0)
+mesh_library = ExtResource("8_hbaan")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(-65534, 65532, 1, -65534, 65531, 1, -65534, 65533, 1, -65534, 65534, 1, -65534, 65535, 1, -65534, 0, 1, -65534, 1, 1, -65533, 1, 1, -65533, 2, 1, -65533, 3, 1, -65532, 0, 1, -65532, 65535, 1, -65532, 65534, 1, -65533, 65533, 1, -65533, 65532, 1, -65533, 65534, 1, -65533, 65535, 1, -65533, 0, 1, -65535, 4, 1, -65536, 4, 1, -65536, 3, 1, -1, 2, 1, -1, 1, 1, -1, 0, 1, -65536, 0, 1, -65536, 1, 1, -65535, 1, 1, -65535, 2, 1, -65535, 3, 1, -65534, 3, 1, -65536, 2, 1, -65534, 2, 1, -65535, 0, 1, -65535, 65535, 1, -65535, 65534, 1, -65535, 65533, 1, -65535, 65532, 1, -65535, 65531, 1, -65535, 65530, 1, -65536, 65530, 1, -65536, 65529, 1, -65536, 65531, 1, -65536, 65532, 1, -65536, 65533, 1, -65536, 65534, 1, -65536, 65535, 1, -1, 65535, 0, -1, 65534, 0, -2, 65534, 0, -2, 65533, 0, -2, 65532, 0, -2, 65531, 0, -2, 65530, 0, -2, 65529, 0, -3, 65530, 0, -3, 65531, 0, -1, 65533, 0, -2, 65528, 0, -1, 65531, 0, -1, 65530, 0, -1, 65529, 0, -1, 65528, 0, -1, 65527, 0, -2, 65527, 0, -1, 65532, 0, -3, 65533, 0, -4, 65533, 0, -4, 65534, 0, -4, 65535, 0, -4, 0, 0, -3, 1, 0, -3, 2, 0, -3, 0, 0, -3, 65535, 0, -3, 65534, 0, -2, 0, 0, -3, 65532, 0, -4, 65532, 0, -2, 65535, 0, -2, 2, 0, -2, 3, 0, -2, 4, 0, -2, 5, 0, -2, 6, 0, -1, 5, 0, -1, 4, 0, -1, 3, 0, 65534, 65533, 0, 65535, 65532, 0, 65534, 65532, 0, 65534, 65531, 0, 65535, 65531, 0, 131070, 65533, 0, 131070, 65532, 0, 131070, 65531, 0, 131071, 65531, 0, 131071, 65532, 0, 196606, 65532, 0, 2, 0, 1, 2, 65535, 1, 3, 0, 1, 65538, 0, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)

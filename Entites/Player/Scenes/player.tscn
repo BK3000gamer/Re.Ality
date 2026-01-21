@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=72 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -23,12 +23,8 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wauee"]
 margin = 0.0
-height = 1.6
-radius = 0.35
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aq10y"]
-radius = 0.35
-height = 1.575
+height = 1.55
+radius = 0.25
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o8m6i"]
 top_radius = 0.35
@@ -36,6 +32,47 @@ bottom_radius = 0.35
 height = 0.01
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o8m6i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wauee"]
+viewport_path = NodePath("Sprites")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pe85o"]
+viewport_path = NodePath("Sprites")
+
+[sub_resource type="Gradient" id="Gradient_rjr0n"]
+colors = PackedColorArray(0.27058825, 0.5803922, 0.98039216, 1, 0.27058825, 0.5803922, 0.98039216, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kl1st"]
+gradient = SubResource("Gradient_rjr0n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wauee"]
+resource_local_to_scene = true
+render_priority = 1
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = SubResource("ViewportTexture_pe85o")
+detail_enabled = true
+detail_albedo = SubResource("GradientTexture1D_kl1st")
+texture_filter = 0
+billboard_mode = 1
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe85o"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_wauee")
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+albedo_texture = SubResource("ViewportTexture_wauee")
+texture_filter = 0
+billboard_mode = 1
+stencil_mode = 2
+stencil_flags = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bcnq7"]
 viewport_path = NodePath("Sprites")
@@ -401,11 +438,12 @@ SuperJumpState = NodePath("../Super Jump")
 MovementControl = NodePath("../../Movement Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "FallState", "IdleState", "WallSlideState", "MovementControl")]
+[node name="Dash" type="Node" parent="Movement State Machine" node_paths=PackedStringArray("RunState", "JumpState", "SlideState", "CrouchState", "FallState", "IdleState", "WallSlideState", "MovementControl")]
 script = ExtResource("17_o8m6i")
 RunState = NodePath("../Run")
 JumpState = NodePath("../Jump")
 SlideState = NodePath("../Slide")
+CrouchState = NodePath("../Crouch")
 FallState = NodePath("../Fall")
 IdleState = NodePath("../Idle")
 WallSlideState = NodePath("../Wall Slide")
@@ -463,7 +501,7 @@ Deceleration = 0.975
 CrouchMultiplier = 0.3
 SlideMultiplier = 1.5
 SlideDecay = 20.0
-DashMultiplier = 3.0
+DashMultiplier = 2.5
 SuperJumpMultiplier = 1.25
 
 [node name="Animation Control" type="Node" parent="."]
@@ -473,11 +511,6 @@ script = ExtResource("15_qqr1e")
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 shape = SubResource("CylinderShape3D_wauee")
 debug_color = Color(0, 0.70196074, 0.06032475, 0.41960785)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
-visible = false
-shape = SubResource("CapsuleShape3D_aq10y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41614, 0)
@@ -491,6 +524,7 @@ shape = SubResource("SphereShape3D_o8m6i")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 layers = 2
+material_override = SubResource("StandardMaterial3D_pe85o")
 cast_shadow = 0
 offset = Vector2(0, 8)
 pixel_size = 0.0313
@@ -502,7 +536,8 @@ texture = SubResource("ViewportTexture_bcnq7")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(0.9466657, 0.92470044, 0.63045865, 1)
-light_energy = 2.0
+light_energy = 1.5
+light_indirect_energy = 0.0
 shadow_enabled = true
 omni_range = 16.0
 omni_attenuation = 0.3

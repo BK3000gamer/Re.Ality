@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ll3yp2q5w6k"]
+
+[ext_resource type="PackedScene" uid="uid://b6k5q6smc2exq" path="res://Levels/Environment/Tiles/place_holder_dirt.tscn" id="1_7ym4k"]
+[ext_resource type="PackedScene" uid="uid://lemvki7oylob" path="res://Levels/Environment/Tiles/place_holder_grass.tscn" id="2_qiwci"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Place_holder_dirt" parent="." instance=ExtResource("1_7ym4k")]
+script = null
+
+[node name="Place_holder_grass" parent="." instance=ExtResource("2_qiwci")]
+script = null

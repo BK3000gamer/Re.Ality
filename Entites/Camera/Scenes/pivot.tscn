@@ -19,10 +19,9 @@
 [ext_resource type="Script" uid="uid://dgwv7rmvq1csr" path="res://Entites/Camera/Scripts/camera_border_coll.gd" id="17_vll0v"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2bje5"]
-dof_blur_far_distance = 35.0
-dof_blur_far_transition = 1.0
-dof_blur_near_distance = 15.0
-dof_blur_amount = 0.05
+dof_blur_far_distance = 25.0
+dof_blur_near_distance = 20.0
+dof_blur_amount = 0.02
 
 [node name="Pivot" type="Node3D"]
 script = ExtResource("1_ejw8p")
@@ -172,3 +171,9 @@ target_position = Vector3(0, -24, 0)
 debug_shape_custom_color = Color(0.9133182, 0.1942502, 0, 1)
 debug_shape_thickness = 5
 script = ExtResource("17_vll0v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-3.090862e-08, -0.70710677, 0.70710677, -3.090862e-08, 0.70710677, 0.70710677, -1, 0, -4.371139e-08, 8, 6, 0)
+light_color = Color(0.94509804, 0.9254902, 0.6313726, 1)
+light_energy = 1.5
+light_indirect_energy = 0.0

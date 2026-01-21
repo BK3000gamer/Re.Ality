@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=4 uid="uid://b6k5q6smc2exq"]
+[gd_scene load_steps=7 format=4 uid="uid://b6k5q6smc2exq"]
 
-[ext_resource type="Script" uid="uid://dp4m65t2dstjb" path="res://Levels/Environment/Walls/wall.gd" id="1_e3ppv"]
 [ext_resource type="Texture2D" uid="uid://j812ymov24ti" path="res://Levels/Environment/Tiles/Meshes/textures/Place_holder.aseprite.png" id="2_yvk6m"]
 [ext_resource type="Material" uid="uid://cj3u2ejnkjgf5" path="res://Assets/Materials/place_holder_material.tres" id="3_5fnt4"]
 
@@ -47,7 +46,6 @@ shadow_mesh = SubResource("ArrayMesh_0j8v5")
 data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5)
 
 [node name="Place_holder_dirt" type="Node3D"]
-script = ExtResource("1_e3ppv")
 
 [node name="Dirt" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_jowes")

@@ -90,4 +90,8 @@ func _physics_process(delta: float) -> void:
 		TargetPos.z = PlayerPos.z
 		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, abs(FollowSpeed.z) * delta)
 	
-	pivot.global_position = PivotPos
+	var camSubpixelOffset = ((PivotPos * 32).round() / 32) - PivotPos
+	
+	get_parent().get_parent().get_parent().material.set_shader_parameter("cam_offset", camSubpixelOffset)
+	
+	pivot.global_position = ((PivotPos * 32).round() / 32)
