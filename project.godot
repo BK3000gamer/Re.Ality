@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GetPlayer2dPosition="*res://Common/Singleton/get_player_2d_position.gd"
+CamSubpixelOffset="*res://Common/Singleton/cam_subpixel_offset.gd"
 
 [display]
 

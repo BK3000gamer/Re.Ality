@@ -27,7 +27,7 @@ dof_blur_amount = 0.02
 script = ExtResource("1_ejw8p")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2014214e-09, -3.2014214e-09, 30)
 attributes = SubResource("CameraAttributesPractical_2bje5")
 projection = 1
 current = true
@@ -159,8 +159,8 @@ metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("7_ejw8p")
-HorizontalDeadZone = 2.0
-LookAheadDistance = 5.0
+DeadZone = 0.999999999999968
+LookAheadDistance = 2.999999999999904
 
 [node name="Rotation Control" type="Node" parent="."]
 script = ExtResource("9_pn5e8")

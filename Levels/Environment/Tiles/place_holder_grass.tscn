@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=4 uid="uid://lemvki7oylob"]
+[gd_scene load_steps=7 format=4 uid="uid://lemvki7oylob"]
 
-[ext_resource type="Script" uid="uid://dp4m65t2dstjb" path="res://Levels/Environment/Walls/wall.gd" id="1_pe1jl"]
 [ext_resource type="Texture2D" uid="uid://j812ymov24ti" path="res://Levels/Environment/Tiles/Meshes/textures/Place_holder.aseprite.png" id="2_kt2u2"]
 [ext_resource type="Material" uid="uid://cj3u2ejnkjgf5" path="res://Assets/Materials/place_holder_material.tres" id="3_t8800"]
 
@@ -47,7 +46,6 @@ shadow_mesh = SubResource("ArrayMesh_jn6bk")
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
 [node name="Place_holder_grass" type="Node3D"]
-script = ExtResource("1_pe1jl")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

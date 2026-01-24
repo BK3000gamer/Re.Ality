@@ -8,3 +8,5 @@ script = ExtResource("1_0oy8q")
 
 [node name="Basic" type="Node2D" parent="."]
 script = ExtResource("1_1s0fo")
+green = Color(0.685, 1.572, 0.508, 1)
+purple = Color(1.5024687, 0.5080001, 1.56, 1)

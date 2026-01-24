@@ -12,8 +12,10 @@ var MouseDir: Vector3
 
 var TargetPos
 
+var camSubpixelOffset
+
 @export_category("Movement Stats")
-@export var HorizontalDeadZone: float
+@export var DeadZone: float
 @export var LookAheadDistance: float
 var FollowSpeed
 
@@ -78,20 +80,18 @@ func _physics_process(delta: float) -> void:
 		PivotPos.y = PlayerPos.y
 		PivotPos.z = PlayerPos.z
 	
-	if abs(PlayerPos.x - PivotPos.x) > HorizontalDeadZone:
+	if abs(PlayerPos.x - PivotPos.x) > DeadZone:
 		TargetPos.x = PlayerPos.x
 		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, abs(FollowSpeed.x) * delta)
 	
-	if abs(PlayerPos.y - PivotPos.y) > HorizontalDeadZone:
+	if abs(PlayerPos.y - PivotPos.y) > DeadZone:
 		TargetPos.y = PlayerPos.y
 		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, abs(FollowSpeed.y) * delta)
 	
-	if abs(PlayerPos.z - PivotPos.z) > HorizontalDeadZone:
+	if abs(PlayerPos.z - PivotPos.z) > DeadZone:
 		TargetPos.z = PlayerPos.z
 		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, abs(FollowSpeed.z) * delta)
 	
-	var camSubpixelOffset = ((PivotPos * 32).round() / 32) - PivotPos
-	
-	get_parent().get_parent().get_parent().material.set_shader_parameter("cam_offset", camSubpixelOffset)
+	camSubpixelOffset = ((PivotPos * 32).round() / 32) - PivotPos
 	
 	pivot.global_position = ((PivotPos * 32).round() / 32)

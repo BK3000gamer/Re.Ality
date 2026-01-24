@@ -1,12 +1,104 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3ll3yp2q5w6k"]
+[gd_scene load_steps=20 format=3 uid="uid://d3ll3yp2q5w6k"]
 
-[ext_resource type="PackedScene" uid="uid://b6k5q6smc2exq" path="res://Levels/Environment/Tiles/place_holder_dirt.tscn" id="1_7ym4k"]
-[ext_resource type="PackedScene" uid="uid://lemvki7oylob" path="res://Levels/Environment/Tiles/place_holder_grass.tscn" id="2_qiwci"]
+[ext_resource type="Texture2D" uid="uid://cf2hp7qkdjgbr" path="res://Assets/Textures/Dark/texture_08.png" id="1_dch1f"]
+[ext_resource type="Texture2D" uid="uid://dkof72t0yri1y" path="res://Assets/Textures/Green/texture_09.png" id="2_vtt3l"]
+[ext_resource type="Texture2D" uid="uid://clmabuamptr0j" path="res://Assets/Textures/Light/texture_07.png" id="3_gtbcp"]
+[ext_resource type="Texture2D" uid="uid://dko48qpqp0lfl" path="res://Assets/Textures/Orange/texture_09.png" id="4_sxbeu"]
+[ext_resource type="Texture2D" uid="uid://d2rc2jssri8tn" path="res://Assets/Textures/Purple/texture_09.png" id="5_l4k80"]
+[ext_resource type="Texture2D" uid="uid://chm8neu7nuo8s" path="res://Assets/Textures/Red/texture_09.png" id="6_iwurj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiwci"]
+albedo_texture = ExtResource("1_dch1f")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7h4l"]
+material = SubResource("StandardMaterial3D_qiwci")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ym4k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2nwn"]
+albedo_texture = ExtResource("2_vtt3l")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_cid4o"]
+material = SubResource("StandardMaterial3D_c2nwn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0vi4"]
+albedo_texture = ExtResource("3_gtbcp")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_pplnx"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_b0vi4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b276j"]
+albedo_texture = ExtResource("4_sxbeu")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ad1q4"]
+material = SubResource("StandardMaterial3D_b276j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxtlv"]
+albedo_texture = ExtResource("5_l4k80")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_igpcy"]
+material = SubResource("StandardMaterial3D_bxtlv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5wsl"]
+albedo_texture = ExtResource("6_iwurj")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_o1om7"]
+material = SubResource("StandardMaterial3D_i5wsl")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Place_holder_dirt" parent="." instance=ExtResource("1_7ym4k")]
-script = null
+[node name="Dark Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_a7h4l")
 
-[node name="Place_holder_grass" parent="." instance=ExtResource("2_qiwci")]
-script = null
+[node name="StaticBody3D" type="StaticBody3D" parent="Dark Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dark Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_7ym4k")
+
+[node name="Green Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cid4o")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Green Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Green Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_7ym4k")
+
+[node name="Light Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pplnx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Light Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_7ym4k")
+
+[node name="Orange Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ad1q4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Orange Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Orange Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_7ym4k")
+
+[node name="Purple Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_igpcy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Purple Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Purple Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_7ym4k")
+
+[node name="Red Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_o1om7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Red Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Red Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_7ym4k")

@@ -7,8 +7,8 @@ var HorizontalPos: float
 var VerticalPos: float
 
 func _ready() -> void:
-	player = get_node("/root/main/SubViewportContainer/Main/Player")
-	pivot = get_node("/root/main/SubViewportContainer/Main/Pivot")
+	player = get_node("/root/main/SubViewportContainer/SubViewport/Player")
+	pivot = get_node("/root/main/SubViewportContainer/SubViewport/Pivot")
 
 func _process(_delta: float) -> void:
 	if pivot.PivotRot == 0.0 and pivot.CurrentView == "Side":

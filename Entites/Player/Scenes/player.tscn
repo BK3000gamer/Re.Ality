@@ -23,7 +23,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wauee"]
 margin = 0.0
-height = 1.55
+height = 1.6
 radius = 0.25
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o8m6i"]
@@ -33,19 +33,19 @@ height = 0.01
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o8m6i"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wauee"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rjr0n"]
 viewport_path = NodePath("Sprites")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pe85o"]
 viewport_path = NodePath("Sprites")
 
-[sub_resource type="Gradient" id="Gradient_rjr0n"]
+[sub_resource type="Gradient" id="Gradient_kl1st"]
 colors = PackedColorArray(0.27058825, 0.5803922, 0.98039216, 1, 0.27058825, 0.5803922, 0.98039216, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kl1st"]
-gradient = SubResource("Gradient_rjr0n")
+gradient = SubResource("Gradient_kl1st")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wauee"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8l7f"]
 resource_local_to_scene = true
 render_priority = 1
 transparency = 1
@@ -64,11 +64,11 @@ metadata/_stencil_owned = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe85o"]
 resource_local_to_scene = true
-next_pass = SubResource("StandardMaterial3D_wauee")
+next_pass = SubResource("StandardMaterial3D_r8l7f")
 transparency = 1
 shading_mode = 0
 specular_mode = 2
-albedo_texture = SubResource("ViewportTexture_wauee")
+albedo_texture = SubResource("ViewportTexture_rjr0n")
 texture_filter = 0
 billboard_mode = 1
 stencil_mode = 2
@@ -498,7 +498,7 @@ MoveSpeed = 9.0
 BaseSpeed = 1.5
 Acceleration = 1.2
 Deceleration = 0.975
-CrouchMultiplier = 0.3
+CrouchMultiplier = 0.499999999999984
 SlideMultiplier = 1.5
 SlideDecay = 20.0
 DashMultiplier = 2.5
