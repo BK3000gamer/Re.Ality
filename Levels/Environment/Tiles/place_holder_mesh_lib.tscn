@@ -1,56 +1,32 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3ll3yp2q5w6k"]
+[gd_scene load_steps=14 format=3 uid="uid://d3ll3yp2q5w6k"]
 
-[ext_resource type="Texture2D" uid="uid://cf2hp7qkdjgbr" path="res://Assets/Textures/Dark/texture_08.png" id="1_dch1f"]
-[ext_resource type="Texture2D" uid="uid://dkof72t0yri1y" path="res://Assets/Textures/Green/texture_09.png" id="2_vtt3l"]
-[ext_resource type="Texture2D" uid="uid://clmabuamptr0j" path="res://Assets/Textures/Light/texture_07.png" id="3_gtbcp"]
-[ext_resource type="Texture2D" uid="uid://dko48qpqp0lfl" path="res://Assets/Textures/Orange/texture_09.png" id="4_sxbeu"]
-[ext_resource type="Texture2D" uid="uid://d2rc2jssri8tn" path="res://Assets/Textures/Purple/texture_09.png" id="5_l4k80"]
-[ext_resource type="Texture2D" uid="uid://chm8neu7nuo8s" path="res://Assets/Textures/Red/texture_09.png" id="6_iwurj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiwci"]
-albedo_texture = ExtResource("1_dch1f")
-uv1_triplanar = true
+[ext_resource type="Material" uid="uid://cp7yp201qa27l" path="res://Assets/Materials/place_holder_dark_cube.tres" id="1_vtt3l"]
+[ext_resource type="Material" uid="uid://cop7ittmnjl3d" path="res://Assets/Materials/place_holder_green_cube.tres" id="2_vtt3l"]
+[ext_resource type="Material" uid="uid://1yevfek24ne" path="res://Assets/Materials/place_holder_light_cube.tres" id="3_gtbcp"]
+[ext_resource type="Material" uid="uid://y3ef64wfk2t7" path="res://Assets/Materials/place_holder_orange_cube.tres" id="4_gtbcp"]
+[ext_resource type="Material" uid="uid://b6e840tnsrg18" path="res://Assets/Materials/place_holder_purple_cube.tres" id="5_sxbeu"]
+[ext_resource type="Material" uid="uid://dj87025kjtrmk" path="res://Assets/Materials/place_holder_red_cube.tres" id="6_vtt3l"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_a7h4l"]
-material = SubResource("StandardMaterial3D_qiwci")
+material = ExtResource("1_vtt3l")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ym4k"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2nwn"]
-albedo_texture = ExtResource("2_vtt3l")
-uv1_triplanar = true
-
 [sub_resource type="BoxMesh" id="BoxMesh_cid4o"]
-material = SubResource("StandardMaterial3D_c2nwn")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0vi4"]
-albedo_texture = ExtResource("3_gtbcp")
-uv1_triplanar = true
+material = ExtResource("2_vtt3l")
 
 [sub_resource type="BoxMesh" id="BoxMesh_pplnx"]
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_b0vi4")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b276j"]
-albedo_texture = ExtResource("4_sxbeu")
-uv1_triplanar = true
+material = ExtResource("3_gtbcp")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ad1q4"]
-material = SubResource("StandardMaterial3D_b276j")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxtlv"]
-albedo_texture = ExtResource("5_l4k80")
-uv1_triplanar = true
+material = ExtResource("4_gtbcp")
 
 [sub_resource type="BoxMesh" id="BoxMesh_igpcy"]
-material = SubResource("StandardMaterial3D_bxtlv")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5wsl"]
-albedo_texture = ExtResource("6_iwurj")
-uv1_triplanar = true
+material = ExtResource("5_sxbeu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_o1om7"]
-material = SubResource("StandardMaterial3D_i5wsl")
+material = ExtResource("6_vtt3l")
 
 [node name="Node3D" type="Node3D"]
 

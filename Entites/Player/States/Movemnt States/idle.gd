@@ -11,7 +11,6 @@ func enter() -> void:
 	parent.velocity.x = 0
 	parent.velocity.z = 0
 	parent.Jumped = false
-	parent.WallSlided = false
 	parent.CurrentState = "Idle"
 
 func process_input(event: InputEvent) -> State:

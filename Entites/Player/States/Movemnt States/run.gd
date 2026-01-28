@@ -11,7 +11,6 @@ func enter() -> void:
 	parent.PreviousState = parent.CurrentState
 	MovementControl.Speed = MovementControl.BaseSpeed
 	parent.Jumped = false
-	parent.WallSlided = false
 	parent.CurrentState = "Run"
 
 func process_input(event: InputEvent) -> State:

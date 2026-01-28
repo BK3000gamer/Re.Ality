@@ -11,7 +11,6 @@ extends State
 
 func enter() -> void:
 	parent.PreviousState = parent.CurrentState
-	parent.WallSlided = false
 	MovementControl.jump()
 	parent.CurrentState = "Jump"
 

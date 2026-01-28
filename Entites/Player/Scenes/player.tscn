@@ -65,7 +65,7 @@ metadata/_stencil_owned = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe85o"]
 resource_local_to_scene = true
 next_pass = SubResource("StandardMaterial3D_r8l7f")
-transparency = 1
+transparency = 4
 shading_mode = 0
 specular_mode = 2
 albedo_texture = SubResource("ViewportTexture_rjr0n")
@@ -535,11 +535,10 @@ texture = SubResource("ViewportTexture_bcnq7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-light_color = Color(0.9466657, 0.92470044, 0.63045865, 1)
-light_energy = 1.5
+light_energy = 2.0
 light_indirect_energy = 0.0
 shadow_enabled = true
-omni_range = 16.0
+omni_range = 8.0
 omni_attenuation = 0.3
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]

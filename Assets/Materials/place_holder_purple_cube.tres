@@ -1,13 +1,13 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bb43ngplsfis2"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b6e840tnsrg18"]
 
-[ext_resource type="Shader" uid="uid://x8hlkmcbow4f" path="res://Addons/flexible_toon_shader/flexible_toon.gdshader" id="1_pis2y"]
-[ext_resource type="Texture2D" uid="uid://chm8neu7nuo8s" path="res://Assets/Textures/Red/texture_09.png" id="2_0me7w"]
+[ext_resource type="Shader" uid="uid://x8hlkmcbow4f" path="res://Addons/flexible_toon_shader/flexible_toon.gdshader" id="1_g8dhb"]
+[ext_resource type="Texture2D" uid="uid://d2rc2jssri8tn" path="res://Assets/Textures/Purple/texture_09.png" id="2_t3fvg"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_pis2y")
+shader = ExtResource("1_g8dhb")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/albedo_texture = ExtResource("2_0me7w")
+shader_parameter/albedo_texture = ExtResource("2_t3fvg")
 shader_parameter/clamp_diffuse_to_max = false
 shader_parameter/cuts = 3
 shader_parameter/wrap = 0.0

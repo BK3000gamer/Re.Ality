@@ -60,6 +60,7 @@ func process_physics(_delta: float) -> void:
 		parent.InputDir.z = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 		parent.InputDir = parent.InputDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
 	
+	parent.global_position = ((parent.global_position * 32).round() / 32)
 	parent.move_and_slide()
 
 func run() -> void:

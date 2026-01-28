@@ -19,7 +19,6 @@ func enter() -> void:
 	parent.PreviousState = parent.CurrentState
 	parent.CurrentState = "Super Jump"
 	parent.SuperJumped = true
-	parent.WallSlided = false
 	timeout = false
 	var JumpTimer = Timer.new()
 	JumpTimer.one_shot = true

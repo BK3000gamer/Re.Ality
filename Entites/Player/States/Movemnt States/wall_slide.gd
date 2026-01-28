@@ -15,11 +15,10 @@ func slide_timeout():
 func enter() -> void:
 	parent.PreviousState = parent.CurrentState
 	parent.CurrentState = "Wall Slide"
-	parent.WallSlided = true
 	timeout = false
 	var SlideTimer = Timer.new()
 	SlideTimer.one_shot = true
-	SlideTimer.wait_time = 1.0
+	SlideTimer.wait_time = 2.0
 	SlideTimer.timeout.connect(slide_timeout)
 	add_child(SlideTimer)
 	SlideTimer.start()
