@@ -182,4 +182,5 @@ light_energy = 0.5
 light_indirect_energy = 0.0
 shadow_enabled = true
 shadow_blur = 0.25
+directional_shadow_max_distance = 25.0
 directional_shadow_pancake_size = 0.0

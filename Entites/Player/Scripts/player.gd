@@ -28,7 +28,6 @@ func _ready() -> void:
 	pivot = get_parent().get_node("Pivot")
 
 func _process(_delta: float) -> void:
-	print (CurrentState)
 	var OverlappingRooms = $Area3D.get_overlapping_areas()
 	for room in OverlappingRooms:
 		if room.is_in_group("rooms"):

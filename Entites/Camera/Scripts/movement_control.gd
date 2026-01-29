@@ -67,18 +67,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("look_ahead"):
 		if player.CurrentState == "Idle":
 			TargetPos = PlayerPos + MouseDir.normalized() * LookAheadDistance
-			PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
-			PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
-			PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
 		else:
-			PivotPos.x = PlayerPos.x
-			PivotPos.y = PlayerPos.y
-			PivotPos.z = PlayerPos.z
+			TargetPos = PlayerPos
+		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
+		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
+		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
+	elif player.InputDir == Vector3.ZERO:
+		TargetPos = PlayerPos
+		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
+		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
+		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
 		
-	if Input.is_action_just_released("look_ahead"):
-		PivotPos.x = PlayerPos.x
-		PivotPos.y = PlayerPos.y
-		PivotPos.z = PlayerPos.z
 	
 	if abs(PlayerPos.x - PivotPos.x) > DeadZone:
 		TargetPos.x = PlayerPos.x
