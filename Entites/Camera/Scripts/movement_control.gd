@@ -55,6 +55,22 @@ func _process(_delta: float) -> void:
 	
 	MouseDir = MouseDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
 
+func _dead_zoning(delta: float) -> void:
+	if abs(PlayerPos.x - PivotPos.x) > DeadZone:
+		TargetPos.x = PlayerPos.x
+		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, abs(FollowSpeed.x) * delta)
+	if abs(PlayerPos.y - PivotPos.y) > DeadZone:
+		TargetPos.y = PlayerPos.y
+		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, abs(FollowSpeed.y) * delta)
+	if abs(PlayerPos.z - PivotPos.z) > DeadZone:
+		TargetPos.z = PlayerPos.z
+		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+
+func _look_ahead(delta: float) -> void:
+	PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
+	PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
+	PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
+
 func _physics_process(delta: float) -> void:
 	PlayerPos = player.global_position
 	PivotPos = pivot.global_position
@@ -67,29 +83,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("look_ahead"):
 		if player.CurrentState == "Idle":
 			TargetPos = PlayerPos + MouseDir.normalized() * LookAheadDistance
+			_look_ahead(delta)
 		else:
-			TargetPos = PlayerPos
-		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
-		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
-		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
+			_dead_zoning(delta)
 	elif player.InputDir == Vector3.ZERO:
 		TargetPos = PlayerPos
-		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, 10 * delta)
-		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, 10 * delta)
-		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, 10 * delta)
-		
+		_look_ahead(delta)
 	
-	if abs(PlayerPos.x - PivotPos.x) > DeadZone:
-		TargetPos.x = PlayerPos.x
-		PivotPos.x = move_toward(PivotPos.x, TargetPos.x, abs(FollowSpeed.x) * delta)
-	
-	if abs(PlayerPos.y - PivotPos.y) > DeadZone:
-		TargetPos.y = PlayerPos.y
-		PivotPos.y = move_toward(PivotPos.y, TargetPos.y, abs(FollowSpeed.y) * delta)
-	
-	if abs(PlayerPos.z - PivotPos.z) > DeadZone:
-		TargetPos.z = PlayerPos.z
-		PivotPos.z = move_toward(PivotPos.z, TargetPos.z, abs(FollowSpeed.z) * delta)
+	_dead_zoning(delta)
 	
 	camSubpixelOffset = ((PivotPos * 32).round() / 32) - PivotPos
 	
