@@ -17,6 +17,7 @@ var rooms: Array[Node]
 @onready var StateMachine = $"Movement State Machine"
 @onready var MovementControl = $"Movement Control"
 @onready var AnimationControl = $"Animation Control"
+@onready var AttackControl = $"Attack Control"
 
 func _ready() -> void:
 	StateMachine.init(self)
