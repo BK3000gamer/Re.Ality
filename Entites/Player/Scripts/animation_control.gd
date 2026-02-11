@@ -5,6 +5,8 @@ extends Node
 @onready var player := $".."
 @onready var Sprite :=$"../Sprite3D"
 
+@export var AttackControl: Node
+
 var mousePos
 var pivot
 var playerPos
@@ -33,9 +35,10 @@ func _process(_delta: float) -> void:
 		elif PI*0.5 < playerPos.angle_to_point(mousePos) or playerPos.angle_to_point(mousePos) < -(PI*0.5):
 			dir.x = -1.0
 		animationTree.set("parameters/Idle/Side/blend_position", dir.x)
-		animationTree.set("parameters/Idle_Attack_1/Side/blend_position", dir.x)
-		animationTree.set("parameters/Idle_Attack_2/Side/blend_position", dir.x)
-		animationTree.set("parameters/Idle_Attack_3/Side/blend_position", dir.x)
+		if AttackControl.cooldownTimer <= 0.0:
+			animationTree.set("parameters/Idle_Attack_1/Side/blend_position", dir.x)
+			animationTree.set("parameters/Idle_Attack_2/Side/blend_position", dir.x)
+			animationTree.set("parameters/Idle_Attack_3/Side/blend_position", dir.x)
 		
 	else:
 		if  -(PI*0.875) < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < -(PI*0.125):
@@ -51,10 +54,11 @@ func _process(_delta: float) -> void:
 		else:
 			dir.x = 0.0
 		animationTree.set("parameters/Idle/Middle/blend_position", dir)
-		animationTree.set("parameters/Idle_Attack_1/Middle/blend_position", dir)
-		animationTree.set("parameters/Idle_Attack_2/Middle/blend_position", dir)
-		animationTree.set("parameters/Idle_Attack_3/Middle/blend_position", dir)
 		animationTree.set("parameters/Idle/Top/blend_position", dir)
-		animationTree.set("parameters/Idle/Top/blend_position", dir)
-		animationTree.set("parameters/Idle/Top/blend_position", dir)
-		animationTree.set("parameters/Idle/Top/blend_position", dir)
+		if AttackControl.cooldownTimer <= 0.0:
+			animationTree.set("parameters/Idle_Attack_1/Middle/blend_position", dir)
+			animationTree.set("parameters/Idle_Attack_2/Middle/blend_position", dir)
+			animationTree.set("parameters/Idle_Attack_3/Middle/blend_position", dir)
+			animationTree.set("parameters/Idle_Attack_1/Top/blend_position", dir)
+			animationTree.set("parameters/Idle_Attack_2/Top/blend_position", dir)
+			animationTree.set("parameters/Idle_Attack_3/Top/blend_position", dir)
