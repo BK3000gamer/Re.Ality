@@ -90,7 +90,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(240, 0, 80, 80), Rect2(240, 0, 80, 80), Rect2(240, 0, 80, 80), Rect2(240, 0, 80, 80), Rect2(560, 0, 80, 80), Rect2(240, 0, 80, 80), Rect2(240, 0, 80, 80), Rect2(240, 0, 80, 80)]
+"values": [Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(320, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_rsawx"]
@@ -106,7 +106,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 0, 80, 80), Rect2(1200, 0, 80, 80), Rect2(240, 400, 80, 80), Rect2(560, 400, 80, 80)]
+"values": [Rect2(640, 320, 80, 80), Rect2(960, 320, 80, 80), Rect2(0, 720, 80, 80), Rect2(320, 720, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_wauee"]
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 400, 80, 80), Rect2(1200, 400, 80, 80), Rect2(240, 800, 80, 80), Rect2(560, 800, 80, 80)]
+"values": [Rect2(640, 720, 80, 80), Rect2(960, 720, 80, 80), Rect2(0, 1120, 80, 80), Rect2(320, 1120, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_pe85o"]
@@ -138,7 +138,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 800, 80, 80), Rect2(1200, 800, 80, 80), Rect2(240, 1200, 80, 80), Rect2(560, 1200, 80, 80)]
+"values": [Rect2(640, 1120, 80, 80), Rect2(960, 1120, 80, 80), Rect2(0, 1520, 80, 80), Rect2(320, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_rjr0n"]
@@ -154,7 +154,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_kl1st"]
@@ -170,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_r8l7f"]
@@ -186,7 +186,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_mrc5f"]
@@ -202,7 +202,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_7cm27"]
@@ -218,7 +218,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_p6tdi"]
@@ -234,7 +234,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_umvt7"]
@@ -250,7 +250,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_0ts2h"]
@@ -266,7 +266,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_mmeb7"]
@@ -282,7 +282,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_nxqwi"]
@@ -298,7 +298,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_kfrth"]
@@ -314,7 +314,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_5dsqf"]
@@ -330,7 +330,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_4y6bu"]
@@ -346,7 +346,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_ikeil"]
@@ -362,7 +362,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80), Rect2(880, 1200, 80, 80)]
+"values": [Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80), Rect2(640, 1520, 80, 80)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eby57"]
@@ -796,7 +796,7 @@ omni_attenuation = 0.3
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_o8m6i"),
-&"Back Side": SubResource("AnimationLibrary_eby57")
+&"Front Left Top": SubResource("AnimationLibrary_eby57")
 }
 autoplay = "Tie"
 
@@ -830,11 +830,11 @@ texture_filter = 1
 position = Vector2(40, 40)
 texture = ExtResource("16_o8m6i")
 region_enabled = true
-region_rect = Rect2(880, 1200, 80, 80)
+region_rect = Rect2(640, 1520, 80, 80)
 metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": true,
+"animation_section": false,
 "layer_section": true,
-"output_section": true,
+"output_section": false,
 "pending_changes": {},
 "slice_section": true
 }
@@ -852,11 +852,11 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": true,
 "player": "BodyAnimationPlayer",
 "scale": "1.0",
-"slice": "Back Side",
+"slice": "Front Left Top",
 "source": "res://Entites/Player/Sprites/Ality.aseprite",
 "source_uid": 1938579104051969832
 }
-metadata/_aseprite_wizard_source_file_hash_ = "6b94476a67769c51f36c98252e7b8ed8"
+metadata/_aseprite_wizard_source_file_hash_ = "84bfa3747bdb73762fae4161ba43f21c"
 
 [node name="Tie" type="Sprite2D" parent="SubViewportContainer/Sprites/Body"]
 visible = false
