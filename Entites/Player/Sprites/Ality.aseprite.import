@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://2vcd5q1r4801"
+path="res://.godot/imported/Ality.aseprite-fdcece5a0b6bbf2051e5048119b124a9.res"
+
+[deps]
+
+source_file="res://Entites/Player/Sprites/Ality.aseprite"
+dest_files=["res://.godot/imported/Ality.aseprite-fdcece5a0b6bbf2051e5048119b124a9.res"]
+
+[params]
+

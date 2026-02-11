@@ -35,7 +35,7 @@ window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/blender_godot_pipeline/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg")
 
 [global_group]
 
