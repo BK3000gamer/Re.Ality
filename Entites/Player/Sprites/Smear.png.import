@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvfd5va1uax6n"
-path="res://.godot/imported/tie.png-25887a12e5bbad715a0e0891ab430793.ctex"
+uid="uid://c58puih0hfg1t"
+path="res://.godot/imported/Smear.png-236735fc6af6bb7e7e75b06c60fa53d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entites/Player/Sprites/tie.png"
-dest_files=["res://.godot/imported/tie.png-25887a12e5bbad715a0e0891ab430793.ctex"]
+source_file="res://Entites/Player/Sprites/Smear.png"
+dest_files=["res://.godot/imported/Smear.png-236735fc6af6bb7e7e75b06c60fa53d0.ctex"]
 
 [params]
 

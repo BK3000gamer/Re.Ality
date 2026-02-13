@@ -17,7 +17,6 @@ enum AttackState {
 var CurrentState: AttackState = AttackState.None
 
 func _process(delta: float) -> void:
-	print (attacked)
 	match CurrentState:
 		AttackState.None:
 			if Input.is_action_pressed("attack_left"):

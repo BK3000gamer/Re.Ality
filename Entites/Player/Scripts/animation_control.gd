@@ -1,7 +1,11 @@
 extends Node
 
-@onready var animationTree := $"../BodyAnimationTree"
-@onready var animationPlayer := $"../BodyAnimationPlayer"
+@onready var bodyAnimationTree := $"../BodyAnimationTree"
+@onready var bodyAnimationPlayer := $"../BodyAnimationPlayer"
+@onready var legsAnimationTree := $"../LegsAnimationTree"
+@onready var legsAnimationPlayer := $"../LegsAnimationPlayer"
+@onready var effectsAnimationTree := $"../EffectAnimationTree"
+@onready var effectsAnimationPlayer := $"../EffectAnimationPlayer"
 @onready var player := $".."
 @onready var Sprite :=$"../Sprite3D"
 
@@ -34,11 +38,18 @@ func _process(_delta: float) -> void:
 			dir.x = 1.0
 		elif PI*0.5 < playerPos.angle_to_point(mousePos) or playerPos.angle_to_point(mousePos) < -(PI*0.5):
 			dir.x = -1.0
-		animationTree.set("parameters/Idle/Side/blend_position", dir.x)
-		if AttackControl.cooldownTimer <= 0.0:
-			animationTree.set("parameters/Idle_Attack_1/Side/blend_position", dir.x)
-			animationTree.set("parameters/Idle_Attack_2/Side/blend_position", dir.x)
-			animationTree.set("parameters/Idle_Attack_3/Side/blend_position", dir.x)
+		bodyAnimationTree.set("parameters/Idle/Side/blend_position", dir.x)
+		legsAnimationTree.set("parameters/Idle/Side/blend_position", dir.x)
+		if AttackControl.CurrentState == AttackControl.AttackState.None:
+			bodyAnimationTree.set("parameters/Idle_Attack_1/Side/blend_position", dir.x)
+			bodyAnimationTree.set("parameters/Idle_Attack_2/Side/blend_position", dir.x)
+			bodyAnimationTree.set("parameters/Idle_Attack_3/Side/blend_position", dir.x)
+			legsAnimationTree.set("parameters/Idle_Attack_1/Side/blend_position", dir.x)
+			legsAnimationTree.set("parameters/Idle_Attack_2/Side/blend_position", dir.x)
+			legsAnimationTree.set("parameters/Idle_Attack_3/Side/blend_position", dir.x)
+			effectsAnimationTree.set("parameters/Idle_Attack_1/Side/blend_position", dir.x)
+			effectsAnimationTree.set("parameters/Idle_Attack_2/Side/blend_position", dir.x)
+			effectsAnimationTree.set("parameters/Idle_Attack_3/Side/blend_position", dir.x)
 		
 	else:
 		if  -(PI*0.875) < playerPos.angle_to_point(mousePos) and playerPos.angle_to_point(mousePos) < -(PI*0.125):
@@ -53,12 +64,26 @@ func _process(_delta: float) -> void:
 			dir.x = -1.0
 		else:
 			dir.x = 0.0
-		animationTree.set("parameters/Idle/Middle/blend_position", dir)
-		animationTree.set("parameters/Idle/Top/blend_position", dir)
-		if AttackControl.cooldownTimer <= 0.0:
-			animationTree.set("parameters/Idle_Attack_1/Middle/blend_position", dir)
-			animationTree.set("parameters/Idle_Attack_2/Middle/blend_position", dir)
-			animationTree.set("parameters/Idle_Attack_3/Middle/blend_position", dir)
-			animationTree.set("parameters/Idle_Attack_1/Top/blend_position", dir)
-			animationTree.set("parameters/Idle_Attack_2/Top/blend_position", dir)
-			animationTree.set("parameters/Idle_Attack_3/Top/blend_position", dir)
+		bodyAnimationTree.set("parameters/Idle/Middle/blend_position", dir)
+		bodyAnimationTree.set("parameters/Idle/Top/blend_position", dir)
+		legsAnimationTree.set("parameters/Idle/Middle/blend_position", dir)
+		legsAnimationTree.set("parameters/Idle/Top/blend_position", dir)
+		if AttackControl.CurrentState == AttackControl.AttackState.None:
+			bodyAnimationTree.set("parameters/Idle_Attack_1/Middle/blend_position", dir)
+			bodyAnimationTree.set("parameters/Idle_Attack_2/Middle/blend_position", dir)
+			bodyAnimationTree.set("parameters/Idle_Attack_3/Middle/blend_position", dir)
+			bodyAnimationTree.set("parameters/Idle_Attack_1/Top/blend_position", dir)
+			bodyAnimationTree.set("parameters/Idle_Attack_2/Top/blend_position", dir)
+			bodyAnimationTree.set("parameters/Idle_Attack_3/Top/blend_position", dir)
+			legsAnimationTree.set("parameters/Idle_Attack_1/Middle/blend_position", dir)
+			legsAnimationTree.set("parameters/Idle_Attack_2/Middle/blend_position", dir)
+			legsAnimationTree.set("parameters/Idle_Attack_3/Middle/blend_position", dir)
+			legsAnimationTree.set("parameters/Idle_Attack_1/Top/blend_position", dir)
+			legsAnimationTree.set("parameters/Idle_Attack_2/Top/blend_position", dir)
+			legsAnimationTree.set("parameters/Idle_Attack_3/Top/blend_position", dir)
+			effectsAnimationTree.set("parameters/Idle_Attack_1/Middle/blend_position", dir)
+			effectsAnimationTree.set("parameters/Idle_Attack_2/Middle/blend_position", dir)
+			effectsAnimationTree.set("parameters/Idle_Attack_3/Middle/blend_position", dir)
+			effectsAnimationTree.set("parameters/Idle_Attack_1/Top/blend_position", dir)
+			effectsAnimationTree.set("parameters/Idle_Attack_2/Top/blend_position", dir)
+			effectsAnimationTree.set("parameters/Idle_Attack_3/Top/blend_position", dir)
