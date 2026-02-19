@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvgukssuxq7hv"]
+
+[ext_resource type="Texture2D" uid="uid://pnxylj25vjno" path="res://Common/Sprite Import/Smear.png" id="1_nmj50"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ti8hb"]
+
+[sub_resource type="Animation" id="Animation_xtepu"]
+length = 0.664
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_a23o0"]
+length = 0.332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(80, 0, 80, 80), Rect2(400, 0, 80, 80), Rect2(720, 0, 80, 80), Rect2(80, 0, 80, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_cx7os"]
+length = 0.332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(80, 0, 80, 80), Rect2(80, 400, 80, 80), Rect2(400, 400, 80, 80), Rect2(80, 0, 80, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_ou7f1"]
+length = 0.332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(80, 0, 80, 80), Rect2(720, 400, 80, 80), Rect2(80, 800, 80, 80), Rect2(80, 0, 80, 80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4omq7"]
+_data = {
+&"Idle": SubResource("Animation_xtepu"),
+&"Idle Attack 1": SubResource("Animation_a23o0"),
+&"Idle Attack 2": SubResource("Animation_cx7os"),
+&"Idle Attack 3": SubResource("Animation_ou7f1")
+}
+
+[node name="Sprite Import" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_nmj50")
+region_enabled = true
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["Smear"],
+"o_ex_p": "",
+"o_folder": "res://Common/Sprite Import",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "Front Side",
+"source": "res://Entites/Player/Sprites/Ality.aseprite",
+"source_uid": 1938579104051969832
+}
+metadata/_aseprite_wizard_source_file_hash_ = "6c4d2f0e0f0f4d11d5ae810f40e92c05"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ti8hb"),
+&"Back Side": SubResource("AnimationLibrary_4omq7")
+}

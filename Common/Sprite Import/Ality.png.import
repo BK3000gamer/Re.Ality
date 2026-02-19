@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmg00dalnclr5"
-path="res://.godot/imported/Smear.png-236735fc6af6bb7e7e75b06c60fa53d0.ctex"
+uid="uid://b0rees32yixmc"
+path="res://.godot/imported/Ality.png-939d88285ad20df7513ffc2619218d03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entites/Player/Sprites/Smear.png"
-dest_files=["res://.godot/imported/Smear.png-236735fc6af6bb7e7e75b06c60fa53d0.ctex"]
+source_file="res://Common/Sprite Import/Ality.png"
+dest_files=["res://.godot/imported/Ality.png-939d88285ad20df7513ffc2619218d03.ctex"]
 
 [params]
 
