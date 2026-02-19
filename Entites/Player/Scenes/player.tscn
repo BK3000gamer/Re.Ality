@@ -1,4 +1,4 @@
-[gd_scene load_steps=437 format=4 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=437 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -56,7 +56,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://dt8s5jtnckhps" path="res://Entites/Player/Animations/Effects/Back Left Middle.res" id="53_7nyl6"]
 [ext_resource type="AnimationLibrary" uid="uid://dvdfikkytutec" path="res://Entites/Player/Animations/Effects/Front Top.res" id="53_8bs2m"]
 [ext_resource type="AnimationLibrary" uid="uid://bjle275qs2owd" path="res://Entites/Player/Animations/Effects/Back Left Top.res" id="54_3g2ea"]
-[ext_resource type="Texture2D" uid="uid://c58puih0hfg1t" path="res://Entites/Player/Sprites/Smear.png" id="54_s57oi"]
+[ext_resource type="Texture2D" uid="uid://dmg00dalnclr5" path="res://Entites/Player/Sprites/Smear.png" id="54_s57oi"]
+[ext_resource type="Texture2D" uid="uid://oguwl7fbbn4e" path="res://Entites/Player/Sprites/Legs.png" id="55_o0uwx"]
 [ext_resource type="AnimationLibrary" uid="uid://dr1vpvcp1wr3j" path="res://Entites/Player/Animations/Effects/Back Middle.res" id="55_poilw"]
 [ext_resource type="AnimationLibrary" uid="uid://diqy3oab75bdt" path="res://Entites/Player/Animations/Effects/Back Right Middle.res" id="56_fjlxk"]
 [ext_resource type="AnimationLibrary" uid="uid://dsrsqs8b6o4q6" path="res://Entites/Player/Animations/Effects/Back Right Top.res" id="57_82oo2"]
@@ -1784,10 +1785,6 @@ _data = {
 &"Tie": SubResource("Animation_7wjrl")
 }
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_8bs2m"]
-_data = PackedByteArray("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")
-size_override = Vector2(1280, 1600)
-
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bcnq7")
 CenterThreshold = 5.625
@@ -1933,7 +1930,7 @@ attacktTime = 0.749999999999976
 cooldown = 0.499999999999984
 
 [node name="Collision Box" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0.16687497, 0)
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, -0.083125025, 0)
 shape = SubResource("CylinderShape3D_wauee")
 debug_color = Color(0, 0.70196074, 0.06032475, 0.41960785)
 
@@ -1951,7 +1948,6 @@ shape = SubResource("SphereShape3D_o8m6i")
 layers = 2
 material_override = SubResource("StandardMaterial3D_pe85o")
 cast_shadow = 0
-offset = Vector2(0, 8)
 pixel_size = 0.0313
 billboard = 1
 alpha_cut = 1
@@ -1987,7 +1983,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "94b341c5f6b40a99f3b92ae6c641c93b"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-light_energy = 2.0
+light_energy = 0.5
 light_indirect_energy = 0.0
 shadow_enabled = true
 omni_range = 8.0
@@ -2133,7 +2129,6 @@ texture_filter = 1
 position = Vector2(40, 40)
 texture = ExtResource("16_o8m6i")
 region_enabled = true
-region_rect = Rect2(800, 160, 80, 80)
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,
@@ -2164,12 +2159,13 @@ metadata/_aseprite_wizard_source_file_hash_ = "84bfa3747bdb73762fae4161ba43f21c"
 [node name="Legs" type="Sprite2D" parent="SubViewportContainer/Sprites/Body"]
 z_index = -1
 texture_filter = 1
-texture = SubResource("PortableCompressedTexture2D_8bs2m")
+texture = ExtResource("55_o0uwx")
 region_enabled = true
+region_rect = Rect2(0, 320, 80, 80)
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,
-"output_section": false,
+"output_section": true,
 "pending_changes": {},
 "slice_section": true
 }
@@ -2177,25 +2173,32 @@ metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
 "convert_to_fps": false,
-"embed_tex": true,
+"embed_tex": false,
 "i_mode": 0,
 "keep_anim_length": false,
 "layers": ["Legs"],
 "o_ex_p": "",
-"o_folder": "",
+"o_folder": "res://Entites/Player/Sprites",
 "o_name": "",
 "only_visible": false,
 "player": "LegsAnimationPlayer",
 "scale": "1.0",
-"slice": "Back Left Top",
+"slice": "Front Left Top",
 "source": "res://Entites/Player/Sprites/Ality.aseprite",
 "source_uid": 1938579104051969832
 }
-metadata/_aseprite_wizard_source_file_hash_ = "7f0df0d32e8ccabb62106ea165ba0969"
+metadata/_aseprite_wizard_source_file_hash_ = "520677e0446c7cf7faebc64237a89ce0"
 
-[node name="Effects" type="Sprite2D" parent="SubViewportContainer/Sprites/Body"]
+[node name="Sprites2" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(80, 80)
+render_target_update_mode = 4
+
+[node name="Effects" type="Sprite2D" parent="SubViewportContainer/Sprites2"]
 z_index = 1
 texture_filter = 1
+position = Vector2(40, 40)
 texture = ExtResource("54_s57oi")
 region_enabled = true
 region_rect = Rect2(80, 0, 80, 80)

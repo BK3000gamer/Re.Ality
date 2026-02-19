@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvgukssuxq7hv"]
 
-[ext_resource type="Texture2D" uid="uid://pnxylj25vjno" path="res://Common/Sprite Import/Smear.png" id="1_nmj50"]
+[ext_resource type="Texture2D" uid="uid://bb66oehnet6kw" path="res://Common/Sprite Import/Legs.png" id="1_nmj50"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ti8hb"]
 
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(80, 0, 80, 80), Rect2(400, 0, 80, 80), Rect2(720, 0, 80, 80), Rect2(80, 0, 80, 80)]
+"values": [Rect2(400, 0, 80, 80), Rect2(720, 0, 80, 80), Rect2(1040, 0, 80, 80), Rect2(80, 400, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_cx7os"]
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(80, 0, 80, 80), Rect2(80, 400, 80, 80), Rect2(400, 400, 80, 80), Rect2(80, 0, 80, 80)]
+"values": [Rect2(400, 400, 80, 80), Rect2(720, 400, 80, 80), Rect2(1040, 400, 80, 80), Rect2(80, 800, 80, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_ou7f1"]
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083, 0.166, 0.249),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(80, 0, 80, 80), Rect2(720, 400, 80, 80), Rect2(80, 800, 80, 80), Rect2(80, 0, 80, 80)]
+"values": [Rect2(400, 800, 80, 80), Rect2(720, 800, 80, 80), Rect2(1040, 800, 80, 80), Rect2(1040, 800, 80, 80)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4omq7"]
@@ -91,7 +91,7 @@ metadata/_aseprite_wizard_config_ = {
 "embed_tex": false,
 "i_mode": 0,
 "keep_anim_length": false,
-"layers": ["Smear"],
+"layers": ["Legs"],
 "o_ex_p": "",
 "o_folder": "res://Common/Sprite Import",
 "o_name": "",
