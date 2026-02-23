@@ -375,6 +375,5 @@ func _process(_delta: float) -> void:
 	
 	camDir = pivot.global_transform.basis.inverse() * Vector3(player.velocity.x, 0, player.velocity.z)
 	camDir = camDir.normalized()
-	print (camDir)
 	
 	queue_redraw()

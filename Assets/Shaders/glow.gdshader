@@ -20,46 +20,46 @@ void fragment() {
 	vec2 ps = SCREEN_PIXEL_SIZE * radius;
 	vec4 col = texture(screen_tex, SCREEN_UV);
 	
-	vec4 glow = sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, 3.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, -3.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, 2.0) * ps);
+	vec4 glow = sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, 2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, -2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, 1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, -1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, 0.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, 3.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(0.0, -3.0) * ps);
 
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, 3.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, -3.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, 3.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, -3.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, 2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, -2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, 1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, -1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(1.0, 0.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, 3.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, -3.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, 3.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, -3.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, 2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, -2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, 1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, -1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-1.0, 0.0) * ps);
 	
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, 2.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, -2.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, 2.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, -2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, 1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, -1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(2.0, 0.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, 2.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, -2.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, 2.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, -2.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, 1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, -1.0) * ps);
 	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-2.0, 0.0) * ps);
 	
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(3.0, 1.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(3.0, -1.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(3.0, 0.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-3.0, 1.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-3.0, -1.0) * ps);
-	glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-3.0, 0.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(3.0, 1.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(3.0, -1.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(3.0, 0.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-3.0, 1.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-3.0, -1.0) * ps);
+	//glow += sample_glow_pixel(screen_tex, SCREEN_UV + vec2(-3.0, 0.0) * ps);
 	
 	glow *= amount;
 	glow = min(glow, vec4(2.0));

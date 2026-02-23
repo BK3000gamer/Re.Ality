@@ -1,4 +1,4 @@
-[gd_scene load_steps=437 format=3 uid="uid://dkr5sjjy8bo2m"]
+[gd_scene load_steps=448 format=3 uid="uid://dkr5sjjy8bo2m"]
 
 [ext_resource type="Script" uid="uid://bsxgjuplts5si" path="res://Entites/Player/Scripts/player.gd" id="1_bcnq7"]
 [ext_resource type="Script" uid="uid://d3q8xanui86mn" path="res://Entites/Player/States/Movemnt States/idle.gd" id="4_kt4v8"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://drfg7j2jb8jm" path="res://Entites/Player/Sprites/body.png" id="16_o8m6i"]
 [ext_resource type="AnimationLibrary" uid="uid://3q1ni6vk44tk" path="res://Entites/Player/Animations/Body/Front Side.res" id="16_rsawx"]
 [ext_resource type="Script" uid="uid://bjwhwkly5l6wk" path="res://Entites/Player/States/Movemnt States/slide.gd" id="16_tnfj8"]
+[ext_resource type="Shader" uid="uid://d321qyn8grhel" path="res://Assets/Shaders/screen.gdshader" id="17_fjlxk"]
 [ext_resource type="AnimationLibrary" uid="uid://dtpu4xy0ye47u" path="res://Entites/Player/Animations/Body/Back Left Top.res" id="17_ikeil"]
 [ext_resource type="Script" uid="uid://bmwoawkdnsxiv" path="res://Entites/Player/States/Movemnt States/dash.gd" id="17_o8m6i"]
 [ext_resource type="AnimationLibrary" uid="uid://xlbqahvh1a7g" path="res://Entites/Player/Animations/Body/Back Middle.res" id="18_eby57"]
@@ -61,6 +62,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://dr1vpvcp1wr3j" path="res://Entites/Player/Animations/Effects/Back Middle.res" id="55_poilw"]
 [ext_resource type="AnimationLibrary" uid="uid://diqy3oab75bdt" path="res://Entites/Player/Animations/Effects/Back Right Middle.res" id="56_fjlxk"]
 [ext_resource type="AnimationLibrary" uid="uid://dsrsqs8b6o4q6" path="res://Entites/Player/Animations/Effects/Back Right Top.res" id="57_82oo2"]
+[ext_resource type="Texture2D" uid="uid://bg7ex5fi23abb" path="res://Entites/Player/Sprites/Glow.png" id="57_qjpam"]
 [ext_resource type="AnimationLibrary" uid="uid://cugpablwifynv" path="res://Entites/Player/Animations/Effects/Back Side.res" id="58_nmax3"]
 [ext_resource type="AnimationLibrary" uid="uid://b2se6xgp1xegd" path="res://Entites/Player/Animations/Effects/Back Top.res" id="59_djq33"]
 [ext_resource type="AnimationLibrary" uid="uid://cp82o7tod4suq" path="res://Entites/Player/Animations/Effects/Front Left Middle.res" id="60_y322p"]
@@ -89,7 +91,7 @@ height = 0.01
 [sub_resource type="ViewportTexture" id="ViewportTexture_rjr0n"]
 viewport_path = NodePath("SubViewportContainer/Sprites")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pe85o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_82oo2"]
 viewport_path = NodePath("SubViewportContainer/Sprites")
 
 [sub_resource type="Gradient" id="Gradient_kl1st"]
@@ -98,18 +100,16 @@ colors = PackedColorArray(0.27058825, 0.5803922, 0.98039216, 1, 0.27058825, 0.58
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kl1st"]
 gradient = SubResource("Gradient_kl1st")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8l7f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmax3"]
 resource_local_to_scene = true
 render_priority = 1
 transparency = 1
 no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
-albedo_texture = SubResource("ViewportTexture_pe85o")
+albedo_texture = SubResource("ViewportTexture_82oo2")
 detail_enabled = true
 detail_albedo = SubResource("GradientTexture1D_kl1st")
-texture_filter = 0
-billboard_mode = 1
 stencil_mode = 3
 stencil_flags = 1
 stencil_compare = 5
@@ -117,7 +117,7 @@ metadata/_stencil_owned = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe85o"]
 resource_local_to_scene = true
-next_pass = SubResource("StandardMaterial3D_r8l7f")
+next_pass = SubResource("StandardMaterial3D_nmax3")
 transparency = 4
 shading_mode = 0
 specular_mode = 2
@@ -129,6 +129,62 @@ stencil_flags = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_o8m6i"]
 viewport_path = NodePath("SubViewportContainer/Sprites")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3g2ea"]
+viewport_path = NodePath("SubViewportContainer/Sprites2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_poilw"]
+viewport_path = NodePath("SubViewportContainer/Sprites2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjlxk"]
+resource_local_to_scene = true
+render_priority = 1
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = SubResource("ViewportTexture_poilw")
+albedo_texture_force_srgb = true
+detail_enabled = true
+detail_albedo = SubResource("GradientTexture1D_kl1st")
+texture_filter = 0
+billboard_mode = 1
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82oo2"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_fjlxk")
+transparency = 4
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_texture = SubResource("ViewportTexture_3g2ea")
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 1
+stencil_mode = 2
+stencil_flags = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nmax3"]
+viewport_path = NodePath("SubViewportContainer/Sprites2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fjlxk"]
+viewport_path = NodePath("SubViewportContainer/Sprites3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjlxk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("17_fjlxk")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_fjlxk")
+shader_parameter/amount = 0.749999999999976
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y322p"]
+viewport_path = NodePath("SubViewportContainer/Sprites3")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o8m6i"]
 
@@ -1303,7 +1359,37 @@ states/Start/position = Vector2(198, 87)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gbq55"), "Idle", "Idle_Attack_1", SubResource("AnimationNodeStateMachineTransition_kivhj"), "Idle_Attack_1", "Idle_Attack_2", SubResource("AnimationNodeStateMachineTransition_p37hm"), "Idle_Attack_2", "Idle_Attack_3", SubResource("AnimationNodeStateMachineTransition_21oix"), "Idle_Attack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_8rdf8"), "Idle_Attack_3", "Idle", SubResource("AnimationNodeStateMachineTransition_rtqbv"), "Idle_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_l2gpf")]
 graph_offset = Vector2(44, 13)
 
+[sub_resource type="Animation" id="Animation_o0uwx"]
+length = 0.996
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/Sprites2/Effects:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581, 0.664, 0.747, 0.83, 0.913),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 320, 80, 80), Rect2(320, 320, 80, 80), Rect2(640, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 720, 80, 80), Rect2(320, 720, 80, 80), Rect2(0, 320, 80, 80), Rect2(0, 320, 80, 80), Rect2(640, 720, 80, 80), Rect2(0, 1120, 80, 80), Rect2(0, 320, 80, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/Sprites3/Glow:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581, 0.664, 0.747, 0.83, 0.913),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(80, 0, 80, 80), Rect2(400, 0, 80, 80), Rect2(720, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 400, 80, 80), Rect2(400, 400, 80, 80), Rect2(80, 0, 80, 80), Rect2(80, 0, 80, 80), Rect2(720, 400, 80, 80), Rect2(720, 400, 80, 80), Rect2(80, 0, 80, 80)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bs2m"]
+_data = {
+&"Tag": SubResource("Animation_o0uwx")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vks41"]
 animation = &"Front Side/Idle"
@@ -1440,7 +1526,7 @@ states/Start/position = Vector2(212, 59)
 states/Top/node = SubResource("AnimationNodeBlendSpace2D_oq6ly")
 states/Top/position = Vector2(745, 59)
 transitions = ["Start", "Side", SubResource("AnimationNodeStateMachineTransition_bmjsu"), "Side", "Top", SubResource("AnimationNodeStateMachineTransition_c5w05"), "Top", "Middle", SubResource("AnimationNodeStateMachineTransition_hn8co"), "Middle", "Side", SubResource("AnimationNodeStateMachineTransition_ctarg"), "Side", "Middle", SubResource("AnimationNodeStateMachineTransition_svjjd"), "Middle", "Top", SubResource("AnimationNodeStateMachineTransition_0hpci"), "Top", "Side", SubResource("AnimationNodeStateMachineTransition_l57wd")]
-graph_offset = Vector2(37, 92)
+graph_offset = Vector2(44, -29)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qmtki"]
 animation = &"Back Middle/Idle Attack 2"
@@ -1744,7 +1830,7 @@ states/Idle_Attack_2/position = Vector2(636, 191)
 states/Idle_Attack_3/node = SubResource("AnimationNodeStateMachine_8a5ab")
 states/Idle_Attack_3/position = Vector2(642, 295)
 transitions = ["Start", "Front Side_Idle", SubResource("AnimationNodeStateMachineTransition_7wes3"), "Front Side_Idle", "Idle_Attack_1", SubResource("AnimationNodeStateMachineTransition_vu0ou"), "Idle_Attack_1", "Idle_Attack_2", SubResource("AnimationNodeStateMachineTransition_j4gxw"), "Idle_Attack_2", "Idle_Attack_3", SubResource("AnimationNodeStateMachineTransition_jm3um"), "Idle_Attack_3", "Front Side_Idle", SubResource("AnimationNodeStateMachineTransition_kbhfg"), "Idle_Attack_2", "Front Side_Idle", SubResource("AnimationNodeStateMachineTransition_lnqmr"), "Idle_Attack_1", "Front Side_Idle", SubResource("AnimationNodeStateMachineTransition_n2652")]
-graph_offset = Vector2(82, -33)
+graph_offset = Vector2(113, 10)
 
 [sub_resource type="Animation" id="Animation_c8db3"]
 length = 0.001
@@ -1907,8 +1993,8 @@ metadata/_custom_type_script = "uid://7jwxixvj3udl"
 [node name="Movement Control" type="Node" parent="."]
 script = ExtResource("14_aq10y")
 JumpHeight = 2.5
-JumpTimeToPeak = 0.3
-JumpTimeToDescent = 0.25
+JumpTimeToPeak = 0.2999999999999904
+JumpTimeToDescent = 0.249999999999992
 WallJumpPushback = 4.0
 MoveSpeed = 9.0
 BaseSpeed = 1.5
@@ -1953,6 +2039,80 @@ billboard = 1
 alpha_cut = 1
 texture_filter = 0
 texture = SubResource("ViewportTexture_o8m6i")
+region_rect = Rect2(720, 1200, 80, 80)
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["Body"],
+"o_ex_p": "",
+"o_folder": "res://Entites/Player/Sprites",
+"o_name": "",
+"only_visible": false,
+"player": "BodyAnimationPlayer",
+"scale": "1.0",
+"slice": "Front Side",
+"source": "res://Entites/Player/Sprites/Ality.aseprite",
+"source_uid": 1938579104051969832
+}
+metadata/_aseprite_wizard_source_file_hash_ = "94b341c5f6b40a99f3b92ae6c641c93b"
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+layers = 2
+material_override = SubResource("StandardMaterial3D_82oo2")
+cast_shadow = 0
+pixel_size = 0.0313
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = SubResource("ViewportTexture_nmax3")
+region_rect = Rect2(720, 1200, 80, 80)
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["Body"],
+"o_ex_p": "",
+"o_folder": "res://Entites/Player/Sprites",
+"o_name": "",
+"only_visible": false,
+"player": "BodyAnimationPlayer",
+"scale": "1.0",
+"slice": "Front Side",
+"source": "res://Entites/Player/Sprites/Ality.aseprite",
+"source_uid": 1938579104051969832
+}
+metadata/_aseprite_wizard_source_file_hash_ = "94b341c5f6b40a99f3b92ae6c641c93b"
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+layers = 2
+material_override = SubResource("ShaderMaterial_fjlxk")
+cast_shadow = 0
+pixel_size = 0.0313
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = SubResource("ViewportTexture_y322p")
 region_rect = Rect2(720, 1200, 80, 80)
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
@@ -2098,8 +2258,8 @@ tree_root = SubResource("AnimationNodeStateMachine_bqplr")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../EffectAnimationPlayer")
 parameters/Idle_Attack_1/Middle/blend_position = Vector2(0, 0)
-parameters/Idle_Attack_1/Side/blend_position = -0.36173767
-parameters/Idle_Attack_1/Top/blend_position = Vector2(0, 0)
+parameters/Idle_Attack_1/Side/blend_position = 0.37792647
+parameters/Idle_Attack_1/Top/blend_position = Vector2(-0.9981982, -0.03139019)
 parameters/Idle_Attack_2/Middle/blend_position = Vector2(0, 0)
 parameters/Idle_Attack_2/Side/blend_position = 0.0
 parameters/Idle_Attack_2/Top/blend_position = Vector2(0, 0)
@@ -2161,7 +2321,6 @@ z_index = -1
 texture_filter = 1
 texture = ExtResource("55_o0uwx")
 region_enabled = true
-region_rect = Rect2(0, 320, 80, 80)
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,
@@ -2227,4 +2386,44 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://Entites/Player/Sprites/Ality.aseprite",
 "source_uid": 1938579104051969832
 }
-metadata/_aseprite_wizard_source_file_hash_ = "9d2017be61b69b411e477d6f63b03365"
+metadata/_aseprite_wizard_source_file_hash_ = "8d3634a0b8c8170fc9da66dd92edf96c"
+
+[node name="Sprites3" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(80, 80)
+render_target_update_mode = 4
+
+[node name="Glow" type="Sprite2D" parent="SubViewportContainer/Sprites3"]
+z_index = 1
+texture_filter = 1
+position = Vector2(40, 40)
+texture = ExtResource("57_qjpam")
+region_enabled = true
+region_rect = Rect2(80, 0, 80, 80)
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": ["Glow"],
+"o_ex_p": "",
+"o_folder": "res://Entites/Player/Sprites",
+"o_name": "",
+"only_visible": false,
+"player": "EffectAnimationPlayer",
+"scale": "1.0",
+"slice": "Front Side",
+"source": "res://Entites/Player/Sprites/Ality.aseprite",
+"source_uid": 1938579104051969832
+}
+metadata/_aseprite_wizard_source_file_hash_ = "792b1c987c20064714e64a830b3d513a"
