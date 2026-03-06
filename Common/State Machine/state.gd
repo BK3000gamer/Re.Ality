@@ -4,11 +4,6 @@ class_name State
 @export var RotationControl: Node
 @export var MovementControl: Node
 
-var JumpVelocity: float
-var JumpGravity: float
-var FallGravity: float
-var MoveSpeed
-
 var parent: Player
 var pivot: Pivot
 var player: Player

@@ -70,11 +70,11 @@ shader_parameter/cam_offset = Vector2(0, 0)
 size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he5fp"]
-render_priority = -10
+render_priority = -9
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 0.75000006)
+albedo_color = Color(0.41551143, 0.9804042, 0.30153242, 0.5)
 grow = true
 grow_amount = 0.1
 stencil_mode = 3
@@ -93,18 +93,18 @@ disable_specular_occlusion = true
 disable_receive_shadows = true
 stencil_mode = 1
 stencil_flags = 2
-stencil_color = Color(1, 0, 0, 0.2509804)
+stencil_color = Color(0.41551143, 0.9804042, 0.30153242, 0.5)
 stencil_outline_thickness = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mykqc"]
-render_priority = -10
+render_priority = -9
 next_pass = SubResource("StandardMaterial3D_u05pv")
 transparency = 1
 shading_mode = 0
 disable_ambient_light = true
 disable_fog = true
 disable_specular_occlusion = true
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(0.41568628, 0.98039216, 0.3019608, 1)
 disable_receive_shadows = true
 grow = true
 grow_amount = 0.04
@@ -124,7 +124,7 @@ disable_specular_occlusion = true
 disable_receive_shadows = true
 stencil_mode = 1
 stencil_flags = 2
-stencil_color = Color(1, 0, 0, 1)
+stencil_color = Color(0.41568628, 0.98039216, 0.3019608, 1)
 stencil_outline_thickness = 0.04
 
 [sub_resource type="SphereMesh" id="SphereMesh_5mxy1"]
@@ -176,6 +176,7 @@ render_target_clear_mode = 2
 render_target_update_mode = 4
 
 [node name="Attack UI" parent="SubViewportContainer/SubViewport" instance=ExtResource("13_5mxy1")]
+visible = false
 
 [node name="Cursor Manager" parent="SubViewportContainer/SubViewport" instance=ExtResource("14_3lhg3")]
 
@@ -211,5 +212,5 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 6, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.625, -3.875, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.375, -3.875, -0.25)
 mesh = SubResource("SphereMesh_5mxy1")

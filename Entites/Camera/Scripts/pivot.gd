@@ -21,6 +21,7 @@ func _ready() -> void:
 	RotationControl.init(self)
 
 func _process(_delta: float) -> void:
+	print(CurrentState)
 	PivotRot = rad_to_deg(rotation.y)
 	PivotRot = round(PivotRot)
 	

@@ -1,10 +1,11 @@
 extends State
 
-@export var MiddleZ: State
-@export var MiddleXZ: State
-@export var MiddleZX: State
-@export var TopX: State
-@export var SideX: State
+@export var Right90: State
+@export var Right45: State
+@export var Left90: State
+@export var Left45: State
+@export var Up: State
+@export var Down: State
 
 var timeout: bool
 
@@ -12,7 +13,7 @@ func hold_timeout():
 	timeout = true
 
 func enter() -> void:
-	pivot.CurrentState = "MiddleX"
+	pivot.CurrentState = "MiddleW"
 	pivot.CurrentView = "Middle"
 
 func process_input(event: InputEvent) -> State:
@@ -27,28 +28,22 @@ func process_input(event: InputEvent) -> State:
 	
 	if event.is_action_released("rotate_right"):
 		if timeout:
-			RotationControl.rotationDegree = 90
-			RotationControl._camera_right()
-			return MiddleZ
+			RotationControl._camera_right(90)
+			return Right90
 		elif !timeout:
-			RotationControl.rotationDegree = 45
-			RotationControl._camera_right()
-			return MiddleXZ
+			RotationControl._camera_right(45)
+			return Right45
 	elif event.is_action_released("rotate_left"):
 		if timeout:
-			RotationControl.rotationDegree = 90
-			RotationControl._camera_left()
-			return MiddleZ
+			RotationControl._camera_left(90)
+			return Left90
 		elif !timeout:
-			RotationControl.rotationDegree = 45
-			RotationControl._camera_left()
-			return MiddleZX
+			RotationControl._camera_left(45)
+			return Left45
 	elif event.is_action_released("rotate_up"):
-		RotationControl.rotationDegree = 45
-		RotationControl._camera_up()
-		return TopX
+		RotationControl._camera_up(45)
+		return Up
 	elif event.is_action_released("rotate_down"):
-		RotationControl.rotationDegree = 45
-		RotationControl._camera_down()
-		return SideX
+		RotationControl._camera_down(45)
+		return Down
 	return null

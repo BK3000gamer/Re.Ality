@@ -1,22 +1,34 @@
-[gd_scene load_steps=19 format=3 uid="uid://0qhllm8ymq7k"]
+[gd_scene load_steps=31 format=3 uid="uid://0qhllm8ymq7k"]
 
 [ext_resource type="Script" uid="uid://rg4eaogwkn3y" path="res://Entites/Camera/Scripts/pivot.gd" id="1_ejw8p"]
 [ext_resource type="Script" uid="uid://b1tdgui6w7d44" path="res://Entites/Camera/Scripts/camera_state_machine.gd" id="2_2bje5"]
-[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Camera/States/Rotation/side_z.gd" id="3_pn5e8"]
-[ext_resource type="Script" uid="uid://c0ayrbil8bqwv" path="res://Entites/Camera/States/Rotation/side_zx.gd" id="4_105jk"]
-[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Camera/States/Rotation/side_x.gd" id="5_105jk"]
-[ext_resource type="Script" uid="uid://0mf8obopgred" path="res://Entites/Camera/States/Rotation/side_xz.gd" id="5_pn5e8"]
-[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Camera/States/Rotation/top_z.gd" id="6_6c6s1"]
-[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Camera/States/Rotation/top_x.gd" id="7_5egma"]
-[ext_resource type="Script" uid="uid://cd28kysyfct6n" path="res://Entites/Camera/States/Rotation/middle_z.gd" id="7_6c6s1"]
+[ext_resource type="Script" uid="uid://bc4m2dfb2nvvl" path="res://Entites/Camera/States/Rotation/side_n.gd" id="3_05uw2"]
+[ext_resource type="Script" uid="uid://dsckrxem30kg3" path="res://Entites/Camera/States/Rotation/side_e.gd" id="3_pn5e8"]
+[ext_resource type="Script" uid="uid://c0ayrbil8bqwv" path="res://Entites/Camera/States/Rotation/side_se.gd" id="4_105jk"]
+[ext_resource type="Script" uid="uid://buqnkinfmorre" path="res://Entites/Camera/States/Rotation/side_s.gd" id="5_105jk"]
+[ext_resource type="Script" uid="uid://0mf8obopgred" path="res://Entites/Camera/States/Rotation/side_ne.gd" id="5_pn5e8"]
+[ext_resource type="Script" uid="uid://beapqrvwso80a" path="res://Entites/Camera/States/Rotation/top_e.gd" id="6_6c6s1"]
+[ext_resource type="Script" uid="uid://bn7en7j87txtw" path="res://Entites/Camera/States/Rotation/top_s.gd" id="7_5egma"]
+[ext_resource type="Script" uid="uid://cd28kysyfct6n" path="res://Entites/Camera/States/Rotation/middle_e.gd" id="7_6c6s1"]
 [ext_resource type="Script" uid="uid://dkuim3gk1ptgo" path="res://Entites/Camera/Scripts/movement_control.gd" id="7_ejw8p"]
-[ext_resource type="Script" uid="uid://b5k3t6ygd5rut" path="res://Entites/Camera/States/Rotation/middle_zx.gd" id="8_fsdd3"]
-[ext_resource type="Script" uid="uid://dkn53dqpbxtf2" path="res://Entites/Camera/States/Rotation/middle_x.gd" id="9_5egma"]
+[ext_resource type="Script" uid="uid://dtr7b0yqjptqe" path="res://Entites/Camera/States/Rotation/side_w.gd" id="8_05uw2"]
+[ext_resource type="Script" uid="uid://dnlu75712ewxs" path="res://Entites/Camera/States/Rotation/side_sw.gd" id="8_81nxo"]
+[ext_resource type="Script" uid="uid://b5k3t6ygd5rut" path="res://Entites/Camera/States/Rotation/middle_se.gd" id="8_fsdd3"]
+[ext_resource type="Script" uid="uid://dkn53dqpbxtf2" path="res://Entites/Camera/States/Rotation/middle_s.gd" id="9_5egma"]
 [ext_resource type="Script" uid="uid://46knc23sl0fv" path="res://Entites/Camera/Scripts/rotation_control.gd" id="9_pn5e8"]
-[ext_resource type="Script" uid="uid://tycy2c4slurc" path="res://Entites/Camera/States/Rotation/middle_xz.gd" id="10_k8exe"]
-[ext_resource type="Script" uid="uid://d2mvp1hpwtrts" path="res://Entites/Camera/States/Rotation/top_zx.gd" id="12_oj76c"]
-[ext_resource type="Script" uid="uid://bhxmld02lq032" path="res://Entites/Camera/States/Rotation/top_xz.gd" id="14_oj76c"]
+[ext_resource type="Script" uid="uid://tycy2c4slurc" path="res://Entites/Camera/States/Rotation/middle_sw.gd" id="10_k8exe"]
+[ext_resource type="Script" uid="uid://uwsqm4r31fy8" path="res://Entites/Camera/States/Rotation/side_nw.gd" id="10_th2rb"]
+[ext_resource type="Script" uid="uid://cj1e6drp18bpj" path="res://Entites/Camera/States/Rotation/middle_n.gd" id="11_5ys8i"]
+[ext_resource type="Script" uid="uid://d2mvp1hpwtrts" path="res://Entites/Camera/States/Rotation/top_se.gd" id="12_oj76c"]
+[ext_resource type="Script" uid="uid://dc0ujyfwh64d3" path="res://Entites/Camera/States/Rotation/middle_ne.gd" id="12_t7756"]
+[ext_resource type="Script" uid="uid://bhxmld02lq032" path="res://Entites/Camera/States/Rotation/top_sw.gd" id="14_oj76c"]
+[ext_resource type="Script" uid="uid://b2il4fqo3sli7" path="res://Entites/Camera/States/Rotation/middle_w.gd" id="17_ujdd6"]
 [ext_resource type="Script" uid="uid://dgwv7rmvq1csr" path="res://Entites/Camera/Scripts/camera_border_coll.gd" id="17_vll0v"]
+[ext_resource type="Script" uid="uid://b3lmfvj6g233w" path="res://Entites/Camera/States/Rotation/middle_nw.gd" id="18_lbvtw"]
+[ext_resource type="Script" uid="uid://dbs6bsm2rwebh" path="res://Entites/Camera/States/Rotation/top_n.gd" id="19_p5dug"]
+[ext_resource type="Script" uid="uid://b1i0jstnt4h2r" path="res://Entites/Camera/States/Rotation/top_ne.gd" id="20_8a8u7"]
+[ext_resource type="Script" uid="uid://dd0o5otaevgb4" path="res://Entites/Camera/States/Rotation/top_w.gd" id="25_dg40q"]
+[ext_resource type="Script" uid="uid://c523otfb3qxgt" path="res://Entites/Camera/States/Rotation/top_nw.gd" id="26_0ifmr"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2bje5"]
 dof_blur_far_enabled = true
@@ -39,125 +51,269 @@ size = 11.25
 
 [node name="Rotation State Machine" type="Node" parent="." node_paths=PackedStringArray("StartingState")]
 script = ExtResource("2_2bje5")
-StartingState = NodePath("Side X")
+StartingState = NodePath("Side S")
 
-[node name="Side Z" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideX", "SideXZ", "SideZX", "TopZ", "MiddleZ", "RotationControl")]
-script = ExtResource("3_pn5e8")
-SideX = NodePath("../Side X")
-SideXZ = NodePath("../Side XZ")
-SideZX = NodePath("../Side ZX")
-TopZ = NodePath("../Top Z")
-MiddleZ = NodePath("../Middle Z")
+[node name="Side N" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("3_05uw2")
+Right90 = NodePath("../Side W")
+Right45 = NodePath("../Side NW")
+Left90 = NodePath("../Side E")
+Left45 = NodePath("../Side NE")
+Up90 = NodePath("../Top N")
+Up45 = NodePath("../Middle N")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Side ZX" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideXZ", "SideX", "SideZ", "TopZX", "MiddleZX", "RotationControl")]
-script = ExtResource("4_105jk")
-SideXZ = NodePath("../Side XZ")
-SideX = NodePath("../Side X")
-SideZ = NodePath("../Side Z")
-TopZX = NodePath("../Top ZX")
-MiddleZX = NodePath("../Middle ZX")
-RotationControl = NodePath("../../Rotation Control")
-metadata/_custom_type_script = "uid://7jwxixvj3udl"
-
-[node name="Side X" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideZ", "SideXZ", "SideZX", "TopX", "MiddleX", "RotationControl")]
-script = ExtResource("5_105jk")
-SideZ = NodePath("../Side Z")
-SideXZ = NodePath("../Side XZ")
-SideZX = NodePath("../Side ZX")
-TopX = NodePath("../Top X")
-MiddleX = NodePath("../Middle X")
-RotationControl = NodePath("../../Rotation Control")
-metadata/_custom_type_script = "uid://7jwxixvj3udl"
-
-[node name="Side XZ" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("SideZX", "SideX", "SideZ", "TopXZ", "MiddleXZ", "RotationControl")]
+[node name="Side NE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
 script = ExtResource("5_pn5e8")
-SideZX = NodePath("../Side ZX")
-SideX = NodePath("../Side X")
-SideZ = NodePath("../Side Z")
-TopXZ = NodePath("../Top XZ")
-MiddleXZ = NodePath("../Middle XZ")
+Right90 = NodePath("../Side NW")
+Right45 = NodePath("../Side N")
+Left90 = NodePath("../Side SE")
+Left45 = NodePath("../Side E")
+Up90 = NodePath("../Top NE")
+Up45 = NodePath("../Middle NE")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Middle Z" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("MiddleX", "MiddleXZ", "MiddleZX", "TopZ", "SideZ", "RotationControl")]
+[node name="Side E" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("3_pn5e8")
+Right90 = NodePath("../Side N")
+Right45 = NodePath("../Side NE")
+Left90 = NodePath("../Side S")
+Left45 = NodePath("../Side SE")
+Up90 = NodePath("../Top E")
+Up45 = NodePath("../Middle E")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Side SE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("4_105jk")
+Right90 = NodePath("../Side NE")
+Right45 = NodePath("../Side E")
+Left90 = NodePath("../Side SW")
+Left45 = NodePath("../Side S")
+Up90 = NodePath("../Top SE")
+Up45 = NodePath("../Middle SE")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Side S" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("5_105jk")
+Right90 = NodePath("../Side E")
+Right45 = NodePath("../Side SE")
+Left90 = NodePath("../Side W")
+Left45 = NodePath("../Side SW")
+Up90 = NodePath("../Top S")
+Up45 = NodePath("../Middle S")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Side SW" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("8_81nxo")
+Right90 = NodePath("../Side SE")
+Right45 = NodePath("../Side S")
+Left90 = NodePath("../Side NW")
+Left45 = NodePath("../Side W")
+Up90 = NodePath("../Top SW")
+Up45 = NodePath("../Middle SW")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Side W" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("8_05uw2")
+Right90 = NodePath("../Side S")
+Right45 = NodePath("../Side SW")
+Left90 = NodePath("../Side N")
+Left45 = NodePath("../Side NW")
+Up90 = NodePath("../Top W")
+Up45 = NodePath("../Middle W")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Side NW" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up90", "Up45", "RotationControl")]
+script = ExtResource("10_th2rb")
+Right90 = NodePath("../Side SW")
+Right45 = NodePath("../Side W")
+Left90 = NodePath("../Side NE")
+Left45 = NodePath("../Side N")
+Up90 = NodePath("../Top NW")
+Up45 = NodePath("../Middle NW")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Middle N" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
+script = ExtResource("11_5ys8i")
+Right90 = NodePath("../Middle W")
+Right45 = NodePath("../Middle NW")
+Left90 = NodePath("../Middle E")
+Left45 = NodePath("../Middle NE")
+Up = NodePath("../Top N")
+Down = NodePath("../Side N")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Middle NE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
+script = ExtResource("12_t7756")
+Right90 = NodePath("../Middle NW")
+Right45 = NodePath("../Middle N")
+Left90 = NodePath("../Middle SE")
+Left45 = NodePath("../Middle E")
+Up = NodePath("../Top NE")
+Down = NodePath("../Side NE")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Middle E" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
 script = ExtResource("7_6c6s1")
-MiddleX = NodePath("../Middle X")
-MiddleXZ = NodePath("../Middle XZ")
-MiddleZX = NodePath("../Middle ZX")
-TopZ = NodePath("../Top Z")
-SideZ = NodePath("../Side Z")
+Right90 = NodePath("../Middle N")
+Right45 = NodePath("../Middle NE")
+Left90 = NodePath("../Middle S")
+Left45 = NodePath("../Middle SE")
+Up = NodePath("../Top E")
+Down = NodePath("../Side E")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Middle ZX" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("MiddleXZ", "MiddleZ", "MiddleX", "TopZX", "SideZX", "RotationControl")]
+[node name="Middle SE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
 script = ExtResource("8_fsdd3")
-MiddleXZ = NodePath("../Middle XZ")
-MiddleZ = NodePath("../Middle Z")
-MiddleX = NodePath("../Middle X")
-TopZX = NodePath("../Top ZX")
-SideZX = NodePath("../Side ZX")
+Right90 = NodePath("../Middle NE")
+Right45 = NodePath("../Middle E")
+Left90 = NodePath("../Middle SW")
+Left45 = NodePath("../Middle S")
+Up = NodePath("../Top SE")
+Down = NodePath("../Side SE")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Middle X" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("MiddleZ", "MiddleXZ", "MiddleZX", "TopX", "SideX", "RotationControl")]
+[node name="Middle S" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
 script = ExtResource("9_5egma")
-MiddleZ = NodePath("../Middle Z")
-MiddleXZ = NodePath("../Middle XZ")
-MiddleZX = NodePath("../Middle ZX")
-TopX = NodePath("../Top X")
-SideX = NodePath("../Side X")
+Right90 = NodePath("../Middle E")
+Right45 = NodePath("../Middle SE")
+Left90 = NodePath("../Middle W")
+Left45 = NodePath("../Middle SW")
+Up = NodePath("../Top S")
+Down = NodePath("../Side S")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Middle XZ" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("MiddleZX", "MiddleZ", "MiddleX", "TopXZ", "SideXZ", "RotationControl")]
+[node name="Middle SW" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
 script = ExtResource("10_k8exe")
-MiddleZX = NodePath("../Middle ZX")
-MiddleZ = NodePath("../Middle Z")
-MiddleX = NodePath("../Middle X")
-TopXZ = NodePath("../Top XZ")
-SideXZ = NodePath("../Side XZ")
+Right90 = NodePath("../Middle SE")
+Right45 = NodePath("../Middle S")
+Left90 = NodePath("../Middle NW")
+Left45 = NodePath("../Middle W")
+Up = NodePath("../Top SW")
+Down = NodePath("../Side SW")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Top Z" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("TopX", "TopXZ", "TopZX", "SideZ", "MiddleZ", "RotationControl")]
+[node name="Middle W" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
+script = ExtResource("17_ujdd6")
+Right90 = NodePath("../Middle S")
+Right45 = NodePath("../Middle SW")
+Left90 = NodePath("../Middle N")
+Left45 = NodePath("../Middle NW")
+Up = NodePath("../Top W")
+Down = NodePath("../Side W")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Middle NW" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Up", "Down", "RotationControl")]
+script = ExtResource("18_lbvtw")
+Right90 = NodePath("../Middle SW")
+Right45 = NodePath("../Middle W")
+Left90 = NodePath("../Middle NE")
+Left45 = NodePath("../Middle N")
+Up = NodePath("../Top NW")
+Down = NodePath("../Side NW")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Top N" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
+script = ExtResource("19_p5dug")
+Right90 = NodePath("../Top W")
+Right45 = NodePath("../Top NW")
+Left90 = NodePath("../Top E")
+Left45 = NodePath("../Top NE")
+Down90 = NodePath("../Side N")
+Down45 = NodePath("../Middle N")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Top NE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
+script = ExtResource("20_8a8u7")
+Right90 = NodePath("../Top NW")
+Right45 = NodePath("../Top N")
+Left90 = NodePath("../Top SE")
+Left45 = NodePath("../Top E")
+Down90 = NodePath("../Side NE")
+Down45 = NodePath("../Middle NE")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Top E" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
 script = ExtResource("6_6c6s1")
-TopX = NodePath("../Top X")
-TopXZ = NodePath("../Top XZ")
-TopZX = NodePath("../Top ZX")
-SideZ = NodePath("../Side Z")
-MiddleZ = NodePath("../Middle Z")
+Right90 = NodePath("../Top N")
+Right45 = NodePath("../Top NE")
+Left90 = NodePath("../Top S")
+Left45 = NodePath("../Top SE")
+Down90 = NodePath("../Side E")
+Down45 = NodePath("../Middle E")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Top ZX" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("TopXZ", "TopX", "TopZ", "SideZX", "MiddleZX", "RotationControl")]
+[node name="Top SE" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
 script = ExtResource("12_oj76c")
-TopXZ = NodePath("../Top XZ")
-TopX = NodePath("../Top X")
-TopZ = NodePath("../Top Z")
-SideZX = NodePath("../Side ZX")
-MiddleZX = NodePath("../Middle ZX")
+Right90 = NodePath("../Top NE")
+Right45 = NodePath("../Top E")
+Left90 = NodePath("../Top SW")
+Left45 = NodePath("../Top S")
+Down90 = NodePath("../Side SE")
+Down45 = NodePath("../Middle SE")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Top X" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("TopZ", "TopXZ", "TopZX", "SideX", "MiddleX", "RotationControl")]
+[node name="Top S" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
 script = ExtResource("7_5egma")
-TopZ = NodePath("../Top Z")
-TopXZ = NodePath("../Top XZ")
-TopZX = NodePath("../Top ZX")
-SideX = NodePath("../Side X")
-MiddleX = NodePath("../Middle X")
+Right90 = NodePath("../Top E")
+Right45 = NodePath("../Top SE")
+Left90 = NodePath("../Top W")
+Left45 = NodePath("../Top SW")
+Down90 = NodePath("../Side S")
+Down45 = NodePath("../Middle S")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
-[node name="Top XZ" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("TopZX", "TopX", "TopZ", "SideXZ", "MiddleXZ", "RotationControl")]
+[node name="Top SW" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
 script = ExtResource("14_oj76c")
-TopZX = NodePath("../Top ZX")
-TopX = NodePath("../Top X")
-TopZ = NodePath("../Top Z")
-SideXZ = NodePath("../Side XZ")
-MiddleXZ = NodePath("../Middle XZ")
+Right90 = NodePath("../Top SE")
+Right45 = NodePath("../Top S")
+Left90 = NodePath("../Top NW")
+Left45 = NodePath("../Top W")
+Down90 = NodePath("../Side SW")
+Down45 = NodePath("../Middle SW")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Top W" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
+script = ExtResource("25_dg40q")
+Right90 = NodePath("../Top S")
+Right45 = NodePath("../Top SW")
+Left90 = NodePath("../Top N")
+Left45 = NodePath("../Top NW")
+Down90 = NodePath("../Side W")
+Down45 = NodePath("../Middle W")
+RotationControl = NodePath("../../Rotation Control")
+metadata/_custom_type_script = "uid://7jwxixvj3udl"
+
+[node name="Top NW" type="Node" parent="Rotation State Machine" node_paths=PackedStringArray("Right90", "Right45", "Left90", "Left45", "Down90", "Down45", "RotationControl")]
+script = ExtResource("26_0ifmr")
+Right90 = NodePath("../Top SW")
+Right45 = NodePath("../Top W")
+Left90 = NodePath("../Top NE")
+Left45 = NodePath("../Top N")
+Down90 = NodePath("../Side NW")
+Down45 = NodePath("../Middle NW")
 RotationControl = NodePath("../../Rotation Control")
 metadata/_custom_type_script = "uid://7jwxixvj3udl"
 
